@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikelo's Emporium — Star Citizen Reference</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="scanline-overlay"></div>
+    
+    <header class="site-header">
+        <div class="header-inner">
+            <div class="logo-group">
+                <div class="logo-icon">⬡</div>
+                <div class="logo-text">
+                    <h1>WIKELO'S EMPORIUM</h1>
+                    <p class="subtitle">Star Citizen Banu Trade Reference</p>
+                </div>
+            </div>
+            <nav class="header-nav">
+                <a href="#items" class="nav-link active" data-section="items">Items</a>
+                <a href="#ships" class="nav-link" data-section="ships">Ships</a>
+                <a href="#currency" class="nav-link" data-section="currency">Currency</a>
+                <a href="#inventory" class="nav-link" data-section="inventory">Inventory</a>
+                <a href="#reputation" class="nav-link" data-section="reputation">Reputation</a>
+            </nav>
+            <div class="header-meta">
+                <span class="patch-badge" id="currentPatch"></span>
+                <a href="admin/" class="admin-link" title="Edit Data">⚙ Admin</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="credit-banner">
+            <p>Data compiled by <strong>☄️ ChrisK3 ☄️</strong> — <a href="https://docs.google.com/spreadsheets/d/1ji0q_pp6iW35RG1YyFEsv-lsmZOaCStJXGdIEdLLwhM/" target="_blank">Original Spreadsheet</a></p>
+        </div>
+
+        <!-- ITEMS -->
+        <section id="items" class="content-section active">
+            <div class="section-header">
+                <h2>ITEMS & RECIPES</h2>
+                <div class="filters">
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-filter="all">All</button>
+                        <button class="filter-btn" data-filter="armor">Armor</button>
+                        <button class="filter-btn" data-filter="weapon">Weapons</button>
+                        <button class="filter-btn" data-filter="vehicle">Vehicles</button>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" id="itemSearch" placeholder="Search items...">
+                    </div>
+                </div>
+            </div>
+            <div class="items-grid" id="itemsGrid"></div>
+        </section>
+
+        <!-- SHIPS -->
+        <section id="ships" class="content-section">
+            <div class="section-header">
+                <h2>SHIPS & VEHICLES</h2>
+                <div class="search-box">
+                    <input type="text" id="shipSearch" placeholder="Search ships...">
+                </div>
+            </div>
+            <div class="ships-grid" id="shipsGrid"></div>
+        </section>
+
+        <!-- CURRENCY -->
+        <section id="currency" class="content-section">
+            <div class="section-header">
+                <h2>WIKELO FAVORS — CURRENCY EXCHANGE</h2>
+            </div>
+            <div class="currency-info" id="currencyInfo">
+                <p class="currency-intro">Wikelo Favors are the primary currency for most trades. Here's how to earn them:</p>
+            </div>
+            <div class="currency-grid" id="currencyGrid"></div>
+            <div class="hungry-section" id="hungrySection"></div>
+        </section>
+
+        <!-- INVENTORY PLANNER -->
+        <section id="inventory" class="content-section">
+            <div class="section-header">
+                <h2>INVENTORY PLANNER</h2>
+                <p class="inv-subtitle">Enter the materials you have. See which missions you can complete and plan your trades.</p>
+            </div>
+            <div class="inv-layout">
+                <div class="inv-materials-panel">
+                    <div class="inv-panel-header">
+                        <h3>YOUR MATERIALS</h3>
+                        <button class="inv-clear-btn" onclick="clearInventory()">Clear All</button>
+                    </div>
+                    <div class="inv-search-row">
+                        <input type="text" id="materialSearch" placeholder="Filter materials..." oninput="renderMaterialInputs()">
+                    </div>
+                    <div class="inv-materials-list" id="materialsList"></div>
+                    <div class="inv-summary" id="invSummary"></div>
+                </div>
+                <div class="inv-missions-panel">
+                    <div class="inv-panel-header">
+                        <h3>MISSION MATCHES</h3>
+                        <div class="inv-mission-filters">
+                            <button class="inv-filter-btn active" data-invfilter="all" onclick="setInvFilter('all', this)">All</button>
+                            <button class="inv-filter-btn" data-invfilter="completable" onclick="setInvFilter('completable', this)">Complete</button>
+                            <button class="inv-filter-btn" data-invfilter="partial" onclick="setInvFilter('partial', this)">Partial</button>
+                        </div>
+                    </div>
+                    <div class="inv-missions-list" id="missionsList"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REPUTATION -->
+        <section id="reputation" class="content-section">
+            <div class="section-header">
+                <h2>REPUTATION</h2>
+            </div>
+            <div class="rep-info" id="repInfo"></div>
+            <div class="rep-table-wrap" id="repTable"></div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>Data by <a href="https://robertsspaceindustries.com/en/citizens/ChrisK3" target="_blank">ChrisK3</a> - Design by <a href="https://robertsspaceindustries.com/en/citizens/Carlit0" target="_blank">Carlit0</a> • Not affiliated with CIG or Cloud Imperium Games</p>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>

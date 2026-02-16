@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikelo Admin — Data Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@400;500;600&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0c10; --bg-card: #141922; --bg-input: #1a2030;
+            --border: #1e2636; --border-focus: #4a9eff;
+            --text: #c8d4e8; --text-dim: #4a5a74; --text-bright: #e8f0ff;
+            --cyan: #00d4ff; --orange: #ff8a3a; --green: #44dd88; --red: #ff4466; --gold: #ffc844;
+            --font-display: 'Orbitron', sans-serif;
+            --font-body: 'Rajdhani', sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg); color: var(--text); font-family: var(--font-body); font-size: 16px; }
+        a { color: var(--cyan); text-decoration: none; }
+
+        .admin-header {
+            background: var(--bg-card); border-bottom: 1px solid var(--border);
+            padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 2rem;
+            position: sticky; top: 0; z-index: 100;
+        }
+        .admin-header h1 { font-family: var(--font-display); font-size: 0.85rem; letter-spacing: 0.12em; color: var(--text-bright); }
+        .admin-header .back-link { font-size: 0.8rem; }
+
+        .admin-actions {
+            margin-left: auto; display: flex; gap: 0.5rem;
+        }
+
+        .btn {
+            font-family: var(--font-display); font-size: 0.65rem; font-weight: 500;
+            letter-spacing: 0.08em; text-transform: uppercase;
+            padding: 0.45rem 1rem; border-radius: 4px; cursor: pointer;
+            border: 1px solid var(--border); color: var(--text); background: var(--bg-card);
+            transition: all 0.15s;
+        }
+        .btn:hover { border-color: var(--cyan); color: var(--text-bright); }
+        .btn-primary { background: rgba(0,212,255,0.1); border-color: var(--cyan); color: var(--cyan); }
+        .btn-primary:hover { background: rgba(0,212,255,0.2); }
+        .btn-success { background: rgba(68,221,136,0.1); border-color: var(--green); color: var(--green); }
+        .btn-success:hover { background: rgba(68,221,136,0.2); }
+        .btn-danger { background: rgba(255,68,102,0.1); border-color: var(--red); color: var(--red); }
+        .btn-danger:hover { background: rgba(255,68,102,0.2); }
+        .btn-orange { background: rgba(255,138,58,0.1); border-color: var(--orange); color: var(--orange); }
+        .btn-orange:hover { background: rgba(255,138,58,0.2); }
+
+        .admin-body { max-width: 1200px; margin: 0 auto; padding: 1.5rem; }
+
+        .tabs { display: flex; gap: 0.25rem; margin-bottom: 1.5rem; }
+        .tab-btn {
+            font-family: var(--font-display); font-size: 0.65rem; letter-spacing: 0.08em;
+            text-transform: uppercase; padding: 0.4rem 0.8rem; border-radius: 4px;
+            cursor: pointer; border: 1px solid var(--border); color: var(--text-dim);
+            background: transparent; transition: all 0.15s;
+        }
+        .tab-btn:hover { color: var(--text); }
+        .tab-btn.active { color: var(--cyan); border-color: var(--cyan); background: rgba(0,212,255,0.08); }
+
+        .tab-panel { display: none; }
+        .tab-panel.active { display: block; }
+
+        /* Data table */
+        .data-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+        .data-table th {
+            font-family: var(--font-display); font-size: 0.55rem; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--text-dim); text-align: left;
+            padding: 0.5rem; border-bottom: 1px solid var(--border);
+            position: sticky; top: 52px; background: var(--bg);
+        }
+        .data-table td { padding: 0.4rem 0.5rem; border-bottom: 1px solid rgba(30,38,54,0.5); vertical-align: top; }
+        .data-table tr:hover { background: var(--bg-card); }
+        .data-table .cell-name { color: var(--text-bright); font-weight: 600; max-width: 200px; }
+        .data-table .cell-recipe { font-family: var(--font-mono); font-size: 0.7rem; color: var(--text); max-width: 300px; word-break: break-word; }
+        .data-table .cell-actions { white-space: nowrap; }
+        .data-table .cell-badge {
+            font-family: var(--font-mono); font-size: 0.6rem; padding: 0.15rem 0.35rem;
+            border-radius: 3px; display: inline-block;
+        }
+
+        /* Edit form */
+        .edit-overlay {
+            display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.7); z-index: 200; overflow-y: auto;
+        }
+        .edit-overlay.active { display: flex; align-items: flex-start; justify-content: center; padding: 2rem; }
+
+        .edit-form {
+            background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px;
+            width: 100%; max-width: 700px; padding: 1.5rem;
+        }
+        .edit-form h3 {
+            font-family: var(--font-display); font-size: 0.8rem; letter-spacing: 0.1em;
+            color: var(--text-bright); margin-bottom: 1.25rem;
+        }
+
+        .form-row { margin-bottom: 1rem; }
+        .form-row label {
+            display: block; font-family: var(--font-display); font-size: 0.6rem;
+            letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim);
+            margin-bottom: 0.3rem;
+        }
+        .form-row input, .form-row textarea, .form-row select {
+            width: 100%; font-family: var(--font-body); font-size: 0.9rem;
+            color: var(--text); background: var(--bg-input); border: 1px solid var(--border);
+            padding: 0.5rem 0.75rem; border-radius: 4px; outline: none;
+        }
+        .form-row input:focus, .form-row textarea:focus, .form-row select:focus {
+            border-color: var(--border-focus); box-shadow: 0 0 8px rgba(74,158,255,0.15);
+        }
+        .form-row textarea { min-height: 80px; resize: vertical; line-height: 1.4; }
+        .form-hint { font-size: 0.72rem; color: var(--text-dim); margin-top: 0.2rem; font-style: italic; }
+        .form-row select { cursor: pointer; }
+
+        .form-actions { display: flex; gap: 0.5rem; margin-top: 1.5rem; }
+
+        .recipe-preview {
+            margin-top: 0.5rem; padding: 0.5rem; background: var(--bg);
+            border: 1px solid var(--border); border-radius: 4px; min-height: 2rem;
+        }
+        .recipe-preview .recipe-item {
+            display: inline-block; font-family: var(--font-mono); font-size: 0.72rem;
+            background: rgba(28,36,56,0.8); border: 1px solid var(--border);
+            padding: 0.15rem 0.4rem; border-radius: 3px; margin: 0.1rem;
+        }
+        .recipe-preview .qty { color: var(--gold); }
+
+        .status-bar {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: var(--bg-card); border-top: 1px solid var(--border);
+            padding: 0.5rem 1.5rem; font-family: var(--font-mono); font-size: 0.72rem;
+            color: var(--text-dim); display: flex; justify-content: space-between;
+        }
+        .status-msg { transition: color 0.3s; }
+        .status-msg.saved { color: var(--green); }
+        .status-msg.error { color: var(--red); }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <a href="../" class="back-link">← Back to Site</a>
+        <h1>WIKELO DATA EDITOR</h1>
+        <div class="admin-actions">
+            <button class="btn btn-orange" onclick="addNewItem()">+ Add Item</button>
+            <button class="btn btn-orange" onclick="addNewShip()">+ Add Ship</button>
+            <button class="btn btn-success" onclick="downloadJSON()">↓ Download JSON</button>
+            <label class="btn btn-primary" style="cursor:pointer">
+                ↑ Load JSON
+                <input type="file" accept=".json" onchange="uploadJSON(event)" style="display:none">
+            </label>
+        </div>
+    </div>
+
+    <div class="admin-body">
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="items">Items (<span id="itemCount">0</span>)</button>
+            <button class="tab-btn" data-tab="ships">Ships (<span id="shipCount">0</span>)</button>
+            <button class="tab-btn" data-tab="currency">Currency</button>
+            <button class="tab-btn" data-tab="reputation">Reputation</button>
+        </div>
+
+        <div class="tab-panel active" id="panel-items">
+            <table class="data-table" id="itemsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Category</th>
+                        <th>Patch</th>
+                        <th>Mission</th>
+                        <th>Recipe</th>
+                        <th>Reward</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="tab-panel" id="panel-ships">
+            <table class="data-table" id="shipsTable">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Patch</th>
+                        <th>Mission</th>
+                        <th>Recipe</th>
+                        <th>Components</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+
+        <div class="tab-panel" id="panel-currency">
+            <div id="currencyEditor"></div>
+        </div>
+
+        <div class="tab-panel" id="panel-reputation">
+            <p style="color: var(--text-dim); font-size: 0.85rem; margin-bottom: 1rem;">
+                Reputation data is in the JSON under "reputation.entries". For bulk edits, download and edit the JSON directly.
+            </p>
+            <div id="repEditor"></div>
+        </div>
+    </div>
+
+    <!-- Edit Overlay -->
+    <div class="edit-overlay" id="editOverlay">
+        <div class="edit-form" id="editForm"></div>
+    </div>
+
+    <div class="status-bar">
+        <span class="status-msg" id="statusMsg">Ready</span>
+        <span id="statusCount"></span>
+    </div>
+
+    <script>
+    let DATA = null;
+
+    // ============================================================
+    // LOAD DATA
+    // ============================================================
+    async function loadData() {
+        try {
+            const resp = await fetch('../data/wikelo_data.json');
+            DATA = await resp.json();
+            renderAll();
+            setStatus('Data loaded');
+        } catch (err) {
+            setStatus('Failed to load data: ' + err.message, 'error');
+        }
+    }
+
+    function renderAll() {
+        renderItemsTable();
+        renderShipsTable();
+        renderCurrencyEditor();
+        renderRepEditor();
+        document.getElementById('itemCount').textContent = DATA.items.length;
+        document.getElementById('shipCount').textContent = DATA.ships.length;
+        document.getElementById('statusCount').textContent =
+            `${DATA.items.length} items, ${DATA.ships.length} ships`;
+    }
+
+    // ============================================================
+    // TABS
+    // ============================================================
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+            btn.classList.add('active');
+            document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+        });
+    });
+
+    // ============================================================
+    // ITEMS TABLE
+    // ============================================================
+    function renderItemsTable() {
+        const tbody = document.querySelector('#itemsTable tbody');
+        tbody.innerHTML = DATA.items.map((item, idx) => `
+            <tr>
+                <td class="cell-name">${esc(item.name)}</td>
+                <td><span class="cell-badge" style="background:rgba(74,158,255,0.1);color:var(--cyan)">${item.category}</span></td>
+                <td>${item.patch || '—'}</td>
+                <td style="font-size:0.75rem; color:var(--orange)">${esc(item.mission_name) || '—'}</td>
+                <td class="cell-recipe">${esc(truncate(item.recipe, 80))}</td>
+                <td style="font-size:0.78rem; color:var(--green)">${esc(truncate(item.reward, 40))}</td>
+                <td class="cell-actions">
+                    <button class="btn" onclick="editItem(${idx})">Edit</button>
+                    <button class="btn btn-danger" onclick="deleteItem(${idx})">×</button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function editItem(idx) {
+        const item = DATA.items[idx];
+        const form = document.getElementById('editForm');
+        form.innerHTML = `
+            <h3>${idx === -1 ? 'ADD NEW ITEM' : 'EDIT ITEM'}</h3>
+            <div class="form-row">
+                <label>Name</label>
+                <input type="text" id="ed_name" value="${esc(item.name)}">
+            </div>
+            <div class="form-row">
+                <label>Category</label>
+                <select id="ed_category">
+                    <option value="armor" ${item.category === 'armor' ? 'selected' : ''}>Armor</option>
+                    <option value="weapon" ${item.category === 'weapon' ? 'selected' : ''}>Weapon</option>
+                    <option value="vehicle" ${item.category === 'vehicle' ? 'selected' : ''}>Vehicle</option>
+                    <option value="other" ${item.category === 'other' ? 'selected' : ''}>Other</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Patch</label>
+                <input type="text" id="ed_patch" value="${esc(item.patch)}" placeholder="e.g. 4.6">
+            </div>
+            <div class="form-row">
+                <label>Mission Name</label>
+                <input type="text" id="ed_mission" value="${esc(item.mission_name)}" placeholder='e.g. "Do Lava Suit"'>
+            </div>
+            <div class="form-row">
+                <label>Recipe / Cost</label>
+                <textarea id="ed_recipe" oninput="previewRecipe(this.value)">${esc(item.recipe)}</textarea>
+                <div class="form-hint">Format: Carinite (30); Strata Arms (1); RCMBNT-PWL-1 (4) — or: 30x Carinite; 1x Strata Arms</div>
+                <div class="recipe-preview" id="recipePreview"></div>
+            </div>
+            <div class="form-row">
+                <label>Reward</label>
+                <input type="text" id="ed_reward" value="${esc(item.reward)}">
+            </div>
+            <div class="form-row">
+                <label>Sources (where to find materials)</label>
+                <textarea id="ed_sources">${esc(item.sources || '')}</textarea>
+                <div class="form-hint">Format: Carinite @ Align & Mine Ore; RCMBNT-PWL-1 @ ASD Onyx Facilities</div>
+            </div>
+            <div class="form-row">
+                <label>Description</label>
+                <textarea id="ed_desc">${esc(item.description || '')}</textarea>
+            </div>
+            <div class="form-row">
+                <label>Notes</label>
+                <textarea id="ed_notes">${esc(item.notes || '')}</textarea>
+            </div>
+            <div class="form-row">
+                <label>Image URL</label>
+                <input type="text" id="ed_image_url" value="${esc(item.image_url || '')}" placeholder="https://... (optional)">
+                <div class="form-hint">Link to an image. Host in your GitHub repo's img/ folder or use any image URL.</div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-success" onclick="saveItem(${idx})">Save</button>
+                <button class="btn" onclick="closeEdit()">Cancel</button>
+            </div>
+        `;
+        previewRecipe(item.recipe);
+        openEdit();
+    }
+
+    function saveItem(idx) {
+        const item = idx === -1 ? {} : DATA.items[idx];
+        item.name = document.getElementById('ed_name').value;
+        item.category = document.getElementById('ed_category').value;
+        item.patch = document.getElementById('ed_patch').value;
+        item.mission_name = document.getElementById('ed_mission').value;
+        item.recipe = normalizeRecipe(document.getElementById('ed_recipe').value);
+        item.reward = document.getElementById('ed_reward').value;
+        item.sources = document.getElementById('ed_sources').value;
+        item.description = document.getElementById('ed_desc').value;
+        item.notes = document.getElementById('ed_notes').value;
+        item.image_url = document.getElementById('ed_image_url').value;
+        item.status = item.status || 'active';
+        item.date_updated = item.date_updated || new Date().toISOString().split('T')[0];
+        item.further_reading = item.further_reading || [];
+
+        if (idx === -1) {
+            item.id = 'item_' + String(DATA.items.length + 1).padStart(3, '0');
+            DATA.items.push(item);
+        }
+
+        closeEdit();
+        renderAll();
+        setStatus('Item saved: ' + item.name, 'saved');
+    }
+
+    function deleteItem(idx) {
+        if (confirm('Delete "' + DATA.items[idx].name + '"?')) {
+            DATA.items.splice(idx, 1);
+            renderAll();
+            setStatus('Item deleted', 'saved');
+        }
+    }
+
+    function addNewItem() {
+        DATA.items.push({
+            id: 'item_new', name: '', category: 'armor', patch: '', status: 'active',
+            mission_name: '', recipe: '', reward: '', description: '', sources: '', notes: '',
+            further_reading: [], date_updated: new Date().toISOString().split('T')[0], sheet_name: 'manual'
+        });
+        editItem(DATA.items.length - 1);
+    }
+
+    // ============================================================
+    // SHIPS TABLE
+    // ============================================================
+    function renderShipsTable() {
+        const tbody = document.querySelector('#shipsTable tbody');
+        tbody.innerHTML = DATA.ships.map((ship, idx) => `
+            <tr>
+                <td class="cell-name">${esc(ship.name)}</td>
+                <td>${ship.patch || '—'}</td>
+                <td style="font-size:0.75rem; color:var(--orange)">${esc(ship.mission_name) || '—'}</td>
+                <td class="cell-recipe">${esc(truncate(ship.recipe, 60))}</td>
+                <td style="font-size:0.72rem">${ship.components ? ship.components.length + ' components' : '—'}</td>
+                <td class="cell-actions">
+                    <button class="btn" onclick="editShip(${idx})">Edit</button>
+                    <button class="btn btn-danger" onclick="deleteShip(${idx})">×</button>
+                </td>
+            </tr>
+        `).join('');
+    }
+
+    function editShip(idx) {
+        const ship = DATA.ships[idx];
+        const form = document.getElementById('editForm');
+        form.innerHTML = `
+            <h3>${idx === -1 ? 'ADD NEW SHIP' : 'EDIT SHIP'}</h3>
+            <div class="form-row">
+                <label>Ship Name</label>
+                <input type="text" id="ed_name" value="${esc(ship.name)}">
+            </div>
+            <div class="form-row">
+                <label>Patch</label>
+                <input type="text" id="ed_patch" value="${esc(ship.patch)}" placeholder="e.g. 4.5">
+            </div>
+            <div class="form-row">
+                <label>Mission Name</label>
+                <input type="text" id="ed_mission" value="${esc(ship.mission_name)}">
+            </div>
+            <div class="form-row">
+                <label>Trade Cost / Recipe</label>
+                <textarea id="ed_recipe">${esc(ship.recipe)}</textarea>
+                <div class="form-hint">Format: 4x Wikelo Favor; 1x DCHS-05 Comp-Board</div>
+            </div>
+            <div class="form-row">
+                <label>Components (JSON — advanced)</label>
+                <textarea id="ed_components" style="min-height:120px; font-family:var(--font-mono); font-size:0.72rem">${JSON.stringify(ship.components || [], null, 2)}</textarea>
+                <div class="form-hint">Edit component details. Format is JSON array.</div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-success" onclick="saveShip(${idx})">Save</button>
+                <button class="btn" onclick="closeEdit()">Cancel</button>
+            </div>
+        `;
+        openEdit();
+    }
+
+    function saveShip(idx) {
+        const ship = idx === -1 ? {} : DATA.ships[idx];
+        ship.name = document.getElementById('ed_name').value;
+        ship.patch = document.getElementById('ed_patch').value;
+        ship.mission_name = document.getElementById('ed_mission').value;
+        ship.recipe = normalizeRecipe(document.getElementById('ed_recipe').value);
+
+        try {
+            ship.components = JSON.parse(document.getElementById('ed_components').value);
+        } catch (e) {
+            setStatus('Invalid JSON in components field', 'error');
+            return;
+        }
+
+        ship.components_summary = ship.components.map(c =>
+            `${c.quantity} ${c.name} (${c.type}, Size ${c.size}, ${c['class']} ${c.grade})`
+        ).join('; ');
+
+        if (idx === -1) {
+            ship.id = 'ship_' + String(DATA.ships.length + 1).padStart(3, '0');
+            ship.category = 'ship';
+            ship.status = 'active';
+            DATA.ships.push(ship);
+        }
+
+        closeEdit();
+        renderAll();
+        setStatus('Ship saved: ' + ship.name, 'saved');
+    }
+
+    function deleteShip(idx) {
+        if (confirm('Delete "' + DATA.ships[idx].name + '"?')) {
+            DATA.ships.splice(idx, 1);
+            renderAll();
+            setStatus('Ship deleted', 'saved');
+        }
+    }
+
+    function addNewShip() {
+        DATA.ships.push({
+            id: 'ship_new', name: '', category: 'ship', patch: '', status: 'active',
+            mission_name: '', recipe: '', components: [], components_summary: '',
+            image_credit: '', other_components: ''
+        });
+        editShip(DATA.ships.length - 1);
+    }
+
+    // ============================================================
+    // CURRENCY EDITOR
+    // ============================================================
+    function renderCurrencyEditor() {
+        const el = document.getElementById('currencyEditor');
+        el.innerHTML = DATA.currency_exchanges.map((cx, idx) => `
+            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:1rem; margin-bottom:1rem;">
+                <h4 style="font-family:var(--font-display); font-size:0.7rem; color:var(--gold); margin-bottom:0.75rem;">${esc(cx.sheet_name)}</h4>
+                <div class="form-row">
+                    <label>Input (what you trade in)</label>
+                    <input type="text" value="${esc(cx.recipe)}" onchange="DATA.currency_exchanges[${idx}].recipe=this.value; setStatus('Currency updated','saved')">
+                </div>
+                <div class="form-row">
+                    <label>Output (what you get)</label>
+                    <input type="text" value="${esc(cx.reward)}" onchange="DATA.currency_exchanges[${idx}].reward=this.value; setStatus('Currency updated','saved')">
+                </div>
+                <div class="form-row">
+                    <label>Description</label>
+                    <textarea onchange="DATA.currency_exchanges[${idx}].description=this.value; setStatus('Currency updated','saved')">${esc(cx.description || '')}</textarea>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // ============================================================
+    // REP EDITOR
+    // ============================================================
+    function renderRepEditor() {
+        const el = document.getElementById('repEditor');
+        if (!DATA.reputation || !DATA.reputation.entries) {
+            el.innerHTML = '<p style="color:var(--text-dim)">No reputation data.</p>';
+            return;
+        }
+        el.innerHTML = `
+            <table class="data-table">
+                <thead><tr><th>Mission</th><th>Rep Reward</th><th>Rep Required</th></tr></thead>
+                <tbody>
+                    ${DATA.reputation.entries.map((e, i) => `
+                        <tr>
+                            <td>${esc(e.mission_title)}</td>
+                            <td><input type="number" value="${e.reputation_reward}" style="width:60px;background:var(--bg-input);border:1px solid var(--border);color:var(--gold);padding:0.2rem;font-size:0.8rem;border-radius:3px" onchange="DATA.reputation.entries[${i}].reputation_reward=+this.value"></td>
+                            <td><input type="number" value="${e.reputation_required}" style="width:60px;background:var(--bg-input);border:1px solid var(--border);color:var(--orange);padding:0.2rem;font-size:0.8rem;border-radius:3px" onchange="DATA.reputation.entries[${i}].reputation_required=+this.value"></td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            </table>
+        `;
+    }
+
+    // ============================================================
+    // RECIPE FORMAT HELPERS
+    // ============================================================
+    function normalizeRecipe(str) {
+        // Accept both "Carinite (30)" and "30x Carinite" formats, normalize to "30x Carinite"
+        return str.split(';').map(part => {
+            part = part.trim();
+            if (!part) return '';
+            // Check for "ItemName (qty)" format
+            const m = part.match(/^(.+?)\s*\((\d+)\)\s*$/);
+            if (m) return m[2] + 'x ' + m[1].trim();
+            return part;
+        }).filter(Boolean).join('; ');
+    }
+
+    function previewRecipe(str) {
+        const el = document.getElementById('recipePreview');
+        if (!el) return;
+        const normalized = normalizeRecipe(str);
+        const items = normalized.split(';').map(s => s.trim()).filter(Boolean);
+        el.innerHTML = items.map(item => {
+            const m = item.match(/^(\d+)x\s+(.+)$/);
+            if (m) return `<span class="recipe-item"><span class="qty">${m[1]}x</span> ${esc(m[2])}</span>`;
+            return `<span class="recipe-item">${esc(item)}</span>`;
+        }).join('');
+    }
+
+    // ============================================================
+    // JSON IMPORT/EXPORT
+    // ============================================================
+    function downloadJSON() {
+        DATA.meta.extracted_date = new Date().toISOString().split('T')[0];
+        const blob = new Blob([JSON.stringify(DATA, null, 2)], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url; a.download = 'wikelo_data.json'; a.click();
+        URL.revokeObjectURL(url);
+        setStatus('JSON downloaded', 'saved');
+    }
+
+    function uploadJSON(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            try {
+                DATA = JSON.parse(e.target.result);
+                renderAll();
+                setStatus('JSON loaded: ' + file.name, 'saved');
+            } catch (err) {
+                setStatus('Invalid JSON file: ' + err.message, 'error');
+            }
+        };
+        reader.readAsText(file);
+    }
+
+    // ============================================================
+    // OVERLAY
+    // ============================================================
+    function openEdit() { document.getElementById('editOverlay').classList.add('active'); }
+    function closeEdit() { document.getElementById('editOverlay').classList.remove('active'); }
+    document.getElementById('editOverlay').addEventListener('click', (e) => {
+        if (e.target === document.getElementById('editOverlay')) closeEdit();
+    });
+
+    // ============================================================
+    // UTILS
+    // ============================================================
+    function esc(str) {
+        if (!str) return '';
+        const div = document.createElement('div');
+        div.textContent = str;
+        return div.innerHTML;
+    }
+
+    function truncate(str, len) {
+        if (!str) return '';
+        return str.length > len ? str.substring(0, len) + '…' : str;
+    }
+
+    function setStatus(msg, type) {
+        const el = document.getElementById('statusMsg');
+        el.textContent = msg;
+        el.className = 'status-msg' + (type ? ' ' + type : '');
+        if (type) setTimeout(() => { el.className = 'status-msg'; }, 3000);
+    }
+
+    // ============================================================
+    // START
+    // ============================================================
+    document.addEventListener('DOMContentLoaded', loadData);
+    </script>
+</body>
+</html>
