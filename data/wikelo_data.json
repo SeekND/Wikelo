@@ -1668,7 +1668,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Firebird Mod",
-      "recipe": "15x Wikelo Favour; 4x DCHS-05 Orbital Positioning Comp-Board; 3x Ace Interceptor Helmet; 1x Goverment Cartography Agency Medal (Pristine)",
+      "recipe": "15x Wikelo Favour; 4x DCHS-05 Orbital Positioning Comp-Board; 3x Ace Interceptor Helmet; 1x Government Cartography Agency Medal (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1764,7 +1764,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Wikelo Navy F7",
-      "recipe": "16x Wikelo Favour; 3x DCHS-05 Orbital Positioning Comp-Board; 5x Ace Interceptor Helmet; 1x Goverment Cartography Agency Medal (Pristine)",
+      "recipe": "16x Wikelo Favour; 3x DCHS-05 Orbital Positioning Comp-Board; 5x Ace Interceptor Helmet; 1x Government Cartography Agency Medal (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1860,7 +1860,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Guardian take down ship",
-      "recipe": "25x Wikelo Favour; 15x DCHS-05 Orbital Positioning Comp-Board; 15x Irradiated Valakkar Pearl (Grade AA),",
+      "recipe": "25x Wikelo Favour; 15x DCHS-05 Orbital Positioning Comp-Board; 15x Irradiated Valakkar Pearl (Grade AA)",
       "components": [
         {
           "type": "Power Plant",
@@ -2004,7 +2004,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Want Tanrus ship",
-      "recipe": "30x Wikelo Favour; 3x Carinite (Pure); 3x Irradiated Valakkar Pearl (Grade AAA); 3x Goverment Cartography Agency Medal (Pristine)",
+      "recipe": "30x Wikelo Favour; 3x Carinite (Pure); 3x Irradiated Valakkar Pearl (Grade AAA); 3x Government Cartography Agency Medal (Pristine)",
       "components": [
         {
           "type": "Power Plant",
