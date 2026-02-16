@@ -14,7 +14,7 @@
       "date_updated": "2026-01-31",
       "status": "active",
       "mission_name": "Hot Shot",
-      "recipe": "20x Carinite; 20x Bluemoon Fungus; 1x Tripledown Pistol",
+      "recipe": "20x Carinite (Ore); 20x Bluemoon Fungus; 1x Tripledown Pistol",
       "reward": "Tripledown \"Heatwave\" Pistol",
       "description": "Wikelo offers a skin for the Tripledown Pistol named the Heatwave.",
       "sources": "Carinite @ Align & Mine Ore; Bluemoon Fungus @ Lootable in rocky caves; Tripledown Pistol @ Sold in Levski Link",
@@ -31,7 +31,7 @@
       "date_updated": "2026-01-31",
       "status": "active",
       "mission_name": "Do Lava Suit",
-      "recipe": "30x Carinite; 4x RCMBNT-PWL-1; 4x RCMBNT-PWL-2; 4x RCMBNT-PWL-3; 1x Strata Arms; 1x Strata Legs; 1x Strata Helmet; 1x Strata Backpack; 1x Strata Core",
+      "recipe": "30x Carinite (Ore); 4x RCMBNT-PWL-1; 4x RCMBNT-PWL-2; 4x RCMBNT-PWL-3; 1x Strata Arms; 1x Strata Legs; 1x Strata Helmet; 1x Strata Backpack; 1x Strata Core",
       "reward": "Strata Heatwave Set",
       "description": "Wikelo offers a skin for the Strata Armor set named Heatwave in 4.6",
       "sources": "Carinite @ Align & Mine Ore; RCMBNT-PWL-1, 2 & 3 @ Lootable in ASD Onxy Facilities; Strata \"Vanilla\" Armor Set @ Sold in Levski Cargo Shop Link",
@@ -126,7 +126,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "F55 Look Better",
-      "recipe": "1x F55 LMG; 4x Yormandi Eye; 2x Yormandi Tongue; 20x Carinite",
+      "recipe": "1x F55 LMG; 4x Yormandi Eye; 2x Yormandi Tongue; 20x Carinite (Ore)",
       "reward": "F55 ",
       "description": "Wikelo offers a skin for the Palatino Set and F55 with a mostly white, gray and red accented skin with test dummy rondels",
       "sources": "Yormandi Eye, Tongue @ Yormandi boss fight; Palatino Set Armor @ Orange loot boxes at Hostile Distrobution Centers like Dupree, Greycat Industrial inside and outside.; F55 LMG @ \"Juggernaut\" NPC enemies, can be encountered most places including DCs, Pyro, Bunkers etc",
@@ -330,14 +330,14 @@
     },
     {
       "id": "item_013",
-      "name": "Parallax \"Fun Kopion Skull\" Energy Assault Rifle",
+      "name": "Parallax ",
       "category": "weapon",
       "patch": "4.2.1",
       "date_updated": "2025-07-16",
       "status": "active",
       "mission_name": "Fun Koption Skull Gun",
-      "recipe": "20x Jaclium (Ore); 1x Parallax Energy Assault Rifle; 20x Tundra Kopion Horn; 15x Saldynium (Ore); 10x Carinite (Ore); Parallax \"Fun Military Skull\" Energy Assault Rifle; Mission name: \"Fun Military Skull Gun\"; Cost:; 20x Jaclium (Ore); 1x Parallax Energy Assault Rifle; 20x Irradiated Valakkar Fang (Juvenile); 15x Saldynium (Ore); 10x Carinite (Ore)",
-      "reward": "Parallax \"Fun Kopion Skull\" Energy Assault Rifle",
+      "recipe": "20x Jaclium (Ore); 1x Parallax Energy Assault Rifle; 20x Tundra Kopion Horn; 15x Saldynium (Ore); 10x Carinite (Ore)",
+      "reward": "Parallax ",
       "description": "Wikelo has 4 gun skins for the Volt Parallax Energy AR, here is what they look like and how to get them. The difference between Skull and Tooth is the small charm near the muzzle.",
       "sources": "",
       "notes": "",
@@ -364,14 +364,14 @@
     },
     {
       "id": "item_014",
-      "name": "Parallax \"Fun Kopion Tooth\" Energy Assault Rifle (Retired)",
+      "name": "Parallax ",
       "category": "weapon",
       "patch": "4.2.1",
       "date_updated": "2025-07-16",
       "status": "active",
       "mission_name": "Fun Koption Tooth Gun",
-      "recipe": "40x Jaclium (Ore); 1x Parallax Energy Assault Rifle; 35x Tundra Kopion Horn; 30x Saldynium (Ore); 20x Carinite (Ore); Parallax \"Fun Military Tooth\" Energy Assault Rifle (Retired); Mission name: \"Fun Military Tooth Gun\"; Cost:; 40x Jaclium (Ore); 1x Parallax Energy Assault Rifle; 35x Irradiated Valakkar Fang (Juvenile); 30x Saldynium (Ore); 20x Carinite (Ore)",
-      "reward": "Parallax \"Fun Kopion Tooth\" Energy Assault Rifle (Retired)",
+      "recipe": "40x Jaclium (Ore); 1x Parallax Energy Assault Rifle; 35x Tundra Kopion Horn; 30x Saldynium (Ore); 20x Carinite (Ore)",
+      "reward": "Parallax ",
       "description": "Wikelo has 4 gun skins for the Volt Parallax Energy AR, here is what they look like and how to get them. The difference between Skull and Tooth is the small charm near the muzzle.",
       "sources": "",
       "notes": "",
@@ -472,10 +472,10 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Make ATLS shoot",
-      "recipe": "1x Argo ATLS; 2x NN-13 Cannon; 5x Irradiated Valakkar Fang (Apex); 2x Wikelo Favor",
+      "recipe": "1x Argo ATLS; 2x NN-13 Cannon; 5x Irradiated Valakkar Fang (Apex); 2x Wikelo Favour",
       "reward": "ATLS IKTI",
       "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
-      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favor, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
+      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
       "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
       "further_reading": [
         {
@@ -506,10 +506,10 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Make jumpy ATLS shoot",
-      "recipe": "1x Argo ATLS GEO; 1x Argo ATLS IKTI; 2x NN-13 Cannon; 1x Wikelo Favor",
+      "recipe": "1x Argo ATLS GEO; 1x Argo ATLS IKTI; 2x NN-13 Cannon; 1x Wikelo Favour",
       "reward": "ATLS IKTI GEO",
       "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
-      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favor, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
+      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
       "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
       "further_reading": [
         {
@@ -540,10 +540,10 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "",
-      "recipe": "1x Wikelo Favor; 1x Irradiated Valakkar Pearl (Grade AAA); 1x Argo ATLS",
+      "recipe": "1x Wikelo Favour; 1x Irradiated Valakkar Pearl (Grade AAA); 1x Argo ATLS",
       "reward": "ATLS Snowland Skin",
       "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
-      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favor, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
+      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
       "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
       "further_reading": [
         {
@@ -574,10 +574,10 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "",
-      "recipe": "1x Wikelo Favor; 36x SCU Quantaninium; 1x Argo ATLS; 8x SCU Copper; 8x SCU Tungsten; 8x SCU Corundum",
+      "recipe": "1x Wikelo Favour; 36x SCU Quantaninium; 1x Argo ATLS; 8x SCU Copper; 8x SCU Tungsten; 8x SCU Corundum",
       "reward": "ATLS Orange Line Skin",
       "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
-      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favor, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
+      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
       "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
       "further_reading": [
         {
@@ -710,10 +710,10 @@
       "date_updated": "2025-06-04",
       "status": "active",
       "mission_name": "Look at desert but don't see you",
-      "recipe": "1x Wikelo Favor; 3x Ace Interceptor Helmet; 15x Juvenile Valakkar Fangs",
+      "recipe": "1x Wikelo Favour; 3x Ace Interceptor Helmet; 15x Juvenile Valakkar Fangs",
       "reward": "DCP Armor Helmet Hunter Camo",
       "description": "Wikelo got DCP heavy armors from Clark Defense in 4.1.1, the cost has gone up from 1x Ace Interceptor Helmet to 3x, and they fixed the bug where the Hunter helmet was missing. here is what they look like and how to get them.",
-      "sources": "Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Apex Valakkar Pearls. (in 4.2) 4.1.1 Favors from scrip should carry over into 4.2, they did between 4.1.1 PTU builds.; Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions. Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UNE Unification War Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 10 each, here is where they can be found: Grassland Quasi Grazer Habitat. Can also be bought in Pyro.",
+      "sources": "Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls. (in 4.2) 4.1.1 Favors from scrip should carry over into 4.2, they did between 4.1.1 PTU builds.; Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions. Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UNE Unification War Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 10 each, here is where they can be found: Grassland Quasi Grazer Habitat. Can also be bought in Pyro.",
       "notes": "There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it. I suggest pairing Hunter/Desert with Stoneskin Agra Undersuit, Cobalt/Navy with TCS-4 Undersuit Twilight, Jungle/Tree with TCS-4 Undersuit",
       "further_reading": [
         {
@@ -736,10 +736,10 @@
       "date_updated": "2025-06-04",
       "status": "active",
       "mission_name": "Make space navy armor",
-      "recipe": "1x Wikelo Favor; 3x Ace Interceptor Helmet; 1x UNE Unification War Medal (Damaged)",
+      "recipe": "1x Wikelo Favour; 3x Ace Interceptor Helmet; 1x UNE Unification War Medal (Damaged)",
       "reward": "DCP Armor Helmet Cobalt Camo",
       "description": "Wikelo got DCP heavy armors from Clark Defense in 4.1.1, the cost has gone up from 1x Ace Interceptor Helmet to 3x, and they fixed the bug where the Hunter helmet was missing. here is what they look like and how to get them.",
-      "sources": "Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Apex Valakkar Pearls. (in 4.2) 4.1.1 Favors from scrip should carry over into 4.2, they did between 4.1.1 PTU builds.; Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions. Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UNE Unification War Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 10 each, here is where they can be found: Grassland Quasi Grazer Habitat. Can also be bought in Pyro.",
+      "sources": "Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls. (in 4.2) 4.1.1 Favors from scrip should carry over into 4.2, they did between 4.1.1 PTU builds.; Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions. Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UNE Unification War Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 10 each, here is where they can be found: Grassland Quasi Grazer Habitat. Can also be bought in Pyro.",
       "notes": "There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it. I suggest pairing Hunter/Desert with Stoneskin Agra Undersuit, Cobalt/Navy with TCS-4 Undersuit Twilight, Jungle/Tree with TCS-4 Undersuit",
       "further_reading": [
         {
@@ -762,10 +762,10 @@
       "date_updated": "2025-06-04",
       "status": "active",
       "mission_name": "Want armor look like tree?",
-      "recipe": "1x Wikelo Favor; 3x Ace Interceptor Helmet; 14x Grassland Quasi Grazer Egg",
+      "recipe": "1x Wikelo Favour; 3x Ace Interceptor Helmet; 14x Grassland Quasi Grazer Egg",
       "reward": "DCP Armor Helmet Jungle Camo",
       "description": "Wikelo got DCP heavy armors from Clark Defense in 4.1.1, the cost has gone up from 1x Ace Interceptor Helmet to 3x, and they fixed the bug where the Hunter helmet was missing. here is what they look like and how to get them.",
-      "sources": "Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Apex Valakkar Pearls. (in 4.2) 4.1.1 Favors from scrip should carry over into 4.2, they did between 4.1.1 PTU builds.; Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions. Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UNE Unification War Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 10 each, here is where they can be found: Grassland Quasi Grazer Habitat. Can also be bought in Pyro.",
+      "sources": "Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls. (in 4.2) 4.1.1 Favors from scrip should carry over into 4.2, they did between 4.1.1 PTU builds.; Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions. Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UNE Unification War Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 10 each, here is where they can be found: Grassland Quasi Grazer Habitat. Can also be bought in Pyro.",
       "notes": "There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it. I suggest pairing Hunter/Desert with Stoneskin Agra Undersuit, Cobalt/Navy with TCS-4 Undersuit Twilight, Jungle/Tree with TCS-4 Undersuit",
       "further_reading": [
         {
@@ -788,10 +788,10 @@
       "date_updated": "2025-06-04",
       "status": "active",
       "mission_name": "",
-      "recipe": "1x Wikelo Favor; 3x Ace Interceptor Helmet; 15x Juvenile Valakkar Fangs; 1x Quartz Energy SMG",
+      "recipe": "1x Wikelo Favour; 3x Ace Interceptor Helmet; 15x Juvenile Valakkar Fangs; 1x Quartz Energy SMG",
       "reward": "Quartz ",
       "description": "Wikelo has 3 gun skins for Quartz Energy SMG here is what they look like and how to get them. Wikelo's Locations: Dasi Hurston, Kinga microTech, Selo Crusader. Price has gone up in 4.2 from 1x Ace Interceptor Helmet, to 3x.",
-      "sources": "Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Valakkar Apex Pearls / 50x Scrip / 50x Carinite (Align & Mine ore); Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions, Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UEE 6th Platoon Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 12 each, here is where they can be found: Grassland Quasi Grazer Habitat.; Quartz Energy SMG @ Looted from Align & Mine PAF & OLP locations, in weapon racks behind locked doors. Here is my loot guide for Quartz SMG.",
+      "sources": "Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Valakkar Apex Pearls / 50x Scrip / 50x Carinite (Align & Mine ore); Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions, Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UEE 6th Platoon Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 12 each, here is where they can be found: Grassland Quasi Grazer Habitat.; Quartz Energy SMG @ Looted from Align & Mine PAF & OLP locations, in weapon racks behind locked doors. Here is my loot guide for Quartz SMG.",
       "notes": "There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in.",
       "further_reading": [
         {
@@ -814,10 +814,10 @@
       "date_updated": "2025-06-04",
       "status": "active",
       "mission_name": "",
-      "recipe": "1x Wikelo Favor; 3x Ace Interceptor Helmet; 1x UEE 6th Platoon Medal (Damaged); 1x Quartz Energy SMG; Mission name:\n\"Volt gun more Navy-like\"",
+      "recipe": "1x Wikelo Favour; 3x Ace Interceptor Helmet; 1x UEE 6th Platoon Medal (Damaged); 1x Quartz Energy SMG; Mission name:\n\"Volt gun more Navy-like\"",
       "reward": "Quartz \"Cobalt Camo\" Energy SMG",
       "description": "Wikelo has 3 gun skins for Quartz Energy SMG here is what they look like and how to get them. Wikelo's Locations: Dasi Hurston, Kinga microTech, Selo Crusader. Price has gone up in 4.2 from 1x Ace Interceptor Helmet, to 3x.",
-      "sources": "Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Valakkar Apex Pearls / 50x Scrip / 50x Carinite (Align & Mine ore); Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions, Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UEE 6th Platoon Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 12 each, here is where they can be found: Grassland Quasi Grazer Habitat.; Quartz Energy SMG @ Looted from Align & Mine PAF & OLP locations, in weapon racks behind locked doors. Here is my loot guide for Quartz SMG.",
+      "sources": "Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Valakkar Apex Pearls / 50x Scrip / 50x Carinite (Align & Mine ore); Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions, Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UEE 6th Platoon Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 12 each, here is where they can be found: Grassland Quasi Grazer Habitat.; Quartz Energy SMG @ Looted from Align & Mine PAF & OLP locations, in weapon racks behind locked doors. Here is my loot guide for Quartz SMG.",
       "notes": "There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in.",
       "further_reading": [
         {
@@ -840,10 +840,10 @@
       "date_updated": "2025-06-04",
       "status": "active",
       "mission_name": "",
-      "recipe": "1x Wikelo Favor; 3x Ace Interceptor Helmet; 5x Grassland Quasi Grazer Egg; 1x Quartz Energy SMG; Mission name:\n\"Zappy gun more woodlike\"",
+      "recipe": "1x Wikelo Favour; 3x Ace Interceptor Helmet; 5x Grassland Quasi Grazer Egg; 1x Quartz Energy SMG; Mission name:\n\"Zappy gun more woodlike\"",
       "reward": "Quartz \"Jungle Camo\" Energy SMG",
       "description": "Wikelo has 3 gun skins for Quartz Energy SMG here is what they look like and how to get them. Wikelo's Locations: Dasi Hurston, Kinga microTech, Selo Crusader. Price has gone up in 4.2 from 1x Ace Interceptor Helmet, to 3x.",
-      "sources": "Wikelo Favors @ 1x Wikelo Favor costs 15x Irradiated Valakkar Apex Pearls / 50x Scrip / 50x Carinite (Align & Mine ore); Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions, Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UEE 6th Platoon Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 12 each, here is where they can be found: Grassland Quasi Grazer Habitat.; Quartz Energy SMG @ Looted from Align & Mine PAF & OLP locations, in weapon racks behind locked doors. Here is my loot guide for Quartz SMG.",
+      "sources": "Wikelo Favours @ 1x Wikelo Favour costs 15x Irradiated Valakkar Apex Pearls / 50x Scrip / 50x Carinite (Align & Mine ore); Ace Interceptor Helmets @ Looted from killed Ace Pilots in the new Foxwell Patrol Missions / Headhunters Patrol Missions, Don't hard kill the ship, makes pilot vanish.; Juvenile Valakkar Fangs @ Looted from killed Juvenile Valakkar they have 3x each, here is where they can be found: Juvenile Valakkar Habitat.; UEE 6th Platoon Medal (Damaged) @ Looted from Derelict Outpost specifically the Small Grey Boxes. Or larger (150k & 300k) blue boxes at Hathor Group Locations.; Grassland Quasi Grazer Egg @ Looted from killed Grassland Quasi Grazer they have roughly 12 each, here is where they can be found: Grassland Quasi Grazer Habitat.; Quartz Energy SMG @ Looted from Align & Mine PAF & OLP locations, in weapon racks behind locked doors. Here is my loot guide for Quartz SMG.",
       "notes": "There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in.",
       "further_reading": [
         {
@@ -857,22 +857,6 @@
       ],
       "sheet_name": "Quartz SMGs 4.2",
       "image_url": ""
-    },
-    {
-      "id": "item_new",
-      "name": "",
-      "category": "armor",
-      "patch": "",
-      "status": "active",
-      "mission_name": "",
-      "recipe": "",
-      "reward": "",
-      "description": "",
-      "sources": "",
-      "notes": "",
-      "further_reading": [],
-      "date_updated": "2026-02-16",
-      "sheet_name": "manual"
     }
   ],
   "ships": [
@@ -884,7 +868,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Golem Rocks",
-      "recipe": "2x Wikelo Favor; 15x ASD Secure Drive",
+      "recipe": "2x Wikelo Favour; 15x ASD Secure Drive",
       "components": [
         {
           "type": "Weapons",
@@ -908,7 +892,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Fortune ship for you",
-      "recipe": "3x Wikelo Favor; 1x Carinite (Pure)",
+      "recipe": "3x Wikelo Favour; 1x Carinite (Pure)",
       "components": [
         {
           "type": "Power Plant",
@@ -956,7 +940,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Make a Ursa Mod",
-      "recipe": "4x Wikelo Favor; 20x Saldynium (Ore); 20x Jaclium (Ore)",
+      "recipe": "4x Wikelo Favour; 20x Saldynium (Ore); 20x Jaclium (Ore)",
       "components": [
         {
           "type": "Power Plant",
@@ -996,7 +980,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Upgrade Intrepid",
-      "recipe": "3x Wikelo Favor; 1x Government Cartography Agency Medal (Pristine)",
+      "recipe": "3x Wikelo Favour; 1x Government Cartography Agency Medal (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1044,7 +1028,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Noxy Mod",
-      "recipe": "4x Wikelo Favor",
+      "recipe": "4x Wikelo Favour",
       "components": [
         {
           "type": "Power Plant",
@@ -1076,7 +1060,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Pulse Plus",
-      "recipe": "4x Wikelo Favor",
+      "recipe": "4x Wikelo Favour",
       "components": [
         {
           "type": "Power Plant",
@@ -1108,7 +1092,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "",
-      "recipe": "6x Wikelo Favor; 20x Carinite; 30x Saldynium (Ore); 40x Jaclium (Ore); 1x Carinite (Pure)",
+      "recipe": "6x Wikelo Favour; 20x Carinite (Ore); 30x Saldynium (Ore); 40x Jaclium (Ore); 1x Carinite (Pure)",
       "components": [
         {
           "type": "Power Plant",
@@ -1156,7 +1140,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "",
-      "recipe": "8x Wikelo Favor; 10x Irradiated Valakkar Fang (Adult); 20x Irradiated Valakkar Fang (Juvenile); 5x Irradiated Kopion Horn; 1x Irradiated Valakkar Pearl (Grade AAA)",
+      "recipe": "8x Wikelo Favour; 10x Irradiated Valakkar Fang (Adult); 20x Irradiated Valakkar Fang (Juvenile); 5x Irradiated Kopion Horn; 1x Irradiated Valakkar Pearl (Grade AAA)",
       "components": [
         {
           "type": "Power Plant",
@@ -1204,7 +1188,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Spirit Cargo mod",
-      "recipe": "8x Wikelo Favor; 1x Tevarin War Service Marker (Pristine)",
+      "recipe": "8x Wikelo Favour; 1x Tevarin War Service Marker (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1252,7 +1236,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Peregrine Wikelo Mod",
-      "recipe": "4x Wikelo Favor; 1x DCHS-05 Comp-Board",
+      "recipe": "4x Wikelo Favour; 1x DCHS-05 Orbital Positioning Comp-Board",
       "components": [
         {
           "type": "Power Plant",
@@ -1300,7 +1284,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "",
-      "recipe": "10x Wikelo Favor; 10x Vanduul Plating; 10x Vanduul Metal; 1x Large Artifact Fragment (Pristine)",
+      "recipe": "10x Wikelo Favour; 10x Vanduul Plating; 10x Vanduul Metal; 1x Large Artifact Fragment (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1396,7 +1380,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Zeus Special",
-      "recipe": "10x Wikelo Favor; 1x UEE 6th Platoon Medal (Pristine)",
+      "recipe": "10x Wikelo Favour; 1x UEE 6th Platoon Medal (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1444,7 +1428,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Guardian Fight Mod",
-      "recipe": "20x Wikelo Favor; 15x Irradiated Valakkar Pearl (Grade AA); 10x Ace Interceptor Helmet; 1x Tevarin War Service Marker (Pristine)",
+      "recipe": "20x Wikelo Favour; 15x Irradiated Valakkar Pearl (Grade AA); 10x Ace Interceptor Helmet; 1x Tevarin War Service Marker (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1492,7 +1476,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Mirai Guardian MX Wikelo War Special",
-      "recipe": "25x Wikelo Favor; 2x Large Artifact Fragment (Pristine); 30x Vanduul Plating; 30x Vanduul Metal; 15x Ace Interceptor Helmet",
+      "recipe": "25x Wikelo Favour; 2x Large Artifact Fragment (Pristine); 30x Vanduul Plating; 30x Vanduul Metal; 15x Ace Interceptor Helmet",
       "components": [
         {
           "type": "Power Plant",
@@ -1540,7 +1524,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "RSI Meteor Mod",
-      "recipe": "10x Wikelo Favor; 1x Large Artifact Fragment (Pristine); 10x Vanduul Plating; 10x Vanduul Metal; 5x Ace Interceptor Helmet",
+      "recipe": "10x Wikelo Favour; 1x Large Artifact Fragment (Pristine); 10x Vanduul Plating; 10x Vanduul Metal; 5x Ace Interceptor Helmet",
       "components": [
         {
           "type": "Power Plant",
@@ -1588,7 +1572,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Sneaky Starfighter Ion",
-      "recipe": "10x Wikelo Favor; 10x Yormandi Eye; 5x Ace Interceptor Helmet; 1x Tevarin War Service Marker (Pristine)",
+      "recipe": "10x Wikelo Favour; 10x Yormandi Eye; 5x Ace Interceptor Helmet; 1x Tevarin War Service Marker (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1636,7 +1620,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Starfighter Inferno Special",
-      "recipe": "10x Wikelo Favor; 5x Yormandi Tongue; 5x Ace Interceptor Helmet; 1x UEE 6th Platoon Medal (Pristine)",
+      "recipe": "10x Wikelo Favour; 5x Yormandi Tongue; 5x Ace Interceptor Helmet; 1x UEE 6th Platoon Medal (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1684,7 +1668,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Firebird Mod",
-      "recipe": "15x Wikelo Favor; 4x DCHS-05 Comp-Board; 3x Ace Interceptor Helmet; 1x Goverment Cartography Agency Medal (Pristine)",
+      "recipe": "15x Wikelo Favour; 4x DCHS-05 Orbital Positioning Comp-Board; 3x Ace Interceptor Helmet; 1x Goverment Cartography Agency Medal (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1732,7 +1716,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Build a Mod Scorpius",
-      "recipe": "15x Wikelo Favor; 1x Tevarin War Service Medal (Pristine); 4x DCHS-05 Comp-Board",
+      "recipe": "15x Wikelo Favour; 1x Tevarin War Service Medal (Pristine); 4x DCHS-05 Orbital Positioning Comp-Board",
       "components": [
         {
           "type": "Power Plant",
@@ -1780,7 +1764,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Wikelo Navy F7",
-      "recipe": "16x Wikelo Favor; 3x DCHS-05 Comp-Board; 5x Ace Interceptor Helmet; 1x Goverment Cartography Agency Medal (Pristine)",
+      "recipe": "16x Wikelo Favour; 3x DCHS-05 Orbital Positioning Comp-Board; 5x Ace Interceptor Helmet; 1x Goverment Cartography Agency Medal (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1828,7 +1812,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "What is Terrapin?",
-      "recipe": "15x Wikelo Favor; 10x ASD Secure Drive; 1x Tevarin War Service Marker (Pristine)",
+      "recipe": "15x Wikelo Favour; 10x ASD Secure Drive; 1x Tevarin War Service Marker (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -1876,7 +1860,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Guardian take down ship",
-      "recipe": "25x Wikelo Favor; 15x DCHS-05 Comp-Board; 15x Irradiated Valakkar Pearl (Grade AA),",
+      "recipe": "25x Wikelo Favour; 15x DCHS-05 Orbital Positioning Comp-Board; 15x Irradiated Valakkar Pearl (Grade AA),",
       "components": [
         {
           "type": "Power Plant",
@@ -1924,7 +1908,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Zeus Cargo Special",
-      "recipe": "20x Wikelo Favor; 15x Carinite (Pure); 10x Ace Interceptor Helmet; 2x Carinite (Pure)",
+      "recipe": "20x Wikelo Favour; 15x Carinite (Pure); 10x Ace Interceptor Helmet; 2x Carinite (Pure)",
       "components": [
         {
           "type": "Power Plant",
@@ -1972,7 +1956,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "More than a Max",
-      "recipe": "30x Wikelo Favor; 10x Ace Interceptor Helmet; 3x Carinite (Pure); 3x Irradiated Valakkar Pearl (Grade AAA)",
+      "recipe": "30x Wikelo Favour; 10x Ace Interceptor Helmet; 3x Carinite (Pure); 3x Irradiated Valakkar Pearl (Grade AAA)",
       "components": [
         {
           "type": "Power Plant",
@@ -2020,7 +2004,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Want Tanrus ship",
-      "recipe": "30x Wikelo Favor; 3x Carinite (Pure); 3x Irradiated Valakkar Pearl (Grade AAA); 3x Goverment Cartography Agency Medal (Pristine)",
+      "recipe": "30x Wikelo Favour; 3x Carinite (Pure); 3x Irradiated Valakkar Pearl (Grade AAA); 3x Goverment Cartography Agency Medal (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -2068,7 +2052,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "F8 War Special",
-      "recipe": "40x Wikelo Favor; 4x Carinite (Pure); 4x Irradiated Valakkar Pearl (Grade AAA); 4x Tevarin War Service Marker (Pristine)",
+      "recipe": "40x Wikelo Favour; 4x Carinite (Pure); 4x Irradiated Valakkar Pearl (Grade AAA); 4x Tevarin War Service Marker (Pristine)",
       "components": [
         {
           "type": "Power Plant",
@@ -2116,7 +2100,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Sneaky Stabber",
-      "recipe": "40x Wikelo Favor; 15x DCHS-05 Comp-Board; 3x Carinite (Pure); 3x Irradiated Valakkar Pearl (Grade AAA)",
+      "recipe": "40x Wikelo Favour; 15x DCHS-05 Orbital Positioning Comp-Board; 3x Carinite (Pure); 3x Irradiated Valakkar Pearl (Grade AAA)",
       "components": [
         {
           "type": "Power Plant",
@@ -2164,7 +2148,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "New Move Big Starlancer Ship",
-      "recipe": "50x Wikelo Favor; 30x ASD Secure Drive; 15x Ace Interceptor Helmet; 3x Irradiated Valakkar Pearl (Grade AAA); 3x Tevarin War Service Marker (Pristine); 3x Carinite (Pure); 3x DCHS-05 Comp-Board",
+      "recipe": "50x Wikelo Favour; 30x ASD Secure Drive; 15x Ace Interceptor Helmet; 3x Irradiated Valakkar Pearl (Grade AAA); 3x Tevarin War Service Marker (Pristine); 3x Carinite (Pure); 3x DCHS-05 Orbital Positioning Comp-Board",
       "components": [
         {
           "type": "Power Plant",
@@ -2212,7 +2196,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Starlifter A2 War Mod",
-      "recipe": "50x Wikelo Favor; 20x Polaris Bit; 20x MG Scrip; 6x ASD Secure Drive; 6x Irradiated Valakkar Pearl (Grade AAA); 6x Tevarin War Service Marker (Pristine); 6x DCHS-05 Comp-Board; 6x Carinite (Pure)",
+      "recipe": "50x Wikelo Favour; 20x Polaris Bit; 20x MG Scrip; 6x ASD Secure Drive; 6x Irradiated Valakkar Pearl (Grade AAA); 6x Tevarin War Service Marker (Pristine); 6x DCHS-05 Orbital Positioning Comp-Board; 6x Carinite (Pure)",
       "components": [
         {
           "type": "Power Plant",
@@ -2260,7 +2244,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "",
-      "recipe": "50x Wikelo Favor; 5x RCMBNT-PWL-1; 5x RCMBNT-PWL-2; 5x RCMBNT-PWL-3; 5x RCMBNT-RGL-1; 5x RCMBNT-RGL-2; 5x RCMBNT-RGL-3; 5x RCMBNT-XTL-1; 5x RCMBNT-XTL-2; 5x RCMBNT-XTL-3; 3x ASD Secure Drive",
+      "recipe": "50x Wikelo Favour; 5x RCMBNT-PWL-1; 5x RCMBNT-PWL-2; 5x RCMBNT-PWL-3; 5x RCMBNT-RGL-1; 5x RCMBNT-RGL-2; 5x RCMBNT-RGL-3; 5x RCMBNT-XTL-1; 5x RCMBNT-XTL-2; 5x RCMBNT-XTL-3; 3x ASD Secure Drive",
       "components": [
         {
           "type": "Power Plant",
@@ -2308,7 +2292,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "Prowler More Utility",
-      "recipe": "40x Wikelo Favor; 10x Yormandi Tongue; 20x Yormandi Eye; 3x Irradiated Valakkar Pearl (Grade AAA); 3x Carinite (Pure)",
+      "recipe": "40x Wikelo Favour; 10x Yormandi Tongue; 20x Yormandi Eye; 3x Irradiated Valakkar Pearl (Grade AAA); 3x Carinite (Pure)",
       "components": [
         {
           "type": "Power Plant",
@@ -2356,7 +2340,7 @@
       "date_updated": "2025-12-18",
       "status": "active",
       "mission_name": "",
-      "recipe": "50x Wikelo Favor; 50x Polaris Bit; 50x DCHS-05 Orbital Positioning Comp-Board; 50x Carinite; 50x Irradiated Valakkar Fang (Apex); 50x MG Scrip; 50x Ace Interceptor Helmet; 30x Irradiated Valakkar Pearl (Grade AAA); 30x UEE 6th Platoon Medal (Pristine); 30x Carinite (Pure); 30x ASD Secure Drive; 5x RCMBNT-PWL-1; 5x RCMBNT-PWL-2; 5x RCMBNT-PWL-3; 5x RCMBNT-RGL-1; 5x RCMBNT-RGL-2; 5x RCMBNT-RGL-3; 5x RCMBNT-XTL-1; 5x RCMBNT-XTL-2; 5x RCMBNT-XTL-3",
+      "recipe": "50x Wikelo Favour; 50x Polaris Bit; 50x DCHS-05 Orbital Positioning Comp-Board; 50x Carinite (Ore); 50x Irradiated Valakkar Fang (Apex); 50x MG Scrip; 50x Ace Interceptor Helmet; 30x Irradiated Valakkar Pearl (Grade AAA); 30x UEE 6th Platoon Medal (Pristine); 30x Carinite (Pure); 30x ASD Secure Drive; 5x RCMBNT-PWL-1; 5x RCMBNT-PWL-2; 5x RCMBNT-PWL-3; 5x RCMBNT-RGL-1; 5x RCMBNT-RGL-2; 5x RCMBNT-RGL-3; 5x RCMBNT-XTL-1; 5x RCMBNT-XTL-2; 5x RCMBNT-XTL-3",
       "components": [
         {
           "type": "Power Plant",
@@ -2403,7 +2387,7 @@
       "patch": "4.5",
       "status": "active",
       "mission_name": "Now Make Polaris",
-      "recipe": "50x Wikelo Favors; 15x UEE 6th Platoon Medal (Pristine); 1x RCMBNT-XTL-3; 15x Polaris Bits; 15x Carinite (Pure); 1x RCMBNT-PWL-1; 10x DCHS-05 Comp-Board; 15x ASD Secure Drive; 1x RCMBNT-RGL-1; 20x Carinite; 1x RCMBNT-PWL-2; 1x RCMBNT-XTL-1; 20x Irradiated Valakkar Fang (Apex); 1x RCMBNT-RGL-2; 20x MG Scrip; 1x RCMBNT-XTL-2; 15x Ace Interceptor Helmet; 1x RCMBNT-PWL-3; 15x Irradiated Valakkar Pearl (Grade AAA); 1x RCMBNT-RGL-3",
+      "recipe": "50x Wikelo Favours; 15x UEE 6th Platoon Medal (Pristine); 1x RCMBNT-XTL-3; 15x Polaris Bit; 15x Carinite (Pure); 1x RCMBNT-PWL-1; 10x DCHS-05 Orbital Positioning Comp-Board; 15x ASD Secure Drive; 1x RCMBNT-RGL-1; 20x Carinite (Ore); 1x RCMBNT-PWL-2; 1x RCMBNT-XTL-1; 20x Irradiated Valakkar Fang (Apex); 1x RCMBNT-RGL-2; 20x MG Scrip; 1x RCMBNT-XTL-2; 15x Ace Interceptor Helmet; 1x RCMBNT-PWL-3; 15x Irradiated Valakkar Pearl (Grade AAA); 1x RCMBNT-RGL-3",
       "components": [],
       "components_summary": "",
       "image_credit": "",
@@ -2717,10 +2701,10 @@
       "sheet_name": "Pearls -> Favors",
       "patch": "4.5",
       "date_updated": "2025-12-18",
-      "description": "You can earn Wikelo Favors in 4.3 by trading Wikelo 12x Irradiated Apex Valakkar Pearls (AA) aquired from Storm Breaker sandbox activity in Pryo. Used to be 10x AAA prior to 4.5",
+      "description": "You can earn Wikelo Favours in 4.3 by trading Wikelo 12x Irradiated Apex Valakkar Pearls (AA) aquired from Storm Breaker sandbox activity in Pryo. Used to be 10x AAA prior to 4.5",
       "recipe": "12x Irradiated Valakkar Pearl (Grade AA) 📷 credit MrKraken",
-      "reward": "1x Wikelo Favor",
-      "notes": "Turning in 10+ pearls at the same time doesn't work (to complete more than 1 mission at the same time) you get 1 Wikelo Favor and the extra pearls goes into your inventory. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box stack the pearls into lots of 15 in the item kiosk, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in.",
+      "reward": "1x Wikelo Favour",
+      "notes": "Turning in 10+ pearls at the same time doesn't work (to complete more than 1 mission at the same time) you get 1 Wikelo Favour and the extra pearls goes into your inventory. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box stack the pearls into lots of 15 in the item kiosk, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in.",
       "further_reading": [
         {
           "title": "MrKraken's Excellent Storm Breaker One-Page Guide",
@@ -2740,10 +2724,10 @@
       "sheet_name": "Carinite -> Favors",
       "patch": "4.3",
       "date_updated": "2025-08-14",
-      "description": "You can earn Wikelo Favors in 4.2 by trading Wikelo 40x Carinite aquired from Align and Mine sandbox at Aberdeen / Daymar",
-      "recipe": "50x Carinite",
-      "reward": "1x Wikelo Favor",
-      "notes": "Turning in 50+ Carinite at the same time doesn't work (to complete more than 1 mission at the same time) you get 1 Wikelo Favor and the extra Carinite goes into your inventory unstacked There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box stack the Carinite into lots of 50 in the item kiosk, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in.",
+      "description": "You can earn Wikelo Favours in 4.2 by trading Wikelo 40x Carinite aquired from Align and Mine sandbox at Aberdeen / Daymar",
+      "recipe": "50x Carinite (Ore)",
+      "reward": "1x Wikelo Favour",
+      "notes": "Turning in 50+ Carinite at the same time doesn't work (to complete more than 1 mission at the same time) you get 1 Wikelo Favour and the extra Carinite goes into your inventory unstacked There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box stack the Carinite into lots of 50 in the item kiosk, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in.",
       "further_reading": [
         {
           "title": "My Align & Mine Sheet",
@@ -2771,10 +2755,10 @@
       "sheet_name": "Scrip -> Favors",
       "patch": "4.1.1",
       "date_updated": "2025-05-07",
-      "description": "You can turn in 50x MG Scrip / Council Scrip for 1x Wikelo Favor which is part of most trades with Wikelo, you get MG Scrip from Hunt the Polaris (in 4.1.1), Foxwell Patrol / Ambush missions, and combat gauntlet missions from Gilly. You get Council Scrip from Headhunters Patrol / Ambush missions.",
+      "description": "You can turn in 50x MG Scrip / Council Scrip for 1x Wikelo Favour which is part of most trades with Wikelo, you get MG Scrip from Hunt the Polaris (in 4.1.1), Foxwell Patrol / Ambush missions, and combat gauntlet missions from Gilly. You get Council Scrip from Headhunters Patrol / Ambush missions.",
       "recipe": "50x MG Scrip; 50x Council Scrip",
-      "reward": "1x Wikelo Favor",
-      "notes": "Turning in 50+ scrip at the same time doesn't work (to complete more than 1 mission at the same time) you get 1 Wikelo Favor and the extra scrip goes into your inventory unstacked (which is a pain). There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box stack the scrip into lots of 50 in the item kiosk (or just ship it in the stor*all in stacks of 50), go to the cargo elevator kiosk and send a stack of 50 script up the cargo elevator, and then down it to turn in.",
+      "reward": "1x Wikelo Favour",
+      "notes": "Turning in 50+ scrip at the same time doesn't work (to complete more than 1 mission at the same time) you get 1 Wikelo Favour and the extra scrip goes into your inventory unstacked (which is a pain). There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box stack the scrip into lots of 50 in the item kiosk (or just ship it in the stor*all in stacks of 50), go to the cargo elevator kiosk and send a stack of 50 script up the cargo elevator, and then down it to turn in.",
       "further_reading": [
         {
           "title": "Inside Star Citizen on Patrol Missions",
