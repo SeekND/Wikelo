@@ -434,11 +434,6 @@ a:hover { color: var(--accent-blue); }
     background: rgba(68,221,136,0.03);
 }
 .inv-mission-card.completable:hover { border-color: rgba(68,221,136,0.4); }
-.inv-mission-card.selected {
-    border-color: var(--accent-green) !important;
-    background: rgba(68,221,136,0.06) !important;
-    box-shadow: 0 0 16px rgba(68,221,136,0.1), inset 0 0 0 1px rgba(68,221,136,0.15);
-}
 
 .inv-mission-header {
     display: flex; justify-content: space-between; align-items: center;
@@ -483,11 +478,6 @@ a:hover { color: var(--accent-blue); }
     font-size: 0.68rem; color: var(--accent-orange); opacity: 0.7;
 }
 
-.inv-deselect-hint, .inv-select-hint {
-    margin-top: 0.4rem; font-family: var(--font-mono);
-    font-size: 0.62rem; color: var(--text-dim); font-style: italic;
-}
-
 /* === FOOTER === */
 .site-footer {
     max-width: 1400px; margin: 3rem auto 0; padding: 1.5rem;
@@ -514,4 +504,182 @@ a:hover { color: var(--accent-blue); }
     .filters { flex-direction: column; align-items: stretch; }
     .search-box input { width: 100%; }
     .item-card-header { flex-direction: column; }
+}
+
+/* =========================================================
+   WELCOME / LANDING PAGE
+   ========================================================= */
+.welcome-page {
+    text-align: center;
+    padding: 2rem 1rem 3rem;
+    position: relative;
+}
+
+.welcome-glow {
+    position: absolute;
+    top: -60px; left: 50%; transform: translateX(-50%);
+    width: 400px; height: 400px;
+    background: radial-gradient(ellipse, rgba(255,138,58,0.06) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.welcome-icon {
+    font-size: 4rem;
+    color: var(--accent-orange);
+    text-shadow: 0 0 40px rgba(255,138,58,0.4), 0 0 80px rgba(255,138,58,0.15);
+    margin-bottom: 1rem;
+    animation: welcome-pulse 4s ease-in-out infinite;
+}
+
+@keyframes welcome-pulse {
+    0%, 100% { text-shadow: 0 0 30px rgba(255,138,58,0.3), 0 0 60px rgba(255,138,58,0.1); }
+    50% { text-shadow: 0 0 50px rgba(255,138,58,0.5), 0 0 100px rgba(255,138,58,0.2); }
+}
+
+.welcome-title {
+    font-family: var(--font-display);
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 0.2em;
+    color: var(--text-bright);
+    margin-bottom: 0.5rem;
+}
+
+.welcome-tagline {
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+}
+
+.welcome-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto 2.5rem;
+}
+
+.welcome-card {
+    width: calc(33.333% - 0.75rem);
+    min-width: 200px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-dim);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem 1rem;
+    cursor: pointer;
+    transition: all 0.25s;
+    text-align: center;
+}
+
+.welcome-card:hover {
+    border-color: var(--accent-cyan);
+    background: var(--bg-card-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 16px rgba(0,212,255,0.08);
+}
+
+.welcome-card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
+}
+
+.welcome-card h3 {
+    font-family: var(--font-display);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-bright);
+    margin-bottom: 0.4rem;
+}
+
+.welcome-card p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+/* Logo clickable */
+.logo-clickable { cursor: pointer; }
+.logo-clickable:hover .logo-icon { transform: scale(1.05); }
+
+/* =========================================================
+   INVENTORY — CART STYLES
+   ========================================================= */
+.inv-cart-header {
+    font-family: var(--font-display); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.15em; color: var(--accent-green);
+    padding: 0.5rem 0; margin-bottom: 0.5rem;
+}
+
+.inv-cart-divider {
+    border-top: 1px dashed var(--border-glow);
+    margin: 1rem 0;
+}
+
+.inv-available-header {
+    font-family: var(--font-display); font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.15em; color: var(--text-dim);
+    padding: 0.25rem 0; margin-bottom: 0.5rem;
+}
+
+.inv-mission-actions {
+    display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0;
+}
+
+.inv-add-btn {
+    font-family: var(--font-display); font-size: 0.58rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent-cyan); background: rgba(0,212,255,0.08);
+    border: 1px solid rgba(0,212,255,0.25);
+    padding: 0.3rem 0.6rem; border-radius: 3px;
+    cursor: pointer; transition: all 0.15s; white-space: nowrap;
+}
+.inv-add-btn:hover {
+    background: rgba(0,212,255,0.15); border-color: var(--accent-cyan);
+}
+
+.inv-remove-btn {
+    font-size: 0.85rem; color: var(--accent-red);
+    background: rgba(255,68,102,0.08); border: 1px solid rgba(255,68,102,0.2);
+    width: 24px; height: 24px; display: flex; align-items: center; justify-content: center;
+    border-radius: 3px; cursor: pointer; transition: all 0.15s;
+    line-height: 1;
+}
+.inv-remove-btn:hover { background: rgba(255,68,102,0.2); border-color: var(--accent-red); }
+
+.inv-purchase-btn {
+    font-family: var(--font-display); font-size: 0.56rem; font-weight: 500;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent-green); background: rgba(68,221,136,0.1);
+    border: 1px solid rgba(68,221,136,0.3);
+    padding: 0.25rem 0.55rem; border-radius: 3px;
+    cursor: pointer; transition: all 0.15s; white-space: nowrap;
+}
+.inv-purchase-btn:hover {
+    background: rgba(68,221,136,0.25); border-color: var(--accent-green);
+    color: var(--text-bright);
+}
+
+.inv-cart-icon {
+    font-size: 0.9rem; flex-shrink: 0;
+}
+
+.inv-mission-card.cart-complete {
+    border-color: var(--accent-green) !important;
+    background: rgba(68,221,136,0.05) !important;
+    box-shadow: 0 0 12px rgba(68,221,136,0.08);
+}
+
+.inv-mission-card.cart-partial {
+    border-color: var(--accent-gold) !important;
+    background: rgba(255,200,68,0.04) !important;
+}
+
+.inv-short-label {
+    color: var(--accent-red); font-size: 0.58rem; font-weight: 400;
+    margin-left: 2px;
 }

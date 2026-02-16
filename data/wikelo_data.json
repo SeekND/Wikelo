@@ -465,142 +465,6 @@
       "image_url": ""
     },
     {
-      "id": "item_017",
-      "name": "ATLS IKTI",
-      "category": "vehicle",
-      "patch": "4.5",
-      "date_updated": "2025-12-18",
-      "status": "active",
-      "mission_name": "Make ATLS shoot",
-      "recipe": "1x Argo ATLS; 2x NN-13 Cannon; 5x Irradiated Valakkar Fang (Apex); 2x Wikelo Favour",
-      "reward": "ATLS IKTI",
-      "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
-      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favour @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
-      "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
-      "further_reading": [
-        {
-          "title": "MrKraken's Excellent Storm Breaker One-Page Guide",
-          "url": "https://robertsspaceindustries.com/community-hub/post/storm-breaker-one-page-guide-XTU7HaiJkZyFs"
-        },
-        {
-          "title": "MrKraken's Storm Breaker Storm Breaker Complete Guide",
-          "url": "https://www.youtube.com/watch?v=OOhGdMh_DyA"
-        },
-        {
-          "title": "CIG's 4.2 Storm Breaker Trailer",
-          "url": "https://www.youtube.com/watch?v=_OzfPaUWYpY"
-        },
-        {
-          "title": "Inside Star Citizen | Alpha 4.2: Into the Storm (ISC on Storm Breaker)",
-          "url": "https://www.youtube.com/watch?v=la7t9x4ijVY"
-        }
-      ],
-      "sheet_name": "ATLS IKTI (GEO) 4.5",
-      "image_url": ""
-    },
-    {
-      "id": "item_018",
-      "name": "ATLS IKTI GEO",
-      "category": "vehicle",
-      "patch": "4.5",
-      "date_updated": "2025-12-18",
-      "status": "active",
-      "mission_name": "Make jumpy ATLS shoot",
-      "recipe": "1x Argo ATLS GEO; 1x Argo ATLS IKTI; 2x NN-13 Cannon; 1x Wikelo Favour",
-      "reward": "ATLS IKTI GEO",
-      "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
-      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favour @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
-      "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
-      "further_reading": [
-        {
-          "title": "MrKraken's Excellent Storm Breaker One-Page Guide",
-          "url": "https://robertsspaceindustries.com/community-hub/post/storm-breaker-one-page-guide-XTU7HaiJkZyFs"
-        },
-        {
-          "title": "MrKraken's Storm Breaker Storm Breaker Complete Guide",
-          "url": "https://www.youtube.com/watch?v=OOhGdMh_DyA"
-        },
-        {
-          "title": "CIG's 4.2 Storm Breaker Trailer",
-          "url": "https://www.youtube.com/watch?v=_OzfPaUWYpY"
-        },
-        {
-          "title": "Inside Star Citizen | Alpha 4.2: Into the Storm (ISC on Storm Breaker)",
-          "url": "https://www.youtube.com/watch?v=la7t9x4ijVY"
-        }
-      ],
-      "sheet_name": "ATLS IKTI (GEO) 4.5",
-      "image_url": ""
-    },
-    {
-      "id": "item_019",
-      "name": "ATLS Snowland Skin",
-      "category": "vehicle",
-      "patch": "4.5",
-      "date_updated": "2025-12-18",
-      "status": "active",
-      "mission_name": "",
-      "recipe": "1x Wikelo Favour; 1x Irradiated Valakkar Pearl (Grade AAA); 1x Argo ATLS",
-      "reward": "ATLS Snowland Skin",
-      "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
-      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favour @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
-      "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
-      "further_reading": [
-        {
-          "title": "MrKraken's Excellent Storm Breaker One-Page Guide",
-          "url": "https://robertsspaceindustries.com/community-hub/post/storm-breaker-one-page-guide-XTU7HaiJkZyFs"
-        },
-        {
-          "title": "MrKraken's Storm Breaker Storm Breaker Complete Guide",
-          "url": "https://www.youtube.com/watch?v=OOhGdMh_DyA"
-        },
-        {
-          "title": "CIG's 4.2 Storm Breaker Trailer",
-          "url": "https://www.youtube.com/watch?v=_OzfPaUWYpY"
-        },
-        {
-          "title": "Inside Star Citizen | Alpha 4.2: Into the Storm (ISC on Storm Breaker)",
-          "url": "https://www.youtube.com/watch?v=la7t9x4ijVY"
-        }
-      ],
-      "sheet_name": "ATLS IKTI (GEO) 4.5",
-      "image_url": ""
-    },
-    {
-      "id": "item_020",
-      "name": "ATLS Orange Line Skin",
-      "category": "vehicle",
-      "patch": "4.5",
-      "date_updated": "2025-12-18",
-      "status": "active",
-      "mission_name": "",
-      "recipe": "1x Wikelo Favour; 36x SCU Quantaninium; 1x Argo ATLS; 8x SCU Copper; 8x SCU Tungsten; 8x SCU Corundum",
-      "reward": "ATLS Orange Line Skin",
-      "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
-      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favour @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
-      "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
-      "further_reading": [
-        {
-          "title": "MrKraken's Excellent Storm Breaker One-Page Guide",
-          "url": "https://robertsspaceindustries.com/community-hub/post/storm-breaker-one-page-guide-XTU7HaiJkZyFs"
-        },
-        {
-          "title": "MrKraken's Storm Breaker Storm Breaker Complete Guide",
-          "url": "https://www.youtube.com/watch?v=OOhGdMh_DyA"
-        },
-        {
-          "title": "CIG's 4.2 Storm Breaker Trailer",
-          "url": "https://www.youtube.com/watch?v=_OzfPaUWYpY"
-        },
-        {
-          "title": "Inside Star Citizen | Alpha 4.2: Into the Storm (ISC on Storm Breaker)",
-          "url": "https://www.youtube.com/watch?v=la7t9x4ijVY"
-        }
-      ],
-      "sheet_name": "ATLS IKTI (GEO) 4.5",
-      "image_url": ""
-    },
-    {
       "id": "item_021",
       "name": "Glowy Armor Set",
       "category": "armor",
@@ -2388,6 +2252,158 @@
       "status": "active",
       "mission_name": "Now Make Polaris",
       "recipe": "50x Wikelo Favour; 15x UEE 6th Platoon Medal (Pristine); 1x RCMBNT-XTL-3; 15x Polaris Bit; 15x Carinite (Pure); 1x RCMBNT-PWL-1; 10x DCHS-05 Orbital Positioning Comp-Board; 15x ASD Secure Drive; 1x RCMBNT-RGL-1; 20x Carinite (Ore); 1x RCMBNT-PWL-2; 1x RCMBNT-XTL-1; 20x Irradiated Valakkar Fang (Apex); 1x RCMBNT-RGL-2; 20x MG Scrip; 1x RCMBNT-XTL-2; 15x Ace Interceptor Helmet; 1x RCMBNT-PWL-3; 15x Irradiated Valakkar Pearl (Grade AAA); 1x RCMBNT-RGL-3",
+      "components": [],
+      "components_summary": "",
+      "image_credit": "",
+      "other_components": ""
+    },
+    {
+      "id": "item_017",
+      "name": "ATLS IKTI",
+      "category": "vehicle",
+      "patch": "4.5",
+      "date_updated": "2025-12-18",
+      "status": "active",
+      "mission_name": "Make ATLS shoot",
+      "recipe": "1x Argo ATLS; 2x NN-13 Cannon; 5x Irradiated Valakkar Fang (Apex); 2x Wikelo Favour",
+      "reward": "ATLS IKTI",
+      "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
+      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favour @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
+      "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
+      "further_reading": [
+        {
+          "title": "MrKraken's Excellent Storm Breaker One-Page Guide",
+          "url": "https://robertsspaceindustries.com/community-hub/post/storm-breaker-one-page-guide-XTU7HaiJkZyFs"
+        },
+        {
+          "title": "MrKraken's Storm Breaker Storm Breaker Complete Guide",
+          "url": "https://www.youtube.com/watch?v=OOhGdMh_DyA"
+        },
+        {
+          "title": "CIG's 4.2 Storm Breaker Trailer",
+          "url": "https://www.youtube.com/watch?v=_OzfPaUWYpY"
+        },
+        {
+          "title": "Inside Star Citizen | Alpha 4.2: Into the Storm (ISC on Storm Breaker)",
+          "url": "https://www.youtube.com/watch?v=la7t9x4ijVY"
+        }
+      ],
+      "sheet_name": "ATLS IKTI (GEO) 4.5",
+      "image_url": "",
+      "components": [],
+      "components_summary": "",
+      "image_credit": "",
+      "other_components": ""
+    },
+    {
+      "id": "item_018",
+      "name": "ATLS IKTI GEO",
+      "category": "vehicle",
+      "patch": "4.5",
+      "date_updated": "2025-12-18",
+      "status": "active",
+      "mission_name": "Make jumpy ATLS shoot",
+      "recipe": "1x Argo ATLS GEO; 1x Argo ATLS IKTI; 2x NN-13 Cannon; 1x Wikelo Favour",
+      "reward": "ATLS IKTI GEO",
+      "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
+      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favour @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
+      "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
+      "further_reading": [
+        {
+          "title": "MrKraken's Excellent Storm Breaker One-Page Guide",
+          "url": "https://robertsspaceindustries.com/community-hub/post/storm-breaker-one-page-guide-XTU7HaiJkZyFs"
+        },
+        {
+          "title": "MrKraken's Storm Breaker Storm Breaker Complete Guide",
+          "url": "https://www.youtube.com/watch?v=OOhGdMh_DyA"
+        },
+        {
+          "title": "CIG's 4.2 Storm Breaker Trailer",
+          "url": "https://www.youtube.com/watch?v=_OzfPaUWYpY"
+        },
+        {
+          "title": "Inside Star Citizen | Alpha 4.2: Into the Storm (ISC on Storm Breaker)",
+          "url": "https://www.youtube.com/watch?v=la7t9x4ijVY"
+        }
+      ],
+      "sheet_name": "ATLS IKTI (GEO) 4.5",
+      "image_url": "",
+      "components": [],
+      "components_summary": "",
+      "image_credit": "",
+      "other_components": ""
+    },
+    {
+      "id": "item_019",
+      "name": "ATLS Snowland Skin",
+      "category": "vehicle",
+      "patch": "4.5",
+      "date_updated": "2025-12-18",
+      "status": "active",
+      "mission_name": "",
+      "recipe": "1x Wikelo Favour; 1x Irradiated Valakkar Pearl (Grade AAA); 1x Argo ATLS",
+      "reward": "ATLS Snowland Skin",
+      "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
+      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favour @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
+      "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
+      "further_reading": [
+        {
+          "title": "MrKraken's Excellent Storm Breaker One-Page Guide",
+          "url": "https://robertsspaceindustries.com/community-hub/post/storm-breaker-one-page-guide-XTU7HaiJkZyFs"
+        },
+        {
+          "title": "MrKraken's Storm Breaker Storm Breaker Complete Guide",
+          "url": "https://www.youtube.com/watch?v=OOhGdMh_DyA"
+        },
+        {
+          "title": "CIG's 4.2 Storm Breaker Trailer",
+          "url": "https://www.youtube.com/watch?v=_OzfPaUWYpY"
+        },
+        {
+          "title": "Inside Star Citizen | Alpha 4.2: Into the Storm (ISC on Storm Breaker)",
+          "url": "https://www.youtube.com/watch?v=la7t9x4ijVY"
+        }
+      ],
+      "sheet_name": "ATLS IKTI (GEO) 4.5",
+      "image_url": "",
+      "components": [],
+      "components_summary": "",
+      "image_credit": "",
+      "other_components": ""
+    },
+    {
+      "id": "item_020",
+      "name": "ATLS Orange Line Skin",
+      "category": "vehicle",
+      "patch": "4.5",
+      "date_updated": "2025-12-18",
+      "status": "active",
+      "mission_name": "",
+      "recipe": "1x Wikelo Favour; 36x SCU Quantaninium; 1x Argo ATLS; 8x SCU Copper; 8x SCU Tungsten; 8x SCU Corundum",
+      "reward": "ATLS Orange Line Skin",
+      "description": "Wikelo Has a mission to turn ATLS into ATLS Ikti, and ATLS Ikti + ATLS GEO into ATLS Ikti GEO both with a Wikelo themed skin, like his ships. Turning in an ATLS or variant thereof to Wikelo doesn't mean you lose access to it.",
+      "sources": "Argo ATLS, Argo ATLS GEO @ Sold in all ship stores; Wikelo Favour @ 1x Wikelo Favour costs 15x Irradiated Apex Valakkar Pearls / x50 Scrip / x50 Carinite; NN-13 Cannon @ Orbituary Contested Zone, or Wikelo's Golem for 5x Wikelo Favour, 15x ASD Secure Drive; Irradiated Valakkar Pearl @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); Irradiated Valakkar Fang (Apex) @ Apex Irradiated Valakkar, found at Lazarous Complex on Pyro 1 (part of Storm Breaker sandbox); DCHS-05 Orbital Positioning Comp-Board @ looted from Ghost Arena in Ruin Station",
+      "notes": "I assume they're not meant to look exactly identical, pretty sure GEO is meant to have the backpack that enables it to jump, but not non-GEO one, the 2 on display at Wikelo's are exactly identical for some reason. There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
+      "further_reading": [
+        {
+          "title": "MrKraken's Excellent Storm Breaker One-Page Guide",
+          "url": "https://robertsspaceindustries.com/community-hub/post/storm-breaker-one-page-guide-XTU7HaiJkZyFs"
+        },
+        {
+          "title": "MrKraken's Storm Breaker Storm Breaker Complete Guide",
+          "url": "https://www.youtube.com/watch?v=OOhGdMh_DyA"
+        },
+        {
+          "title": "CIG's 4.2 Storm Breaker Trailer",
+          "url": "https://www.youtube.com/watch?v=_OzfPaUWYpY"
+        },
+        {
+          "title": "Inside Star Citizen | Alpha 4.2: Into the Storm (ISC on Storm Breaker)",
+          "url": "https://www.youtube.com/watch?v=la7t9x4ijVY"
+        }
+      ],
+      "sheet_name": "ATLS IKTI (GEO) 4.5",
+      "image_url": "",
       "components": [],
       "components_summary": "",
       "image_credit": "",

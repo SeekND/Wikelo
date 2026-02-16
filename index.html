@@ -13,7 +13,7 @@
     
     <header class="site-header">
         <div class="header-inner">
-            <div class="logo-group">
+            <div class="logo-group logo-clickable" onclick="switchSection('welcome')" title="Home">
                 <div class="logo-icon">⬡</div>
                 <div class="logo-text">
                     <h1>WIKELO'S EMPORIUM</h1>
@@ -21,8 +21,8 @@
                 </div>
             </div>
             <nav class="header-nav">
-                <a href="#items" class="nav-link active" data-section="items">Items</a>
-                <a href="#ships" class="nav-link" data-section="ships">Ships</a>
+                <a href="#items" class="nav-link" data-section="items">Items</a>
+                <a href="#ships" class="nav-link" data-section="ships">Ships & Vehicles</a>
                 <a href="#currency" class="nav-link" data-section="currency">Currency</a>
                 <a href="#inventory" class="nav-link" data-section="inventory">Inventory</a>
                 <a href="#reputation" class="nav-link" data-section="reputation">Reputation</a>
@@ -39,8 +39,45 @@
             <p>Data compiled by <strong>☄️ ChrisK3 ☄️</strong> — <a href="https://docs.google.com/spreadsheets/d/1ji0q_pp6iW35RG1YyFEsv-lsmZOaCStJXGdIEdLLwhM/" target="_blank">Original Spreadsheet</a></p>
         </div>
 
+        <!-- WELCOME -->
+        <section id="welcome" class="content-section active">
+            <div class="welcome-page">
+                <div class="welcome-glow"></div>
+                <div class="welcome-icon">⬡</div>
+                <h2 class="welcome-title">WIKELO'S EMPORIUM</h2>
+                <p class="welcome-tagline">Your guide to the Banu trader's offerings in Star Citizen</p>
+                <div class="welcome-grid">
+                    <div class="welcome-card" onclick="switchSection('items')">
+                        <div class="welcome-card-icon">🦺</div>
+                        <h3>Items & Recipes</h3>
+                        <p>Armor sets, weapon skins, and their crafting recipes</p>
+                    </div>
+                    <div class="welcome-card" onclick="switchSection('ships')">
+                        <div class="welcome-card-icon">🚀</div>
+                        <h3>Ships & Vehicles</h3>
+                        <p>Ship modifications, components, and ATLS variants</p>
+                    </div>
+                    <div class="welcome-card" onclick="switchSection('currency')">
+                        <div class="welcome-card-icon">💰</div>
+                        <h3>Currency</h3>
+                        <p>How to earn Wikelo Favors through material exchange</p>
+                    </div>
+                    <div class="welcome-card" onclick="switchSection('inventory')">
+                        <div class="welcome-card-icon">📦</div>
+                        <h3>Inventory Planner</h3>
+                        <p>Enter your materials, plan your trades, build a shopping list</p>
+                    </div>
+                    <div class="welcome-card" onclick="switchSection('reputation')">
+                        <div class="welcome-card-icon">⭐</div>
+                        <h3>Reputation</h3>
+                        <p>Mission reputation rewards and requirements</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- ITEMS -->
-        <section id="items" class="content-section active">
+        <section id="items" class="content-section">
             <div class="section-header">
                 <h2>ITEMS & RECIPES</h2>
                 <div class="filters">
@@ -48,7 +85,6 @@
                         <button class="filter-btn active" data-filter="all">All</button>
                         <button class="filter-btn" data-filter="armor">Armor</button>
                         <button class="filter-btn" data-filter="weapon">Weapons</button>
-                        <button class="filter-btn" data-filter="vehicle">Vehicles</button>
                     </div>
                     <div class="search-box">
                         <input type="text" id="itemSearch" placeholder="Search items...">
@@ -58,12 +94,19 @@
             <div class="items-grid" id="itemsGrid"></div>
         </section>
 
-        <!-- SHIPS -->
+        <!-- SHIPS & VEHICLES -->
         <section id="ships" class="content-section">
             <div class="section-header">
                 <h2>SHIPS & VEHICLES</h2>
-                <div class="search-box">
-                    <input type="text" id="shipSearch" placeholder="Search ships...">
+                <div class="filters">
+                    <div class="filter-group">
+                        <button class="filter-btn active" data-shipfilter="all">All</button>
+                        <button class="filter-btn" data-shipfilter="ship">Ships</button>
+                        <button class="filter-btn" data-shipfilter="vehicle">Vehicles</button>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" id="shipSearch" placeholder="Search ships & vehicles...">
+                    </div>
                 </div>
             </div>
             <div class="ships-grid" id="shipsGrid"></div>
@@ -85,7 +128,7 @@
         <section id="inventory" class="content-section">
             <div class="section-header">
                 <h2>INVENTORY PLANNER</h2>
-                <p class="inv-subtitle">Enter the materials you have. See which missions you can complete and plan your trades.</p>
+                <p class="inv-subtitle">Enter the materials you have. Add missions to your cart to reserve materials. Your inventory is saved automatically.</p>
             </div>
             <div class="inv-layout">
                 <div class="inv-materials-panel">

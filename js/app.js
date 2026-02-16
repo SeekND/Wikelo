@@ -1,18 +1,26 @@
 /**
- * Wikelo's Emporium — Main Application
- * Loads data from JSON, renders the browseable interface,
- * and provides an inventory planner / shopping cart feature.
+ * Wikelo's Emporium — Main Application v3
+ * 
+ * INVENTORY LOGIC:
+ * - Start with full player inventory as the "pool"
+ * - Selected missions are processed in selection order, each deducting from the pool
+ * - After all selections, unselected missions see whatever remains in the pool
+ * - Colour coding: green = have enough, yellow = have some, grey = have none, red = was available but got taken by a selection
  */
 
 let DATA = null;
 let currentFilter = 'all';
-let currentSection = 'items';
+let currentShipFilter = 'all';
+let currentSection = 'welcome';
 
-// Inventory state
-let playerInventory = {};   // { "Carinite": 100, "Wikelo Favor": 5, ... }
-let selectedMissions = {};  // { "item_001": true, "ship_012": true, ... }
-let invFilterMode = 'all';  // 'all', 'completable', 'partial'
-let allMaterialNames = [];  // Sorted unique list of all materials across all recipes
+// Inventory state — persisted to localStorage
+let playerInventory = {};
+let selectedMissionOrder = [];  // Array of IDs in selection order
+let invFilterMode = 'all';
+let allMaterialNames = [];
+
+const STORAGE_KEY_INV = 'wikelo_inventory';
+const STORAGE_KEY_SEL = 'wikelo_selected_order';
 
 // ============================================================
 // DATA LOADING
@@ -21,6 +29,7 @@ async function loadData() {
     try {
         const resp = await fetch('data/wikelo_data.json');
         DATA = await resp.json();
+        loadInventoryFromStorage();
         init();
     } catch (err) {
         console.error('Failed to load data:', err);
@@ -30,23 +39,42 @@ async function loadData() {
 }
 
 function init() {
-    const patches = [...new Set(DATA.items.map(i => i.patch).filter(Boolean))];
+    const patches = [...new Set([
+        ...DATA.items.map(i => i.patch),
+        ...DATA.ships.map(s => s.patch)
+    ].filter(Boolean))];
     const latestPatch = patches.sort().pop() || '4.5';
     document.getElementById('currentPatch').textContent = `Patch ${latestPatch}`;
 
-    // Build master material list from all recipes
     buildMaterialList();
-
     renderItems();
     renderShips();
     renderCurrency();
     renderReputation();
     renderMaterialInputs();
     renderMissionMatches();
-
     setupNav();
     setupFilters();
     setupSearch();
+}
+
+// ============================================================
+// LOCALSTORAGE
+// ============================================================
+function saveToStorage() {
+    try {
+        localStorage.setItem(STORAGE_KEY_INV, JSON.stringify(playerInventory));
+        localStorage.setItem(STORAGE_KEY_SEL, JSON.stringify(selectedMissionOrder));
+    } catch (e) {}
+}
+
+function loadInventoryFromStorage() {
+    try {
+        const inv = localStorage.getItem(STORAGE_KEY_INV);
+        const sel = localStorage.getItem(STORAGE_KEY_SEL);
+        if (inv) playerInventory = JSON.parse(inv);
+        if (sel) selectedMissionOrder = JSON.parse(sel);
+    } catch (e) {}
 }
 
 // ============================================================
@@ -64,21 +92,31 @@ function setupNav() {
 function switchSection(section) {
     currentSection = section;
     document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-    document.querySelector(`.nav-link[data-section="${section}"]`).classList.add('active');
+    const activeLink = document.querySelector(`.nav-link[data-section="${section}"]`);
+    if (activeLink) activeLink.classList.add('active');
     document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
     document.getElementById(section).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ============================================================
 // FILTERS & SEARCH
 // ============================================================
 function setupFilters() {
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    document.querySelectorAll('.filter-btn[data-filter]').forEach(btn => {
         btn.addEventListener('click', () => {
             currentFilter = btn.dataset.filter;
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.filter-btn[data-filter]').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             renderItems();
+        });
+    });
+    document.querySelectorAll('.filter-btn[data-shipfilter]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentShipFilter = btn.dataset.shipfilter;
+            document.querySelectorAll('.filter-btn[data-shipfilter]').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            renderShips();
         });
     });
 }
@@ -89,7 +127,7 @@ function setupSearch() {
 }
 
 // ============================================================
-// PARSE RECIPE STRING
+// PARSE RECIPE
 // ============================================================
 function parseRecipe(recipeStr) {
     if (!recipeStr) return [];
@@ -97,7 +135,6 @@ function parseRecipe(recipeStr) {
         part = part.trim();
         const match = part.match(/^(\d+)x\s+(.+)$/);
         if (match) return { qty: parseInt(match[1]), name: match[2] };
-        // Items with no quantity (like "1x Parallax Energy Assault Rifle" or just an item name)
         if (part) return { qty: 1, name: part };
         return null;
     }).filter(r => r && r.name);
@@ -109,7 +146,6 @@ function parseRecipe(recipeStr) {
 function renderItems() {
     const grid = document.getElementById('itemsGrid');
     const searchTerm = document.getElementById('itemSearch').value.toLowerCase();
-
     let items = DATA.items;
     if (currentFilter !== 'all') items = items.filter(i => i.category === currentFilter);
     if (searchTerm) {
@@ -120,133 +156,102 @@ function renderItems() {
             (i.reward && i.reward.toLowerCase().includes(searchTerm))
         );
     }
+    if (items.length === 0) { grid.innerHTML = '<div class="no-results">No items match your search.</div>'; return; }
+    grid.innerHTML = items.map(item => renderItemCard(item)).join('');
+}
 
-    if (items.length === 0) {
-        grid.innerHTML = '<div class="no-results">No items match your search.</div>';
-        return;
-    }
-
-    grid.innerHTML = items.map(item => {
-        const recipe = parseRecipe(item.recipe);
-        const isRetired = item.name.toLowerCase().includes('retired');
-        const sources = item.sources ? item.sources.split(';').map(s => s.trim()).filter(Boolean) : [];
-        const links = item.further_reading || [];
-        const hasDetails = sources.length > 0 || item.notes || links.length > 0;
-
-        return `
-        <div class="item-card" onclick="this.classList.toggle('expanded')">
-            <div class="item-card-header">
-                <div class="item-name">${escHtml(item.name)}</div>
-                <div class="item-badges">
-                    <span class="badge badge-${item.category}">${item.category}</span>
-                    ${item.patch ? `<span class="badge badge-patch">${item.patch}</span>` : ''}
-                    ${isRetired ? '<span class="badge badge-retired">retired</span>' : ''}
-                </div>
+function renderItemCard(item) {
+    const recipe = parseRecipe(item.recipe);
+    const isRetired = item.name.toLowerCase().includes('retired');
+    const sources = item.sources ? item.sources.split(';').map(s => s.trim()).filter(Boolean) : [];
+    const links = item.further_reading || [];
+    const hasDetails = sources.length > 0 || item.notes || links.length > 0 || item.image_url;
+    return `
+    <div class="item-card" onclick="this.classList.toggle('expanded')">
+        <div class="item-card-header">
+            <div class="item-name">${esc(item.name)}</div>
+            <div class="item-badges">
+                <span class="badge badge-${item.category}">${item.category}</span>
+                ${item.patch ? `<span class="badge badge-patch">${item.patch}</span>` : ''}
+                ${isRetired ? '<span class="badge badge-retired">retired</span>' : ''}
             </div>
-            ${item.mission_name ? `<div class="item-mission">Mission: "${escHtml(item.mission_name)}"</div>` : ''}
-            <div class="item-card-body">
-                ${recipe.length > 0 ? `
-                    <div class="recipe-label">Recipe / Cost</div>
-                    <div class="recipe-list">
-                        ${recipe.map(r => `<span class="recipe-item">${r.qty ? `<span class="qty">${r.qty}x</span> ` : ''}${escHtml(r.name)}</span>`).join('')}
-                    </div>
-                ` : ''}
-                ${item.reward ? `<div class="reward-line"><span>Reward: </span>${escHtml(item.reward)}</div>` : ''}
-            </div>
-            ${hasDetails ? '<div class="card-expand-hint">▾ Click for details</div>' : ''}
-            <div class="item-details">
-                ${item.image_url ? `<div class="detail-block"><img src="${escHtml(item.image_url)}" class="item-image" alt="${escHtml(item.name)}"></div>` : ''}
-                ${sources.length > 0 ? `
-                    <div class="detail-block">
-                        <div class="detail-label">Where to Find Materials</div>
-                        <div class="detail-text">${sources.map(s => escHtml(s)).join('<br>')}</div>
-                    </div>
-                ` : ''}
-                ${item.notes ? `
-                    <div class="detail-block">
-                        <div class="detail-label">Notes</div>
-                        <div class="detail-text">${escHtml(item.notes)}</div>
-                    </div>
-                ` : ''}
-                ${links.length > 0 ? `
-                    <div class="detail-block">
-                        <div class="detail-label">Further Reading</div>
-                        <div class="detail-text">${links.map(l => `<a href="${escHtml(l.url)}" target="_blank">${escHtml(l.title)}</a>`).join('<br>')}</div>
-                    </div>
-                ` : ''}
-            </div>
-        </div>`;
-    }).join('');
+        </div>
+        ${item.mission_name ? `<div class="item-mission">Mission: "${esc(item.mission_name)}"</div>` : ''}
+        <div class="item-card-body">
+            ${recipe.length > 0 ? `
+                <div class="recipe-label">Recipe / Cost</div>
+                <div class="recipe-list">${recipe.map(r => `<span class="recipe-item">${r.qty ? `<span class="qty">${r.qty}x</span> ` : ''}${esc(r.name)}</span>`).join('')}</div>
+            ` : ''}
+            ${item.reward ? `<div class="reward-line"><span>Reward: </span>${esc(item.reward)}</div>` : ''}
+        </div>
+        ${hasDetails ? '<div class="card-expand-hint">▾ Click for details</div>' : ''}
+        <div class="item-details">
+            ${item.image_url ? `<div class="detail-block"><img src="${esc(item.image_url)}" class="item-image" alt="${esc(item.name)}"></div>` : ''}
+            ${sources.length > 0 ? `<div class="detail-block"><div class="detail-label">Where to Find Materials</div><div class="detail-text">${sources.map(s => esc(s)).join('<br>')}</div></div>` : ''}
+            ${item.notes ? `<div class="detail-block"><div class="detail-label">Notes</div><div class="detail-text">${esc(item.notes)}</div></div>` : ''}
+            ${links.length > 0 ? `<div class="detail-block"><div class="detail-label">Further Reading</div><div class="detail-text">${links.map(l => `<a href="${esc(l.url)}" target="_blank">${esc(l.title)}</a>`).join('<br>')}</div></div>` : ''}
+        </div>
+    </div>`;
 }
 
 // ============================================================
-// RENDER SHIPS
+// RENDER SHIPS & VEHICLES
 // ============================================================
 function renderShips() {
     const grid = document.getElementById('shipsGrid');
     const searchTerm = document.getElementById('shipSearch').value.toLowerCase();
-
     let ships = DATA.ships;
+    if (currentShipFilter !== 'all') {
+        if (currentShipFilter === 'ship') ships = ships.filter(s => s.category !== 'vehicle');
+        else if (currentShipFilter === 'vehicle') ships = ships.filter(s => s.category === 'vehicle');
+    }
     if (searchTerm) {
         ships = ships.filter(s =>
             s.name.toLowerCase().includes(searchTerm) ||
             s.recipe.toLowerCase().includes(searchTerm) ||
-            s.mission_name.toLowerCase().includes(searchTerm) ||
-            s.components_summary.toLowerCase().includes(searchTerm)
+            (s.mission_name && s.mission_name.toLowerCase().includes(searchTerm)) ||
+            (s.components_summary && s.components_summary.toLowerCase().includes(searchTerm))
         );
     }
-
-    if (ships.length === 0) {
-        grid.innerHTML = '<div class="no-results">No ships match your search.</div>';
-        return;
-    }
-
+    if (ships.length === 0) { grid.innerHTML = '<div class="no-results">No ships or vehicles match your search.</div>'; return; }
     grid.innerHTML = ships.map(ship => {
         const recipe = parseRecipe(ship.recipe);
         const comps = ship.components || [];
-        const hasDetails = ship.other_components || ship.image_credit;
-
+        const hasDetails = ship.other_components || ship.image_credit || ship.image_url;
+        const isVehicle = ship.category === 'vehicle';
         return `
         <div class="ship-card" onclick="this.classList.toggle('expanded')">
             <div class="ship-card-header">
-                <div class="ship-name">${escHtml(ship.name)}</div>
+                <div class="ship-name">${esc(ship.name)}</div>
                 <div class="item-badges">
-                    <span class="badge badge-ship">ship</span>
+                    <span class="badge ${isVehicle ? 'badge-vehicle' : 'badge-ship'}">${isVehicle ? 'vehicle' : 'ship'}</span>
                     ${ship.patch ? `<span class="badge badge-patch">${ship.patch}</span>` : ''}
                 </div>
             </div>
-            ${ship.mission_name ? `<div class="item-mission">Mission: "${escHtml(ship.mission_name)}"</div>` : ''}
+            ${ship.mission_name ? `<div class="item-mission">Mission: "${esc(ship.mission_name)}"</div>` : ''}
             <div class="ship-card-body">
                 ${comps.length > 0 ? `
                     <table class="components-table">
                         <thead><tr><th>Type</th><th>Qty</th><th>Component</th><th>Size</th><th>Class</th><th>Grade</th></tr></thead>
-                        <tbody>
-                            ${comps.map(c => `<tr>
-                                <td>${escHtml(c.type)}</td><td>${escHtml(c.quantity)}</td>
-                                <td class="comp-name">${escHtml(c.name)}</td><td>${escHtml(c.size)}</td>
-                                <td>${escHtml(c['class'])}</td><td class="comp-grade">${escHtml(c.grade)}</td>
-                            </tr>`).join('')}
-                        </tbody>
-                    </table>
-                ` : ''}
+                        <tbody>${comps.map(c => `<tr><td>${esc(c.type)}</td><td>${esc(c.quantity)}</td><td class="comp-name">${esc(c.name)}</td><td>${esc(c.size)}</td><td>${esc(c['class'])}</td><td class="comp-grade">${esc(c.grade)}</td></tr>`).join('')}</tbody>
+                    </table>` : ''}
                 ${recipe.length > 0 ? `
                     <div class="recipe-label">Trade Cost</div>
-                    <div class="recipe-list">
-                        ${recipe.map(r => `<span class="recipe-item">${r.qty ? `<span class="qty">${r.qty}x</span> ` : ''}${escHtml(r.name)}</span>`).join('')}
-                    </div>
+                    <div class="recipe-list">${recipe.map(r => `<span class="recipe-item">${r.qty ? `<span class="qty">${r.qty}x</span> ` : ''}${esc(r.name)}</span>`).join('')}</div>
                 ` : ''}
             </div>
             ${hasDetails ? '<div class="card-expand-hint">▾ Click for details</div>' : ''}
             <div class="ship-details">
-                ${ship.other_components ? `<div class="detail-block"><div class="detail-label">Other Components</div><div class="detail-text">${escHtml(ship.other_components)}</div></div>` : ''}
-                ${ship.image_credit ? `<div class="detail-block"><div class="detail-text" style="font-size:0.72rem; color: var(--text-dim);">Image: ${escHtml(ship.image_credit)}</div></div>` : ''}
+                ${ship.image_url ? `<div class="detail-block"><img src="${esc(ship.image_url)}" class="item-image" alt="${esc(ship.name)}"></div>` : ''}
+                ${ship.other_components ? `<div class="detail-block"><div class="detail-label">Other Components</div><div class="detail-text">${esc(ship.other_components)}</div></div>` : ''}
+                ${ship.image_credit ? `<div class="detail-block"><div class="detail-text" style="font-size:0.72rem; color: var(--text-dim);">Image: ${esc(ship.image_credit)}</div></div>` : ''}
             </div>
         </div>`;
     }).join('');
 }
 
 // ============================================================
-// RENDER CURRENCY
+// RENDER CURRENCY & REPUTATION (unchanged)
 // ============================================================
 function renderCurrency() {
     const grid = document.getElementById('currencyGrid');
@@ -254,125 +259,86 @@ function renderCurrency() {
         const inputs = cx.recipe.split(';').map(s => s.trim()).filter(Boolean);
         const outputs = cx.reward.split(';').map(s => s.trim()).filter(Boolean);
         const links = cx.further_reading || [];
-        return `
-        <div class="currency-card">
+        return `<div class="currency-card">
             <div class="exchange-visual">
-                ${inputs.map((inp, i) => `${i > 0 ? '<span class="exchange-or">or</span>' : ''}<span class="exchange-input">${escHtml(inp)}</span>`).join('')}
+                ${inputs.map((inp, i) => `${i > 0 ? '<span class="exchange-or">or</span>' : ''}<span class="exchange-input">${esc(inp)}</span>`).join('')}
                 <span class="exchange-arrow">→</span>
-                ${outputs.map(o => `<span class="exchange-output">${escHtml(o)}</span>`).join('')}
+                ${outputs.map(o => `<span class="exchange-output">${esc(o)}</span>`).join('')}
             </div>
-            ${cx.description ? `<div class="currency-notes">${escHtml(cx.description)}</div>` : ''}
-            ${cx.notes ? `<div class="currency-notes" style="margin-top:0.5rem; font-size:0.78rem;">${escHtml(cx.notes)}</div>` : ''}
-            ${links.length > 0 ? `<div class="detail-block"><div class="detail-label">Further Reading</div><div class="detail-text">${links.map(l => `<a href="${escHtml(l.url)}" target="_blank">${escHtml(l.title)}</a>`).join('<br>')}</div></div>` : ''}
+            ${cx.description ? `<div class="currency-notes">${esc(cx.description)}</div>` : ''}
+            ${cx.notes ? `<div class="currency-notes" style="margin-top:0.5rem; font-size:0.78rem;">${esc(cx.notes)}</div>` : ''}
+            ${links.length > 0 ? `<div class="detail-block"><div class="detail-label">Further Reading</div><div class="detail-text">${links.map(l => `<a href="${esc(l.url)}" target="_blank">${esc(l.title)}</a>`).join('<br>')}</div></div>` : ''}
         </div>`;
     }).join('');
-
     const vh = DATA.very_hungry;
     if (vh && vh.rewards && vh.rewards.length > 0) {
         document.getElementById('hungrySection').innerHTML = `
             <div class="hungry-title">VERY HUNGRY / ARRIVE TO SYSTEM MISSIONS</div>
-            ${vh.description ? `<div class="hungry-desc">${escHtml(vh.description)}</div>` : ''}
-            <table class="hungry-table">
-                <thead><tr><th>Gun Reward</th><th>Clothing Reward</th></tr></thead>
-                <tbody>${vh.rewards.map(r => `<tr><td>${escHtml(r.gun)}</td><td>${escHtml(r.clothing)}</td></tr>`).join('')}</tbody>
-            </table>
-            ${vh.notes ? `<div class="currency-notes" style="margin-top:1rem; font-size:0.78rem;">${escHtml(vh.notes)}</div>` : ''}
-        `;
+            ${vh.description ? `<div class="hungry-desc">${esc(vh.description)}</div>` : ''}
+            <table class="hungry-table"><thead><tr><th>Gun Reward</th><th>Clothing Reward</th></tr></thead>
+            <tbody>${vh.rewards.map(r => `<tr><td>${esc(r.gun)}</td><td>${esc(r.clothing)}</td></tr>`).join('')}</tbody></table>
+            ${vh.notes ? `<div class="currency-notes" style="margin-top:1rem; font-size:0.78rem;">${esc(vh.notes)}</div>` : ''}`;
     }
 }
 
-// ============================================================
-// RENDER REPUTATION
-// ============================================================
 function renderReputation() {
     const rep = DATA.reputation;
     if (!rep || !rep.entries) return;
-
-    document.getElementById('repInfo').innerHTML = `
-        <p>${escHtml(rep.description || '')}</p>
-        <p style="margin-top:0.5rem; font-size:0.82rem; color: var(--text-dim);">Patch ${escHtml(rep.patch || '')} — Updated ${escHtml(rep.date_updated || '')}</p>
-    `;
-
+    document.getElementById('repInfo').innerHTML = `<p>${esc(rep.description || '')}</p><p style="margin-top:0.5rem; font-size:0.82rem; color: var(--text-dim);">Patch ${esc(rep.patch || '')} — Updated ${esc(rep.date_updated || '')}</p>`;
     const sorted = [...rep.entries].sort((a, b) => b.reputation_reward - a.reputation_reward);
-    document.getElementById('repTable').innerHTML = `
-        <table class="rep-table">
-            <thead><tr><th>Mission</th><th style="text-align:center">Rep Reward</th><th style="text-align:center">Rep Required</th></tr></thead>
-            <tbody>${sorted.map(e => `
-                <tr>
-                    <td>${escHtml(e.mission_title)}</td>
-                    <td class="rep-val">+${e.reputation_reward}</td>
-                    <td class="rep-req ${e.reputation_required > 0 ? 'rep-locked' : ''}">${e.reputation_required > 0 ? e.reputation_required : '—'}</td>
-                </tr>
-            `).join('')}</tbody>
-        </table>
-    `;
+    document.getElementById('repTable').innerHTML = `<table class="rep-table"><thead><tr><th>Mission</th><th style="text-align:center">Rep Reward</th><th style="text-align:center">Rep Required</th></tr></thead>
+        <tbody>${sorted.map(e => `<tr><td>${esc(e.mission_title)}</td><td class="rep-val">+${e.reputation_reward}</td><td class="rep-req ${e.reputation_required > 0 ? 'rep-locked' : ''}">${e.reputation_required > 0 ? e.reputation_required : '—'}</td></tr>`).join('')}</tbody></table>`;
 }
 
 // ============================================================
-// INVENTORY PLANNER
+// INVENTORY PLANNER — COMPLETELY REWRITTEN
 // ============================================================
 
 function buildMaterialList() {
     const materialSet = new Set();
-    // Gather from items
-    DATA.items.forEach(item => {
-        parseRecipe(item.recipe).forEach(r => materialSet.add(r.name));
-    });
-    // Gather from ships
-    DATA.ships.forEach(ship => {
-        parseRecipe(ship.recipe).forEach(r => materialSet.add(r.name));
-    });
+    DATA.items.forEach(item => parseRecipe(item.recipe).forEach(r => materialSet.add(r.name)));
+    DATA.ships.forEach(ship => parseRecipe(ship.recipe).forEach(r => materialSet.add(r.name)));
     allMaterialNames = [...materialSet].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 }
 
 function renderMaterialInputs() {
     const container = document.getElementById('materialsList');
     const search = document.getElementById('materialSearch').value.toLowerCase();
-
     let materials = allMaterialNames;
-    if (search) {
-        materials = materials.filter(m => m.toLowerCase().includes(search));
-    }
+    if (search) materials = materials.filter(m => m.toLowerCase().includes(search));
 
     container.innerHTML = materials.map(mat => {
         const val = playerInventory[mat] || 0;
         const hasValue = val > 0;
         return `
         <div class="inv-material-row ${hasValue ? 'has-value' : ''}">
-            <span class="inv-mat-name" title="${escHtml(mat)}">${escHtml(mat)}</span>
+            <span class="inv-mat-name" title="${esc(mat)}">${esc(mat)}</span>
             <div class="inv-mat-controls">
                 <button class="inv-qty-btn" onclick="adjustMaterial('${escJs(mat)}', -10)" ${!hasValue ? 'disabled' : ''}>-10</button>
                 <button class="inv-qty-btn" onclick="adjustMaterial('${escJs(mat)}', -1)" ${!hasValue ? 'disabled' : ''}>-1</button>
                 <input type="number" class="inv-qty-input" value="${val}" min="0"
-                    onchange="setMaterial('${escJs(mat)}', parseInt(this.value)||0)"
-                    onfocus="this.select()">
+                    onchange="setMaterial('${escJs(mat)}', parseInt(this.value)||0)" onfocus="this.select()">
                 <button class="inv-qty-btn" onclick="adjustMaterial('${escJs(mat)}', 1)">+1</button>
                 <button class="inv-qty-btn" onclick="adjustMaterial('${escJs(mat)}', 10)">+10</button>
             </div>
         </div>`;
     }).join('');
-
     updateInvSummary();
 }
 
 function setMaterial(name, qty) {
-    if (qty <= 0) {
-        delete playerInventory[name];
-    } else {
-        playerInventory[name] = qty;
-    }
+    if (qty <= 0) delete playerInventory[name]; else playerInventory[name] = qty;
+    saveToStorage();
     renderMaterialInputs();
     renderMissionMatches();
 }
-
-function adjustMaterial(name, delta) {
-    const current = playerInventory[name] || 0;
-    setMaterial(name, Math.max(0, current + delta));
-}
+function adjustMaterial(name, delta) { setMaterial(name, Math.max(0, (playerInventory[name] || 0) + delta)); }
 
 function clearInventory() {
+    if (!confirm('Clear all materials and deselect all missions?')) return;
     playerInventory = {};
-    selectedMissions = {};
+    selectedMissionOrder = [];
+    saveToStorage();
     renderMaterialInputs();
     renderMissionMatches();
 }
@@ -381,91 +347,122 @@ function updateInvSummary() {
     const el = document.getElementById('invSummary');
     const count = Object.keys(playerInventory).filter(k => playerInventory[k] > 0).length;
     const total = Object.values(playerInventory).reduce((a, b) => a + b, 0);
-    if (count === 0) {
-        el.innerHTML = '<span class="inv-summary-text">No materials entered yet</span>';
-    } else {
-        el.innerHTML = `<span class="inv-summary-text">${count} material types, ${total} total items</span>`;
-    }
+    const selCount = selectedMissionOrder.length;
+    if (count === 0) el.innerHTML = '<span class="inv-summary-text">No materials entered yet</span>';
+    else el.innerHTML = `<span class="inv-summary-text">${count} materials, ${total} total${selCount > 0 ? ` · ${selCount} in cart` : ''}</span>`;
 }
 
-// Get all missions (items + ships) as unified list
 function getAllMissions() {
     const missions = [];
     DATA.items.forEach(item => {
         const recipe = parseRecipe(item.recipe);
-        if (recipe.length > 0) {
-            missions.push({
-                id: item.id,
-                name: item.name,
-                category: item.category,
-                mission_name: item.mission_name,
-                recipe: recipe,
-                reward: item.reward,
-                type: 'item',
-            });
-        }
+        if (recipe.length > 0) missions.push({ id: item.id, name: item.name, category: item.category, mission_name: item.mission_name, recipe, reward: item.reward });
     });
     DATA.ships.forEach(ship => {
         const recipe = parseRecipe(ship.recipe);
-        if (recipe.length > 0) {
-            missions.push({
-                id: ship.id,
-                name: ship.name,
-                category: 'ship',
-                mission_name: ship.mission_name,
-                recipe: recipe,
-                reward: ship.name,
-                type: 'ship',
-            });
-        }
+        if (recipe.length > 0) missions.push({ id: ship.id, name: ship.name, category: ship.category === 'vehicle' ? 'vehicle' : 'ship', mission_name: ship.mission_name, recipe, reward: ship.name });
     });
     return missions;
 }
 
-// Calculate remaining inventory after deducting selected missions
-function getRemainingInventory() {
-    const remaining = { ...playerInventory };
+/**
+ * CORE INVENTORY LOGIC
+ * 
+ * 1. Start with a copy of playerInventory as "pool"
+ * 2. Process selected missions in order — each deducts what it can from the pool
+ *    - For each selected mission, record what it actually got from the pool
+ * 3. After all selections, unselected missions are evaluated against the remaining pool
+ * 4. Colour logic per ingredient:
+ *    - GREEN: have >= need (fully covered)
+ *    - YELLOW: have > 0 but < need (partial)
+ *    - GREY: player never had this item (0 in original inventory)
+ *    - RED: player had this item but it's been consumed by earlier selections (was > 0, now 0)
+ */
+function calcAllMissionStates() {
     const missions = getAllMissions();
+    const missionMap = {};
+    missions.forEach(m => { missionMap[m.id] = m; });
 
-    missions.forEach(m => {
-        if (!selectedMissions[m.id]) return;
-        m.recipe.forEach(r => {
-            if (remaining[r.name]) {
-                remaining[r.name] = Math.max(0, remaining[r.name] - r.qty);
-                if (remaining[r.name] === 0) delete remaining[r.name];
-            }
+    // Pool starts as copy of player inventory
+    const pool = { ...playerInventory };
+
+    // Track what the player originally had (to distinguish grey vs red)
+    const originalHas = {};
+    for (const k in playerInventory) {
+        if (playerInventory[k] > 0) originalHas[k] = true;
+    }
+
+    // Process selected missions in order
+    const selectedResults = [];
+    for (const missionId of selectedMissionOrder) {
+        const m = missionMap[missionId];
+        if (!m) continue;
+
+        const details = m.recipe.map(r => {
+            const poolHas = pool[r.name] || 0;
+            const take = Math.min(poolHas, r.qty);
+            // Deduct from pool
+            pool[r.name] = (pool[r.name] || 0) - take;
+            if (pool[r.name] <= 0) delete pool[r.name];
+
+            const got = take;
+            const need = r.qty;
+            const short = need - got;
+            return { name: r.name, need, got, short, originallyHad: !!originalHas[r.name] };
         });
-    });
 
-    return remaining;
+        const allComplete = details.every(d => d.short === 0);
+        const pct = details.length > 0
+            ? details.reduce((s, d) => s + Math.min((d.got / d.need) * 100, 100), 0) / details.length
+            : 0;
+
+        selectedResults.push({
+            ...m, isSelected: true, details, isComplete: allComplete, pct,
+            selectionIndex: selectedResults.length,
+        });
+    }
+
+    // Now evaluate unselected missions against remaining pool
+    const unselectedResults = [];
+    const selectedIds = new Set(selectedMissionOrder);
+
+    for (const m of missions) {
+        if (selectedIds.has(m.id)) continue;
+
+        const details = m.recipe.map(r => {
+            const poolHas = pool[r.name] || 0;
+            const need = r.qty;
+            return {
+                name: r.name, need, got: Math.min(poolHas, need),
+                short: Math.max(0, need - poolHas),
+                originallyHad: !!originalHas[r.name],
+                poolRemaining: poolHas,
+            };
+        });
+
+        // Does this mission have any relevance? (player has or had at least one ingredient)
+        const relevant = details.some(d => d.originallyHad || d.got > 0);
+        if (!relevant) continue;
+
+        const allComplete = details.every(d => d.short === 0);
+        const pct = details.length > 0
+            ? details.reduce((s, d) => s + Math.min((d.got / d.need) * 100, 100), 0) / details.length
+            : 0;
+
+        unselectedResults.push({
+            ...m, isSelected: false, details, isComplete: allComplete, pct,
+        });
+    }
+
+    return { selectedResults, unselectedResults };
 }
 
-// Calculate completion % for a mission given available materials
-function calcCompletion(recipe, available) {
-    if (recipe.length === 0) return { percent: 0, details: [], timesCompletable: 0 };
-
-    let minTimes = Infinity;
-    const details = recipe.map(r => {
-        const have = available[r.name] || 0;
-        const need = r.qty;
-        const ratio = need > 0 ? have / need : 0;
-        const times = need > 0 ? Math.floor(have / need) : 0;
-        minTimes = Math.min(minTimes, times);
-        return {
-            name: r.name,
-            need: need,
-            have: have,
-            percent: Math.min(ratio * 100, 9999),
-            enough: have >= need,
-        };
-    });
-
-    const overallPercent = details.reduce((sum, d) => sum + Math.min(d.percent, 100), 0) / details.length;
-    return {
-        percent: overallPercent,
-        details: details,
-        timesCompletable: minTimes === Infinity ? 0 : minTimes,
-    };
+function getChipColor(d) {
+    // d has: got, need, short, originallyHad
+    if (d.got >= d.need) return 'green';    // Fully covered
+    if (d.got > 0) return 'yellow';          // Partial
+    if (d.originallyHad) return 'red';       // Had it but it's been consumed
+    return 'grey';                            // Never had it
 }
 
 function setInvFilter(mode, btn) {
@@ -475,115 +472,184 @@ function setInvFilter(mode, btn) {
     renderMissionMatches();
 }
 
-function toggleMissionSelection(missionId, event) {
+function addToCart(missionId, event) {
     event.stopPropagation();
-    if (selectedMissions[missionId]) {
-        delete selectedMissions[missionId];
-    } else {
-        selectedMissions[missionId] = true;
+    if (!selectedMissionOrder.includes(missionId)) {
+        selectedMissionOrder.push(missionId);
     }
+    saveToStorage();
     renderMissionMatches();
-    // Also refresh material display to show "remaining" context
+    updateInvSummary();
+}
+
+function removeFromCart(missionId, event) {
+    event.stopPropagation();
+    selectedMissionOrder = selectedMissionOrder.filter(id => id !== missionId);
+    saveToStorage();
+    renderMissionMatches();
+    updateInvSummary();
+}
+
+function purchaseMission(missionId, event) {
+    event.stopPropagation();
+
+    // Find the mission data
+    const allMissions = getAllMissions();
+    const mission = allMissions.find(m => m.id === missionId);
+    if (!mission) return;
+
+    // Build a readable summary of what will be deducted
+    const lines = mission.recipe.map(r => `  ${r.qty}x ${r.name}`).join('\n');
+    const ok = confirm(
+        `Complete "${mission.name}"?\n\nThe following materials will be permanently deducted from your inventory:\n\n${lines}\n\nThis cannot be undone.`
+    );
+    if (!ok) return;
+
+    // Deduct materials from inventory
+    mission.recipe.forEach(r => {
+        if (playerInventory[r.name]) {
+            playerInventory[r.name] = Math.max(0, playerInventory[r.name] - r.qty);
+            if (playerInventory[r.name] === 0) delete playerInventory[r.name];
+        }
+    });
+
+    // Remove from cart
+    selectedMissionOrder = selectedMissionOrder.filter(id => id !== missionId);
+
+    saveToStorage();
+    renderMaterialInputs();
+    renderMissionMatches();
     updateInvSummary();
 }
 
 function renderMissionMatches() {
     const container = document.getElementById('missionsList');
-    const remaining = getRemainingInventory();
     const hasAnyMaterials = Object.keys(playerInventory).some(k => playerInventory[k] > 0);
 
-    if (!hasAnyMaterials) {
+    if (!hasAnyMaterials && selectedMissionOrder.length === 0) {
         container.innerHTML = '<div class="inv-empty-msg">Enter materials on the left to see matching missions here.</div>';
         return;
     }
 
-    const missions = getAllMissions();
+    const { selectedResults, unselectedResults } = calcAllMissionStates();
 
-    // Calculate completion for each mission
-    let results = missions.map(m => {
-        const isSelected = !!selectedMissions[m.id];
-        // For selected missions, show completion against full inventory
-        // For non-selected, show completion against remaining (after selected are deducted)
-        const available = isSelected ? playerInventory : remaining;
-        const completion = calcCompletion(m.recipe, available);
-
-        return { ...m, completion, isSelected };
-    });
-
-    // Only show missions where at least one ingredient matches something in inventory
-    results = results.filter(r => {
-        return r.completion.details.some(d => d.have > 0) || r.isSelected;
-    });
-
-    // Apply filter
+    // Apply filter to unselected
+    let filteredUnselected = unselectedResults;
     if (invFilterMode === 'completable') {
-        results = results.filter(r => r.completion.percent >= 100);
+        filteredUnselected = filteredUnselected.filter(r => r.isComplete);
     } else if (invFilterMode === 'partial') {
-        results = results.filter(r => r.completion.percent > 0 && r.completion.percent < 100);
+        filteredUnselected = filteredUnselected.filter(r => r.pct > 0 && !r.isComplete);
     }
 
-    // Sort: selected first, then by completion % descending
-    results.sort((a, b) => {
-        if (a.isSelected !== b.isSelected) return a.isSelected ? -1 : 1;
-        return b.completion.percent - a.completion.percent;
+    // Sort unselected: completable first, then by %
+    filteredUnselected.sort((a, b) => {
+        if (a.isComplete !== b.isComplete) return a.isComplete ? -1 : 1;
+        return b.pct - a.pct;
     });
 
-    if (results.length === 0) {
-        container.innerHTML = '<div class="inv-empty-msg">No matching missions for your current materials and filter.</div>';
-        return;
+    let html = '';
+
+    // Render selected (cart) missions first
+    if (selectedResults.length > 0) {
+        html += '<div class="inv-cart-header">🛒 YOUR CART</div>';
+        html += selectedResults.map(r => renderCartMission(r)).join('');
+        html += '<div class="inv-cart-divider"></div>';
     }
 
-    container.innerHTML = results.map(r => {
-        const pct = r.completion.percent;
-        const times = r.completion.timesCompletable;
-        const isComplete = pct >= 100;
+    // Render unselected
+    if (filteredUnselected.length > 0) {
+        html += '<div class="inv-available-header">AVAILABLE MISSIONS</div>';
+        html += filteredUnselected.map(r => renderAvailableMission(r)).join('');
+    } else if (selectedResults.length === 0) {
+        html += '<div class="inv-empty-msg">No matching missions for your current materials and filter.</div>';
+    }
 
-        let pctDisplay = Math.round(pct) + '%';
-        if (times > 1) pctDisplay = times + 'x (' + Math.round(pct) + '%)';
+    container.innerHTML = html;
+}
 
-        const pctColor = isComplete ? 'var(--accent-green)' : pct >= 50 ? 'var(--accent-gold)' : 'var(--accent-red)';
-        const barWidth = Math.min(pct, 100);
+function renderCartMission(r) {
+    const pctColor = r.isComplete ? 'var(--accent-green)' : 'var(--accent-gold)';
+    const pctText = r.isComplete ? '✓ Ready' : Math.round(r.pct) + '%';
+    const barWidth = Math.min(r.pct, 100);
 
-        return `
-        <div class="inv-mission-card ${r.isSelected ? 'selected' : ''} ${isComplete ? 'completable' : ''}"
-             onclick="toggleMissionSelection('${r.id}', event)">
-            <div class="inv-mission-header">
-                <div class="inv-mission-info">
-                    <span class="inv-mission-name">${escHtml(r.name)}</span>
-                    <span class="badge badge-${r.category}">${r.category}</span>
-                    ${r.isSelected ? '<span class="inv-selected-tag">SELECTED</span>' : ''}
-                </div>
-                <div class="inv-mission-pct" style="color:${pctColor}">${pctDisplay}</div>
+    return `
+    <div class="inv-mission-card selected ${r.isComplete ? 'cart-complete' : 'cart-partial'}">
+        <div class="inv-mission-header">
+            <div class="inv-mission-info">
+                <span class="inv-cart-icon">${r.isComplete ? '✅' : '🛒'}</span>
+                <span class="inv-mission-name">${esc(r.name)}</span>
+                <span class="badge badge-${r.category}">${r.category}</span>
             </div>
-            <div class="inv-progress-bar"><div class="inv-progress-fill" style="width:${barWidth}%; background:${pctColor}"></div></div>
-            <div class="inv-mission-recipe">
-                ${r.completion.details.map(d => {
-                    const dColor = d.enough ? 'var(--accent-green)' : d.have > 0 ? 'var(--accent-gold)' : 'var(--text-dim)';
-                    return `<span class="inv-recipe-chip" style="border-color:${dColor}">
-                        <span style="color:${dColor}">${d.have}/${d.need}</span> ${escHtml(d.name)}
-                    </span>`;
-                }).join('')}
+            <div class="inv-mission-actions">
+                <span class="inv-mission-pct" style="color:${pctColor}">${pctText}</span>
+                ${r.isComplete ? `<button class="inv-purchase-btn" onclick="purchaseMission('${r.id}', event)" title="Mark as purchased — deducts materials">✓ Purchased</button>` : ''}
+                <button class="inv-remove-btn" onclick="removeFromCart('${r.id}', event)" title="Remove from cart">✕</button>
             </div>
-            ${r.mission_name ? `<div class="inv-mission-sub">Mission: "${escHtml(r.mission_name)}"</div>` : ''}
-            ${r.isSelected ? '<div class="inv-deselect-hint">Click to deselect — materials will be returned</div>' : ''}
-            ${isComplete && !r.isSelected ? '<div class="inv-select-hint">Click to reserve materials for this mission</div>' : ''}
-        </div>`;
-    }).join('');
+        </div>
+        <div class="inv-progress-bar"><div class="inv-progress-fill" style="width:${barWidth}%; background:${pctColor}"></div></div>
+        <div class="inv-mission-recipe">
+            ${r.details.map(d => {
+                const color = getChipColor(d);
+                const cssColor = color === 'green' ? 'var(--accent-green)' : color === 'yellow' ? 'var(--accent-gold)' : color === 'red' ? 'var(--accent-red)' : 'var(--text-dim)';
+                return `<span class="inv-recipe-chip" style="border-color:${cssColor}">
+                    <span style="color:${cssColor}">${d.got}/${d.need}</span> ${esc(d.name)}
+                    ${d.short > 0 ? `<span class="inv-short-label">need ${d.short}</span>` : ''}
+                </span>`;
+            }).join('')}
+        </div>
+        ${r.mission_name ? `<div class="inv-mission-sub">Mission: "${esc(r.mission_name)}"</div>` : ''}
+    </div>`;
+}
+
+function renderAvailableMission(r) {
+    const pctColor = r.isComplete ? 'var(--accent-green)' : r.pct > 0 ? 'var(--accent-gold)' : 'var(--text-dim)';
+    const barWidth = Math.min(r.pct, 100);
+
+    // For unselected: calculate times completable
+    let pctText = Math.round(r.pct) + '%';
+    if (r.isComplete) {
+        let minTimes = Infinity;
+        r.details.forEach(d => { minTimes = Math.min(minTimes, d.need > 0 ? Math.floor(d.got / d.need) : 0); });
+        if (minTimes > 1) pctText = minTimes + 'x';
+        else pctText = '100%';
+    }
+
+    return `
+    <div class="inv-mission-card ${r.isComplete ? 'completable' : ''}">
+        <div class="inv-mission-header">
+            <div class="inv-mission-info">
+                <span class="inv-mission-name">${esc(r.name)}</span>
+                <span class="badge badge-${r.category}">${r.category}</span>
+            </div>
+            <div class="inv-mission-actions">
+                <span class="inv-mission-pct" style="color:${pctColor}">${pctText}</span>
+                <button class="inv-add-btn" onclick="addToCart('${r.id}', event)" title="Add to cart">+ Cart</button>
+            </div>
+        </div>
+        <div class="inv-progress-bar"><div class="inv-progress-fill" style="width:${barWidth}%; background:${pctColor}"></div></div>
+        <div class="inv-mission-recipe">
+            ${r.details.map(d => {
+                const color = getChipColor(d);
+                const cssColor = color === 'green' ? 'var(--accent-green)' : color === 'yellow' ? 'var(--accent-gold)' : color === 'red' ? 'var(--accent-red)' : 'var(--text-dim)';
+                return `<span class="inv-recipe-chip" style="border-color:${cssColor}">
+                    <span style="color:${cssColor}">${d.got}/${d.need}</span> ${esc(d.name)}
+                </span>`;
+            }).join('')}
+        </div>
+        ${r.mission_name ? `<div class="inv-mission-sub">Mission: "${esc(r.mission_name)}"</div>` : ''}
+    </div>`;
 }
 
 // ============================================================
 // UTILS
 // ============================================================
-function escHtml(str) {
+function esc(str) {
     if (!str) return '';
     const div = document.createElement('div');
     div.textContent = str;
     return div.innerHTML;
 }
-
-function escJs(str) {
-    return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-}
+function escJs(str) { return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'"); }
 
 // ============================================================
 // START
