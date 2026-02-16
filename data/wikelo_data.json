@@ -69,7 +69,7 @@
     {
       "id": "item_004",
       "name": "Boomtube ",
-      "category": "armor",
+      "category": "weapon",
       "patch": "4.5",
       "date_updated": "2025-12-18",
       "status": "active",
@@ -121,7 +121,7 @@
     {
       "id": "item_006",
       "name": "F55 Mark I (Retired)",
-      "category": "armor",
+      "category": "weapon",
       "patch": "4.5",
       "date_updated": "2025-12-18",
       "status": "active",
@@ -199,7 +199,7 @@
     {
       "id": "item_009",
       "name": "Zenith ",
-      "category": "armor",
+      "category": "weapon",
       "patch": "4.5",
       "date_updated": "2025-18-12",
       "status": "active",
@@ -671,7 +671,7 @@
     {
       "id": "item_023",
       "name": "Fresnel ",
-      "category": "armor",
+      "category": "weapon",
       "patch": "4.3.1",
       "date_updated": "2025-10-02",
       "status": "active",
