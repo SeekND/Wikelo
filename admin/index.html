@@ -621,13 +621,17 @@
     // JSON IMPORT/EXPORT
     // ============================================================
     function downloadJSON() {
-        DATA.meta.extracted_date = new Date().toISOString().split('T')[0];
+        const today = new Date().toISOString().split('T')[0];
+        DATA.meta.extracted_date = today;
+        DATA.meta.data_updated = today;
+        // Also update the settings input to reflect the new date
+        document.getElementById('meta_updated').value = today;
         const blob = new Blob([JSON.stringify(DATA, null, 2)], { type: 'application/json' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url; a.download = 'wikelo_data.json'; a.click();
         URL.revokeObjectURL(url);
-        setStatus('JSON downloaded', 'saved');
+        setStatus('JSON downloaded — data_updated set to ' + today, 'saved');
     }
 
     function uploadJSON(event) {
