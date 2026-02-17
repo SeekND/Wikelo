@@ -1219,7 +1219,7 @@
       "patch": "4.5",
       "date_updated": "2025-12-18",
       "status": "active",
-      "mission_name": "",
+      "mission_name": "Where Wolf? Here Wolf",
       "recipe": "10x Wikelo Favour; 10x Vanduul Plating; 10x Vanduul Metal; 1x Large Artifact Fragment (Pristine)",
       "components": [
         {
@@ -1269,7 +1269,7 @@
       "patch": "4.5",
       "date_updated": "2025-12-18",
       "status": "active",
-      "mission_name": "",
+      "mission_name": "Most Special Wolf",
       "recipe": "5x Wikelo Favour",
       "components": [
         {
@@ -1310,7 +1310,7 @@
       "other_components": "",
       "image_url": "",
       "patch_type": "updated",
-      "reputation_required": 0
+      "reputation_required": 340
     },
     {
       "id": "ship_047",
