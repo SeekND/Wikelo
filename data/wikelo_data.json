@@ -2,7 +2,7 @@
   "meta": {
     "source": "ChrisK3's Star Citizen Reference Sheets - Wikelo Section",
     "source_url": "https://docs.google.com/spreadsheets/d/1ji0q_pp6iW35RG1YyFEsv-lsmZOaCStJXGdIEdLLwhM/",
-    "extracted_date": "2026-02-16",
+    "extracted_date": "2026-02-17",
     "note": "Auto-extracted, may need manual corrections via the admin editor",
     "current_patch": "4.6",
     "data_updated": "2026-02-17"
@@ -70,7 +70,7 @@
         }
       ],
       "sheet_name": "Testudo & BoomTube Clanguard 4.",
-      "image_url": "",
+      "image_url": "https://cdn.sc-market.space/38e5575f-7559-40d9-a3c3-76d19f31f3d5-photos-0-2be746bf-8006-4694-9da2-094d24a66833.webp",
       "patch_type": "updated",
       "reputation_required": 0
     },
@@ -2358,7 +2358,7 @@
       "components_summary": "2x Main Powerplant⭐ (Power Plant, Size 4, <null> A); 2x Holdstrong⭐ (Shield, Size 4, <null> A); 1x Frontline⭐ (Quantum Drive, Size 4, <null> A); 2x Exotherm⭐ (Cooler, Size 4, <null> A)",
       "image_credit": "📷LazyBrokOli",
       "other_components": "",
-      "image_url": "",
+      "image_url": "images/idris.jpg",
       "patch_type": "updated",
       "reputation_required": 0
     },
