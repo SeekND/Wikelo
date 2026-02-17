@@ -432,6 +432,11 @@
                 <textarea id="ed_components" style="min-height:120px; font-family:var(--font-mono); font-size:0.72rem">${JSON.stringify(ship.components || [], null, 2)}</textarea>
                 <div class="form-hint">Edit component details. Format is JSON array.</div>
             </div>
+            <div class="form-row">
+                <label>Image URL</label>
+                <input type="text" id="ed_ship_image_url" value="${esc(ship.image_url || '')}" placeholder="https://... (optional)">
+                <div class="form-hint">Link to an image. Host in your GitHub repo's img/ folder or use any image URL.</div>
+            </div>
             <div class="form-actions">
                 <button class="btn btn-success" onclick="saveShip(${idx})">Save</button>
                 <button class="btn" onclick="closeEdit()">Cancel</button>
@@ -457,6 +462,8 @@
         ship.components_summary = ship.components.map(c =>
             `${c.quantity} ${c.name} (${c.type}, Size ${c.size}, ${c['class']} ${c.grade})`
         ).join('; ');
+
+        ship.image_url = document.getElementById('ed_ship_image_url').value;
 
         if (idx === -1) {
             ship.id = 'ship_' + String(DATA.ships.length + 1).padStart(3, '0');
