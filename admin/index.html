@@ -161,6 +161,22 @@
             <button class="tab-btn" data-tab="ships">Ships (<span id="shipCount">0</span>)</button>
             <button class="tab-btn" data-tab="currency">Currency</button>
             <button class="tab-btn" data-tab="reputation">Reputation</button>
+            <button class="tab-btn" data-tab="settings">Settings</button>
+        </div>
+
+        <div class="tab-panel" id="panel-settings">
+            <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:8px; padding:1.25rem; max-width:500px;">
+                <h4 style="font-family:var(--font-display); font-size:0.7rem; color:var(--text-bright); margin-bottom:1rem; letter-spacing:0.1em;">SITE SETTINGS</h4>
+                <div class="form-row">
+                    <label>Current Patch</label>
+                    <input type="text" id="meta_patch" placeholder="e.g. 4.6" onchange="DATA.meta.current_patch=this.value; setStatus('Patch updated','saved')">
+                </div>
+                <div class="form-row">
+                    <label>Data Last Updated</label>
+                    <input type="date" id="meta_updated" onchange="DATA.meta.data_updated=this.value; setStatus('Date updated','saved')">
+                </div>
+                <p style="font-size:0.75rem; color:var(--text-dim); margin-top:1rem;">These values are shown in the header bar on the live site. Remember to download the JSON after changing.</p>
+            </div>
         </div>
 
         <div class="tab-panel active" id="panel-items">
@@ -244,6 +260,9 @@
         document.getElementById('shipCount').textContent = DATA.ships.length;
         document.getElementById('statusCount').textContent =
             `${DATA.items.length} items, ${DATA.ships.length} ships`;
+        // Settings
+        document.getElementById('meta_patch').value = DATA.meta.current_patch || '';
+        document.getElementById('meta_updated').value = DATA.meta.data_updated || '';
     }
 
     // ============================================================
@@ -302,6 +321,14 @@
                 <input type="text" id="ed_patch" value="${esc(item.patch)}" placeholder="e.g. 4.6">
             </div>
             <div class="form-row">
+                <label>Patch Type</label>
+                <select id="ed_patch_type">
+                    <option value="updated" ${(item.patch_type || 'updated') === 'updated' ? 'selected' : ''}>Updated in</option>
+                    <option value="added" ${item.patch_type === 'added' ? 'selected' : ''}>Added in</option>
+                </select>
+                <div class="form-hint">Controls whether the badge shows "Added in 4.6" or "Updated in 4.6"</div>
+            </div>
+            <div class="form-row">
                 <label>Mission Name</label>
                 <input type="text" id="ed_mission" value="${esc(item.mission_name)}" placeholder='e.g. "Do Lava Suit"'>
             </div>
@@ -310,6 +337,11 @@
                 <textarea id="ed_recipe" oninput="previewRecipe(this.value)">${esc(item.recipe)}</textarea>
                 <div class="form-hint">Format: Carinite (30); Strata Arms (1); RCMBNT-PWL-1 (4) — or: 30x Carinite; 1x Strata Arms</div>
                 <div class="recipe-preview" id="recipePreview"></div>
+            </div>
+            <div class="form-row">
+                <label>Reputation Required</label>
+                <input type="number" id="ed_rep_req" value="${item.reputation_required || 0}" min="0" placeholder="0">
+                <div class="form-hint">Set to 0 if no reputation is needed. Shown on the item card after the recipe.</div>
             </div>
             <div class="form-row">
                 <label>Reward</label>
@@ -347,8 +379,10 @@
         item.name = document.getElementById('ed_name').value;
         item.category = document.getElementById('ed_category').value;
         item.patch = document.getElementById('ed_patch').value;
+        item.patch_type = document.getElementById('ed_patch_type').value;
         item.mission_name = document.getElementById('ed_mission').value;
         item.recipe = normalizeRecipe(document.getElementById('ed_recipe').value);
+        item.reputation_required = parseInt(document.getElementById('ed_rep_req').value) || 0;
         item.reward = document.getElementById('ed_reward').value;
         item.sources = document.getElementById('ed_sources').value;
         item.description = document.getElementById('ed_desc').value;
@@ -419,6 +453,13 @@
                 <input type="text" id="ed_patch" value="${esc(ship.patch)}" placeholder="e.g. 4.5">
             </div>
             <div class="form-row">
+                <label>Patch Type</label>
+                <select id="ed_patch_type">
+                    <option value="updated" ${(ship.patch_type || 'updated') === 'updated' ? 'selected' : ''}>Updated in</option>
+                    <option value="added" ${ship.patch_type === 'added' ? 'selected' : ''}>Added in</option>
+                </select>
+            </div>
+            <div class="form-row">
                 <label>Mission Name</label>
                 <input type="text" id="ed_mission" value="${esc(ship.mission_name)}">
             </div>
@@ -426,6 +467,10 @@
                 <label>Trade Cost / Recipe</label>
                 <textarea id="ed_recipe">${esc(ship.recipe)}</textarea>
                 <div class="form-hint">Format: 4x Wikelo Favor; 1x DCHS-05 Comp-Board</div>
+            </div>
+            <div class="form-row">
+                <label>Reputation Required</label>
+                <input type="number" id="ed_ship_rep_req" value="${ship.reputation_required || 0}" min="0" placeholder="0">
             </div>
             <div class="form-row">
                 <label>Components (JSON — advanced)</label>
@@ -449,8 +494,10 @@
         const ship = idx === -1 ? {} : DATA.ships[idx];
         ship.name = document.getElementById('ed_name').value;
         ship.patch = document.getElementById('ed_patch').value;
+        ship.patch_type = document.getElementById('ed_patch_type').value;
         ship.mission_name = document.getElementById('ed_mission').value;
         ship.recipe = normalizeRecipe(document.getElementById('ed_recipe').value);
+        ship.reputation_required = parseInt(document.getElementById('ed_ship_rep_req').value) || 0;
 
         try {
             ship.components = JSON.parse(document.getElementById('ed_components').value);

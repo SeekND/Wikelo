@@ -3,7 +3,9 @@
     "source": "ChrisK3's Star Citizen Reference Sheets - Wikelo Section",
     "source_url": "https://docs.google.com/spreadsheets/d/1ji0q_pp6iW35RG1YyFEsv-lsmZOaCStJXGdIEdLLwhM/",
     "extracted_date": "2026-02-16",
-    "note": "Auto-extracted, may need manual corrections via the admin editor"
+    "note": "Auto-extracted, may need manual corrections via the admin editor",
+    "current_patch": "4.6",
+    "data_updated": "2026-02-17"
   },
   "items": [
     {
@@ -21,7 +23,9 @@
       "notes": "There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it. I suggest pairing Hunter/Desert with Stoneskin Agra Undersuit, Cobalt/Navy with TCS-4 Undersuit Twilight, Jungle/Tree with TCS-4 Undersuit",
       "further_reading": [],
       "sheet_name": "Tripledown \"Heatwave\" 4.6",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_002",
@@ -38,7 +42,9 @@
       "notes": "There is an item kiosk to the right of the entrance to the emporium proper, lets you move items in and out of local storage more easily than the cargo elevator, though doesn't count towards turn-ins, the way I prefer to turn in items especially in bulk is carry it in a stor*all box, store the box either via the cargo elevator or drag it into the item kiosk, then unload the box, go to the cargo elevator kiosk and send what you're turning in up the cargo elevator, and then down it to turn in. If one item is missing on the cargo elevator vs what you put there, close the UI and open it again, should fix it.",
       "further_reading": [],
       "sheet_name": "Strata \"Heatwave\" Armor 4.6",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_003",
@@ -64,7 +70,9 @@
         }
       ],
       "sheet_name": "Testudo & BoomTube Clanguard 4.",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_004",
@@ -90,7 +98,9 @@
         }
       ],
       "sheet_name": "Testudo & BoomTube Clanguard 4.",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_005",
@@ -116,7 +126,9 @@
         }
       ],
       "sheet_name": "Palatino Mark I & F55 Mark I 4.",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_006",
@@ -142,7 +154,9 @@
         }
       ],
       "sheet_name": "Palatino Mark I & F55 Mark I 4.",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_007",
@@ -164,7 +178,9 @@
         }
       ],
       "sheet_name": "Fresnel \"Yormandi\" LMG 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_008",
@@ -194,7 +210,9 @@
         }
       ],
       "sheet_name": "Snow Armor & Sniper 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_009",
@@ -224,7 +242,9 @@
         }
       ],
       "sheet_name": "Snow Armor & Sniper 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_010",
@@ -258,7 +278,9 @@
         }
       ],
       "sheet_name": "Bokto Armor 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_011",
@@ -292,7 +314,9 @@
         }
       ],
       "sheet_name": "Ana Endro Armor 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_012",
@@ -326,7 +350,9 @@
         }
       ],
       "sheet_name": "Prism Shotgun 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_013",
@@ -360,7 +386,9 @@
         }
       ],
       "sheet_name": "Parallax ARs 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_014",
@@ -394,7 +422,9 @@
         }
       ],
       "sheet_name": "Parallax ARs 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_015",
@@ -428,7 +458,9 @@
         }
       ],
       "sheet_name": "Parallax ARs 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_016",
@@ -462,7 +494,9 @@
         }
       ],
       "sheet_name": "Parallax ARs 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_021",
@@ -496,7 +530,9 @@
         }
       ],
       "sheet_name": "Glowy Armor 4.5",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_022",
@@ -530,7 +566,9 @@
         }
       ],
       "sheet_name": " Corbel Crush & Fresnel 4.3.1",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_023",
@@ -564,7 +602,9 @@
         }
       ],
       "sheet_name": " Corbel Crush & Fresnel 4.3.1",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_024",
@@ -590,7 +630,9 @@
         }
       ],
       "sheet_name": "DCP Armors 4.2",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_025",
@@ -616,7 +658,9 @@
         }
       ],
       "sheet_name": "DCP Armors 4.2",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_026",
@@ -642,7 +686,9 @@
         }
       ],
       "sheet_name": "DCP Armors 4.2",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_027",
@@ -668,7 +714,9 @@
         }
       ],
       "sheet_name": "Quartz SMGs 4.2",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_028",
@@ -694,7 +742,9 @@
         }
       ],
       "sheet_name": "Quartz SMGs 4.2",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_029",
@@ -720,7 +770,9 @@
         }
       ],
       "sheet_name": "Quartz SMGs 4.2",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     }
   ],
   "ships": [
@@ -746,7 +798,9 @@
       "components_summary": "2x NN-13 Cannon⭐ (Weapons, Size 1, NA )",
       "image_credit": "📷Kaarzah",
       "other_components": "Other components stock; Cooler: Thermax, Power Plant: Fortitude, Quantum Drive: Goliath, Shield Generator: Bulwark",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_036",
@@ -794,7 +848,9 @@
       "components_summary": "1x Lotus (Power Plant, Size 1, Civilian A); 3x 7SA 'Concord' (Shield, Size 1, Civilian A); 1x Atlas (Quantum Drive, Size 1, Civilian A); 1x Aufeis (Cooler, Size 1, Civilian A)",
       "image_credit": "📷lLenartowy",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_037",
@@ -834,7 +890,9 @@
       "components_summary": "1x MagnaBloom (Power Plant, Size 1, Civilian B); 1x Castra (Shield, Size 0, Industrial C); 1x Kelvid (Cooler, Size 0, Civilian B)",
       "image_credit": "📷Hughezy",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_038",
@@ -882,7 +940,9 @@
       "components_summary": "1x WhiteRose (Power Plant, Size 1, Civilian A); 1x Palisade (Shield, Size 1, Industrial A); 1x Atlas (Quantum Drive, Size 1, Civilian A); 1x Ultra-Flow (Cooler, Size 1, Industrial A)",
       "image_credit": "📷Me, Dssfox",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_039",
@@ -914,7 +974,9 @@
       "components_summary": "1x IonWave (Power Plant, Size 0, Civilian B); 1x Tepilo (Cooler, Size 0, Civilian A)",
       "image_credit": "📷WrathUnfaded",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_040",
@@ -946,7 +1008,9 @@
       "components_summary": "1x Radix (Power Plant, Size 0, Civilian C); 1x Kelvid (Cooler, Size 0, Civilian B)",
       "image_credit": "📷Kaarzah",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_041",
@@ -994,7 +1058,9 @@
       "components_summary": "1x Sedulity (Power Plant, Size 2, Industrial B); 1x Guardian (Shield, Size 1, Industrial B); 1x Colossus (Quantum Drive, Size 2, Industrial B); 1x Snowpack (Cooler, Size 2, Industrial A)",
       "image_credit": "📷BEEZZZ69",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_042",
@@ -1042,7 +1108,9 @@
       "components_summary": "1x Sedulity (Power Plant, Size 2, Industrial B); 3x Citadel (Shield, Size 2, Industrial B); 1x Huracan (Quantum Drive, Size 2, Industrial B); 1x Snowfall⭐ (Cooler, Size 2, Industrial B)",
       "image_credit": "📷BEEZZZ69",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_043",
@@ -1090,7 +1158,9 @@
       "components_summary": "1x Lotus (Power Plant, Size 2, Civilian A); 1x 7MA 'Lorica' (Shield, Size 2, Civilian A); 1x Hemera (Quantum Drive, Size 2, Civilian A); 1x Aufeis (Cooler, Size 2, Civilian A)",
       "image_credit": "📷Me",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_044",
@@ -1138,7 +1208,9 @@
       "components_summary": "2x LumaCore (Power Plant, Size 1, Competition A); 2x Jaghte⭐ (Shield, Size 2, Competition B); 1x FoxFire (Quantum Drive, Size 1, Competition B); 2x ZeroRush (Cooler, Size 1, Competition B)",
       "image_credit": "📷MrWinterFox",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_045",
@@ -1186,7 +1258,9 @@
       "components_summary": "1x DeltaMax (Power Plant, Size 1, Stealth B); 2x Veil (Shield, Size 1, Stealth B); 1x Zephyr (Quantum Drive, Size 1, Stealth B); 2x VaporBlock (Cooler, Size 1, Stealth B)",
       "image_credit": "📷Slim_Syaddy",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_046",
@@ -1234,7 +1308,9 @@
       "components_summary": "1x JS-300⭐ (Power Plant, Size 1, Military A); 2x FR-66⭐ (Shield, Size 1, Military A); 1x VK-00⭐ (Quantum Drive, Size 1, Military A); 2x Glacier⭐ (Cooler, Size 1, Military A)",
       "image_credit": "📷LazyBrokOli",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_047",
@@ -1282,7 +1358,9 @@
       "components_summary": "2x Genoa (Power Plant, Size 2, Industrial A); 4x Rampart (Shield, Size 2, Industrial A); 1x Hemera (Quantum Drive, Size 2, Civilian A); 2x Snowpack (Cooler, Size 2, Industrial A)",
       "image_credit": "📷Slim_Syaddy",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_048",
@@ -1330,7 +1408,9 @@
       "components_summary": "2x QuadraCell⭐ (Power Plant, Size 1, Military A); 1x FR-76⭐ (Shield, Size 2, Military A); 1x VK-00⭐ (Quantum Drive, Size 1, Military A); 1x Glacier⭐ (Cooler, Size 1, Military A)",
       "image_credit": "📷Hughezy",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_049",
@@ -1378,7 +1458,9 @@
       "components_summary": "1x Bolide⭐ (Power Plant, Size 2, Military B); 2x CoverAll⭐ (Shield, Size 2, Military B); 1x XL-1⭐ (Quantum Drive, Size 2, Military A); 1x PermaFrost⭐ (Cooler, Size 2, Military B)",
       "image_credit": "📷BEEZZZ69",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_050",
@@ -1426,7 +1508,9 @@
       "components_summary": "1x Slipstream⭐ (Power Plant, Size 1, Stealth A); 2x Mirage⭐ (Shield, Size 1, Stealth A); 1x Zephyr (Quantum Drive, Size 1, Stealth B); 2x VaporBlock (Cooler, Size 1, Stealth B)",
       "image_credit": "📷BEEZZZ69",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_051",
@@ -1474,7 +1558,9 @@
       "components_summary": "2x GammaMax⭐ (Power Plant, Size 2, Stealth B); 2x Sheut⭐ (Shield, Size 2, Stealth B); 1x Bolt (Quantum Drive, Size 2, Stealth B); 3x IceBox (Cooler, Size 2, Stealth B)",
       "image_credit": "📷Kaarzah",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_052",
@@ -1522,7 +1608,9 @@
       "components_summary": "2x Bolide⭐ (Power Plant, Size 2, Military B); 2x CoverAll⭐ (Shield, Size 2, Military B); 1x Yeager⭐ (Quantum Drive, Size 2, Military B); 3x PermaFrost⭐ (Cooler, Size 2, Military B)",
       "image_credit": "📷Kaarzah",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_053",
@@ -1570,7 +1658,9 @@
       "components_summary": "2x QuadraCell⭐ (Power Plant, Size 1, Military A); 2x FR-66⭐ (Shield, Size 1, Military A); 1x VK-00⭐ (Quantum Drive, Size 1, Military A); 2x Glacier⭐ (Cooler, Size 1, Military A)",
       "image_credit": "📷WrathUnfaded",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_054",
@@ -1618,7 +1708,9 @@
       "components_summary": "2x Slipstream⭐ (Power Plant, Size 1, Stealth A); 1x Umbra⭐ (Shield, Size 2, Stealth A); 1x Spectre⭐ (Quantum Drive, Size 1, Stealth A); 2x SnowBlind⭐ (Cooler, Size 1, Stealth A)",
       "image_credit": "📷DeDukeYT",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_055",
@@ -1666,7 +1758,9 @@
       "components_summary": "1x JS-400⭐ (Power Plant, Size 2, Military A); 2x FR-66⭐ (Shield, Size 1, Military A); 1x VK-00⭐ (Quantum Drive, Size 1, Military A); 2x Glacier⭐ (Cooler, Size 1, Military A)",
       "image_credit": "📷LordVanyaK",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_056",
@@ -1714,7 +1808,9 @@
       "components_summary": "1x IonSurge (Power Plant, Size 2, Civilian B); 2x BLOC (Shield, Size 2, Civilian B); 1 Hyperion (Quantum Drive, Size 1, Civilian B); 2x Gelid (Cooler, Size 1, Civilian A)",
       "image_credit": "📷Guardian_Templar",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_057",
@@ -1762,7 +1858,9 @@
       "components_summary": "2x LumaCore (Power Plant, Size 1, Competition A); 1x Haltur⭐ (Shield, Size 2, Competition B); 1x SunFire (Quantum Drive, Size 2, Competition B); 1x AbsoluteZero⭐ (Cooler, Size 2, Competition B)",
       "image_credit": "📷Kaarzah",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_058",
@@ -1810,7 +1908,9 @@
       "components_summary": "2x Genoa (Power Plant, Size 2, Industrial A); 3x Rampart (Shield, Size 2, Industrial A); 1x Hemera (Quantum Drive, Size 2, Civilian A); 2x Snowpack (Cooler, Size 2, Industrial A)",
       "image_credit": "📷Me",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_059",
@@ -1858,7 +1958,9 @@
       "components_summary": "2x Lotus (Power Plant, Size 2, Civilian A); 1x Parapet (Shield, Size 3, Industrial A); 1x Hemera (Quantum Drive, Size 2, Civilian A); 2x Aufeis (Cooler, Size 2, Civilian A)",
       "image_credit": "📷WayfinderDrax",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_060",
@@ -1906,7 +2008,9 @@
       "components_summary": "2x QuadraCell MT⭐ (Power Plant, Size 2, Military A); 1x FR-86⭐ (Shield, Size 3, Military A); 1x XL-1⭐ (Quantum Drive, Size 2, Military A); 2x Avalanche⭐ (Cooler, Size 2, Military A)",
       "image_credit": "📷DeDukeYT",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_061",
@@ -1954,7 +2058,9 @@
       "components_summary": "1x LuxCore⭐ (Power Plant, Size 2, Competition A); 2x FR-76⭐ (Shield, Size 2, Military A); 1x Colossus (Quantum Drive, Size 1, Industrial B); 2x Glacier⭐ (Cooler, Size 1, Military A)",
       "image_credit": "📷Fr0zeN1",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_062",
@@ -2002,7 +2108,9 @@
       "components_summary": "1x Eclipse⭐ (Power Plant, Size 2, Stealth A); 2x Umbra⭐ (Shield, Size 2, Stealth A); 1x Colossus (Quantum Drive, Size 1, Industrial B); 2x SnowBlind⭐ (Cooler, Size 1, Stealth A)",
       "image_credit": "📷DeDukeYT",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_063",
@@ -2050,7 +2158,9 @@
       "components_summary": "1x Durango (Power Plant, Size 3, Industrial A); 2x FullBlock⭐ (Shield, Size 3, Military B); 1x Yeager⭐ (Quantum Drive, Size 2, Military B); 1x Blizzard⭐ (Cooler, Size 3, Military A)",
       "image_credit": "📷CivicDoody",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_064",
@@ -2098,7 +2208,9 @@
       "components_summary": "2x JS-500⭐ (Power Plant, Size 3, Military A); 3x FR-86⭐ (Shield, Size 3, Military A); 1x Balandin⭐ (Quantum Drive, Size 3, Military B); 2x Mercury⭐ (Cooler, Size 3, Military C)",
       "image_credit": "📷Au999",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_065",
@@ -2146,7 +2258,9 @@
       "components_summary": "2x Bolide⭐ (Power Plant, Size 2, Military B); 4x CoverAll⭐ (Shield, Size 2, Military B); 1x Yeager⭐ (Quantum Drive, Size 2, Military B); 3x PermaFrost⭐ (Cooler, Size 2, Military B)",
       "image_credit": "📷LazyBrokOli",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_066",
@@ -2194,7 +2308,9 @@
       "components_summary": "1x Eclipse⭐ (Power Plant, Size 2, Stealth A); 4x Citadel (Shield, Size 2, Industrial B); 1x Huracan (Quantum Drive, Size 2, Industrial B); 2x Snowfall⭐ (Cooler, Size 2, Industrial B)",
       "image_credit": "📷Kaarzah",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_067",
@@ -2242,7 +2358,9 @@
       "components_summary": "2x Main Powerplant⭐ (Power Plant, Size 4, <null> A); 2x Holdstrong⭐ (Shield, Size 4, <null> A); 1x Frontline⭐ (Quantum Drive, Size 4, <null> A); 2x Exotherm⭐ (Cooler, Size 4, <null> A)",
       "image_credit": "📷LazyBrokOli",
       "other_components": "",
-      "image_url": ""
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "ship_new",
@@ -2255,7 +2373,10 @@
       "components": [],
       "components_summary": "",
       "image_credit": "",
-      "other_components": ""
+      "other_components": "",
+      "image_url": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_017",
@@ -2293,7 +2414,9 @@
       "components": [],
       "components_summary": "",
       "image_credit": "",
-      "other_components": ""
+      "other_components": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_018",
@@ -2331,7 +2454,9 @@
       "components": [],
       "components_summary": "",
       "image_credit": "",
-      "other_components": ""
+      "other_components": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_019",
@@ -2369,7 +2494,9 @@
       "components": [],
       "components_summary": "",
       "image_credit": "",
-      "other_components": ""
+      "other_components": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     },
     {
       "id": "item_020",
@@ -2407,7 +2534,9 @@
       "components": [],
       "components_summary": "",
       "image_credit": "",
-      "other_components": ""
+      "other_components": "",
+      "patch_type": "updated",
+      "reputation_required": 0
     }
   ],
   "reputation": {

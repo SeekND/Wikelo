@@ -39,12 +39,13 @@ async function loadData() {
 }
 
 function init() {
-    const patches = [...new Set([
-        ...DATA.items.map(i => i.patch),
-        ...DATA.ships.map(s => s.patch)
-    ].filter(Boolean))];
-    const latestPatch = patches.sort().pop() || '4.5';
-    document.getElementById('currentPatch').textContent = `Patch ${latestPatch}`;
+    // Use meta fields for patch and date display
+    const currentPatch = DATA.meta.current_patch || '4.6';
+    const dataUpdated = DATA.meta.data_updated || '';
+    document.getElementById('currentPatch').textContent = `Patch ${currentPatch}`;
+    if (dataUpdated) {
+        document.getElementById('dataUpdated').textContent = `Data: ${dataUpdated}`;
+    }
 
     buildMaterialList();
     renderItems();
@@ -166,13 +167,15 @@ function renderItemCard(item) {
     const sources = item.sources ? item.sources.split(';').map(s => s.trim()).filter(Boolean) : [];
     const links = item.further_reading || [];
     const hasDetails = sources.length > 0 || item.notes || links.length > 0 || item.image_url;
+    const patchType = item.patch_type === 'added' ? 'Added' : 'Updated';
+    const repReq = item.reputation_required || 0;
     return `
     <div class="item-card" onclick="this.classList.toggle('expanded')">
         <div class="item-card-header">
             <div class="item-name">${esc(item.name)}</div>
             <div class="item-badges">
                 <span class="badge badge-${item.category}">${item.category}</span>
-                ${item.patch ? `<span class="badge badge-patch">${item.patch}</span>` : ''}
+                ${item.patch ? `<span class="badge badge-patch">${patchType} in ${item.patch}</span>` : ''}
                 ${isRetired ? '<span class="badge badge-retired">retired</span>' : ''}
             </div>
         </div>
@@ -182,6 +185,7 @@ function renderItemCard(item) {
                 <div class="recipe-label">Recipe / Cost</div>
                 <div class="recipe-list">${recipe.map(r => `<span class="recipe-item">${r.qty ? `<span class="qty">${r.qty}x</span> ` : ''}${esc(r.name)}</span>`).join('')}</div>
             ` : ''}
+            ${repReq > 0 ? `<div class="rep-req-line"><span>Reputation Required: </span>${repReq}</div>` : ''}
             ${item.reward ? `<div class="reward-line"><span>Reward: </span>${esc(item.reward)}</div>` : ''}
         </div>
         ${hasDetails ? '<div class="card-expand-hint">▾ Click for details</div>' : ''}
@@ -219,13 +223,15 @@ function renderShips() {
         const comps = ship.components || [];
         const hasDetails = ship.other_components || ship.image_credit || ship.image_url;
         const isVehicle = ship.category === 'vehicle';
+        const patchType = ship.patch_type === 'added' ? 'Added' : 'Updated';
+        const repReq = ship.reputation_required || 0;
         return `
         <div class="ship-card" onclick="this.classList.toggle('expanded')">
             <div class="ship-card-header">
                 <div class="ship-name">${esc(ship.name)}</div>
                 <div class="item-badges">
                     <span class="badge ${isVehicle ? 'badge-vehicle' : 'badge-ship'}">${isVehicle ? 'vehicle' : 'ship'}</span>
-                    ${ship.patch ? `<span class="badge badge-patch">${ship.patch}</span>` : ''}
+                    ${ship.patch ? `<span class="badge badge-patch">${patchType} in ${ship.patch}</span>` : ''}
                 </div>
             </div>
             ${ship.mission_name ? `<div class="item-mission">Mission: "${esc(ship.mission_name)}"</div>` : ''}
@@ -239,6 +245,7 @@ function renderShips() {
                     <div class="recipe-label">Trade Cost</div>
                     <div class="recipe-list">${recipe.map(r => `<span class="recipe-item">${r.qty ? `<span class="qty">${r.qty}x</span> ` : ''}${esc(r.name)}</span>`).join('')}</div>
                 ` : ''}
+                ${repReq > 0 ? `<div class="rep-req-line"><span>Reputation Required: </span>${repReq}</div>` : ''}
             </div>
             ${hasDetails ? '<div class="card-expand-hint">▾ Click for details</div>' : ''}
             <div class="ship-details">

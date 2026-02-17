@@ -98,6 +98,13 @@ a:hover { color: var(--accent-blue); }
 }
 .admin-link:hover { color: var(--accent-orange); border-color: var(--accent-orange); }
 
+.updated-badge {
+    font-family: var(--font-mono); font-size: 0.65rem;
+    color: var(--text-dim);
+    padding: 0.25rem 0.6rem; border-radius: var(--radius);
+    border: 1px solid var(--border-dim);
+}
+
 /* === MAIN === */
 .main-content { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
 .credit-banner {
@@ -200,6 +207,15 @@ a:hover { color: var(--accent-blue); }
     padding-top: 0.35rem; border-top: 1px solid var(--border-dim);
 }
 .reward-line span {
+    color: var(--text-dim); font-family: var(--font-display);
+    font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
+}
+
+.rep-req-line {
+    font-size: 0.82rem; color: var(--accent-orange);
+    padding: 0.35rem 0; border-top: 1px solid var(--border-dim);
+}
+.rep-req-line span {
     color: var(--text-dim); font-family: var(--font-display);
     font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase;
 }
