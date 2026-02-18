@@ -127,7 +127,7 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_woodland.jpg"
     },
     {
       "id": "item_007",
@@ -147,7 +147,7 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_sandy.jpg"
     },
     {
       "id": "item_008",
@@ -167,11 +167,11 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_navy.jpg"
     },
     {
       "id": "item_009",
-      "name": "Quartz \"Cobalt Camo\" Energy SMG; 20x Quartz Energy SMG Battery (45 cap)",
+      "name": "Quartz ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -181,17 +181,17 @@
       "recipe": "30x MG Scrip; 5x Ace Interceptor Helmet; 50x Grassland Quasi Grazer Egg; 1x Quartz Energy SMG",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "Quartz \"Cobalt Camo\" Energy SMG; 20x Quartz Energy SMG Battery (45 cap)",
+      "reward": "Quartz ",
       "description": "Wikelo hearing about new energy weapon by VOLT souli. If you want, Wikelo can make gun look better. It found in storm, it shoot storm, but Wikelo make it better for people who like human navy. Bring things to and Wikelo will do. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_zappy_navy.jpg"
     },
     {
       "id": "item_010",
-      "name": "Quartz \"Jungle Camo\" Energy SMG; 20x Quartz Energy SMG Battery (45 cap)",
+      "name": "Quartz ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -201,17 +201,17 @@
       "recipe": "30x MG Scrip; 5x Ace Interceptor Helmet; 35x Tundra Kopion Horn; 1x Quartz Energy SMG",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "Quartz \"Jungle Camo\" Energy SMG; 20x Quartz Energy SMG Battery (45 cap)",
+      "reward": "Quartz ",
       "description": "Wikelo hearing about new type of energy weapon by VOLT souli. Hit very hard. If you want, Wikelo can make gun look even better. It found in storm, it shoot storm, but Wikelo make it look woodier. Drop in forest? It gone. Bring things to and Wikelo will do. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "gun_zappy_woodland.jpg"
     },
     {
       "id": "item_011",
-      "name": "Quartz \"Hunter Camo\" Energy SMG; 20x Quartz Energy SMG Battery (45 cap)",
+      "name": "Quartz ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -221,13 +221,13 @@
       "recipe": "30x Council Scrip; 5x Ace Interceptor Helmet; 10x Advocacy Badge (Replica); 1x Quartz Energy SMG",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "Quartz \"Hunter Camo\" Energy SMG; 20x Quartz Energy SMG Battery (45 cap)",
+      "reward": "Quartz ",
       "description": "Wikelo can make new VOLT gun look like sand mound. Very sneaky in desert. Bring things to and Wikelo will do. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "gun_zappy_sandy.jpg"
     },
     {
       "id": "item_012",
@@ -247,11 +247,11 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "image/armour_endro_glow.jpg"
     },
     {
       "id": "item_013",
-      "name": "Prism \"Irradiated\" Laser Shotgun; 20x Prism Laser Shotgun Battery (20 cap)",
+      "name": "Prism ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -261,17 +261,17 @@
       "recipe": "10x Irradiated Valakkar Fang (Adult); 5x Irradiated Valakkar Fang (Juvenile); 1x Prism Laser Shotgun",
       "reputation_required": 0,
       "reputation_reward": 10,
-      "reward": "Prism \"Irradiated\" Laser Shotgun; 20x Prism Laser Shotgun Battery (20 cap)",
+      "reward": "Prism ",
       "description": "You feel like gun not angry enough? VOLT shotgun very powerful, very dangerous, but not scary? Bring to me. Can make very scary and angry. They respect you then. Bring to and we make. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_shot.jpg"
     },
     {
       "id": "item_014",
-      "name": "Novikov \"Ascension\" Exploration Suit; Novikov \"Ascension\" Helmet; Novikov \"Ascension\" Backpack",
+      "name": "Novikov ",
       "category": "armor",
       "patch": "",
       "patch_type": "",
@@ -281,13 +281,13 @@
       "recipe": "1x Novikov Helmet; 30x MG Scrip; 10x Irradiated Valakkar Fang (Adult); 20x Irradiated Valakkar Fang (Juvenile); 1x Irradiated Valakkar Pearl (Grade AAA); 1x Novikov Exploration Suit",
       "reputation_required": 0,
       "reputation_reward": 25,
-      "reward": "Novikov \"Ascension\" Exploration Suit; Novikov \"Ascension\" Helmet; Novikov \"Ascension\" Backpack",
+      "reward": "Novikov ",
       "description": "Maybe you like walking on planet that very hot. Or very cold. Or many rocks. Wikelo can make suit called Novikov from Human souli Caldera work better for you. Bring things if you want, then I make. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_novikov.jpg"
     },
     {
       "id": "item_015",
@@ -307,7 +307,7 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_alien.jpg"
     },
     {
       "id": "item_016",
@@ -327,11 +327,11 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_adventure.jpg"
     },
     {
       "id": "item_017",
-      "name": "Karna \"Ascension\" Rifle; 20x Karna Rifle Battery (35 cap)",
+      "name": "Karna ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -341,17 +341,17 @@
       "recipe": "10x Irradiated Valakkar Fang (Juvenile); 10x Irradiated Kopion Horn; 10x Irradiated Valakkar Fang (Adult); 1x Irradiated Valakkar Pearl (Grade AAA); 1x Karna Rifle",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "Karna \"Ascension\" Rifle; 20x Karna Rifle Battery (35 cap)",
+      "reward": "Karna ",
       "description": "Wikelo friend had to trade ship they found for credits. Wikelo surprised to find many crate of Karna guns inside. Friend must not have wanted. Anyway, Wikelo figure out how to make prettier. If you want, bring stuff. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_karna.jpg"
     },
     {
       "id": "item_018",
-      "name": "S71 \"Ascension\" Rifle; 20x S71 Rifle Magazine (30 cap)",
+      "name": "S71 ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -361,17 +361,17 @@
       "recipe": "10x Carinite; 10x Saldynium (Ore); 10x Jaclium (Ore); 1x Carinite (Pure); 1x S71 Rifle",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "S71 \"Ascension\" Rifle; 20x S71 Rifle Magazine (30 cap)",
+      "reward": "S71 ",
       "description": "Universe is dangerous in human space. Good to have a good weapon to handle bad situation. Wikelo don't have many weapon, but can make useful ones more useful. If you want, bring stuff and I will do.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_s71.jpg"
     },
     {
       "id": "item_019",
-      "name": "Coda \"Ascension\" Pistol; 20x Coda Pistol Magazine (6 cap)",
+      "name": "Coda ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -381,17 +381,17 @@
       "recipe": "5x Ace Interceptor Helmet; 1x Tevarin War Service Marker (Pristine); 30x MG Scrip; 1x Coda Pistol",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "Coda \"Ascension\" Pistol; 20x Coda Pistol Magazine (6 cap)",
+      "reward": "Coda ",
       "description": "Wikelo found crate of Coda pistols. Very strange reason, but will tell later if you want to hear. Anyway, after study have figured out nice way to make gun look better. Have a look, see if interested. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_coda.jpg"
     },
     {
       "id": "item_020",
-      "name": "Zenith \"Snow Camo\" Laser Sniper Rifle; 20x Zenith Laser Sniper Rifle Battery (22 Cap)",
+      "name": "Zenith ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -401,13 +401,13 @@
       "recipe": "7x ASD Secure Drive; 1x Zenith Laser Sniper Rifle",
       "reputation_required": 0,
       "reputation_reward": 10,
-      "reward": "Zenith \"Snow Camo\" Laser Sniper Rifle; 20x Zenith Laser Sniper Rifle Battery (22 Cap)",
+      "reward": "Zenith ",
       "description": "Want to shoot long away and stay hiding. But it snowing? Wikelo have gun for you. Bring things. I give. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_volt_snipe.jpg"
     },
     {
       "id": "item_021",
@@ -431,7 +431,7 @@
     },
     {
       "id": "item_022",
-      "name": "Fresnel \"Deepwater\" Energy LMG; 20x Fresnel Energy LMG Battery (165 Cap)",
+      "name": "Fresnel ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -441,13 +441,13 @@
       "recipe": "5x ASD Secure Drive; 5x RCMBNT-XTL-1; 5x RCMBNT-XTL-2; 5x RCMBNT-XTL-3; 1x Fresnel Energy LMG",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "Fresnel \"Deepwater\" Energy LMG; 20x Fresnel Energy LMG Battery (165 Cap)",
+      "reward": "Fresnel ",
       "description": "You need useful weapon. Yes, yes, understand. Wikelo make useful weapon more beautiful too. You see things I need. You bring? I do. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_heavy_volt.jpg"
     },
     {
       "id": "item_023",
@@ -467,7 +467,7 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_lava.jpg"
     },
     {
       "id": "item_024",
@@ -487,7 +487,7 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_shiny.jpg"
     },
     {
       "id": "item_025",
@@ -511,7 +511,7 @@
     },
     {
       "id": "item_026",
-      "name": "Fresnel \"Yormandi\" Energy LMG",
+      "name": "Fresnel ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -521,13 +521,13 @@
       "recipe": "6x Yormandi Eye; 3x Yormandi Tongue; 1x Fresnel Energy LMG",
       "reputation_required": 0,
       "reputation_reward": 10,
-      "reward": "Fresnel \"Yormandi\" Energy LMG",
+      "reward": "Fresnel ",
       "description": "This gun has picture of amazing creature on side. Use it and it make you big and strong like Yormandi. Spit lightning. Bring my items and then you get it. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_yormandi.jpg"
     },
     {
       "id": "item_027",
@@ -567,7 +567,7 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_test.jpg"
     },
     {
       "id": "item_029",
@@ -587,12 +587,12 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_vanduul.jpg"
     },
     {
       "id": "item_030",
-      "name": "Boomtube \"Clanguard\" Rocket Launcher; Boomtube Rocket",
-      "category": "gear",
+      "name": "Boomtube ",
+      "category": "armor",
       "patch": "",
       "patch_type": "",
       "date_updated": "2026-02-18",
@@ -601,17 +601,17 @@
       "recipe": "2x Vanduul Plating; 2x Vanduul Metal; 1x Boomtube Rocket Launcher",
       "reputation_required": 0,
       "reputation_reward": 10,
-      "reward": "Boomtube \"Clanguard\" Rocket Launcher; Boomtube Rocket",
+      "reward": "Boomtube ",
       "description": "Wikelo find very strange but functional weapon while wandering through your systems. It very simple but very effective. If you bring me things, I show you what I do to it. Very fun.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_boomtube.jpg"
     },
     {
       "id": "item_031",
-      "name": "Tripledown \"Heatwave\" Pistol; 20x Tripledown Pistol Magazine (12 Cap)",
+      "name": "Tripledown ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -621,13 +621,13 @@
       "recipe": "20x Carinite; 20x Bluemoon Fungus; 1x Tripledown Pistol",
       "reputation_required": 0,
       "reputation_reward": 10,
-      "reward": "Tripledown \"Heatwave\" Pistol; 20x Tripledown Pistol Magazine (12 Cap)",
+      "reward": "Tripledown ",
       "description": "You need a good weapon, yes? Have one for you. Small but powerful. Like an extra spicy balalu pepper. Wikelo make this pistol look extra spicy too. You bring things I need and I do a trade. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_shot.jpg"
     },
     {
       "id": "item_033",
