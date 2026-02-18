@@ -27,11 +27,11 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_endro.jpg"
     },
     {
       "id": "item_002",
-      "name": "Parallax \"Fun Kopion Skull\" Energy Assault Rifle; 20x Parallax Rifle Battery (80 Cap)",
+      "name": "Parallax ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -41,17 +41,17 @@
       "recipe": "10x Carinite; 15x Saldynium (Ore); 1x Parallax Energy Assault Rifle; 20x Tundra Kopion Horn; 20x Jaclium (Ore)",
       "reputation_required": 0,
       "reputation_reward": 10,
-      "reward": "Parallax \"Fun Kopion Skull\" Energy Assault Rifle; 20x Parallax Rifle Battery (80 Cap)",
+      "reward": "Parallax ",
       "description": "Hello. Can make fun change to gun if you want. Use kopion skin for pattern and little skull dangle. Very effective. Shoot much better. All you need is bring me parts to and will make. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_kopion_military.jpg"
     },
     {
       "id": "item_003",
-      "name": "Parallax \"Fun Kopion Tooth\" Energy Assault Rifle; 20x Parallax Rifle Battery (80 Cap)",
+      "name": "Parallax ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -61,17 +61,17 @@
       "recipe": "20x Carinite; 30x Saldynium (Ore); 1x Parallax Energy Assault Rifle; 35x Tundra Kopion Horn; 40x Jaclium (Ore)",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "Parallax \"Fun Kopion Tooth\" Energy Assault Rifle; 20x Parallax Rifle Battery (80 Cap)",
+      "reward": "Parallax ",
       "description": "Hello. Can make fun change to gun if you want. If you no like saying it not baby skull, have other choice. Use kopion skin for pattern but use tooth instead dangle. Still effective and shoot better. Bring parts to and will make. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_kopion_fun.jpg"
     },
     {
       "id": "item_004",
-      "name": "Parallax \"Fun Military Skull\" Energy Assault Rifle; 20x Parallax Rifle Battery (80 Cap)",
+      "name": "Parallax ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -81,17 +81,17 @@
       "recipe": "10x Carinite; 15x Saldynium (Ore); 1x Parallax Energy Assault Rifle; 20x Irradiated Valakkar Fang (Juvenile); 20x Jaclium (Ore)",
       "reputation_required": 0,
       "reputation_reward": 10,
-      "reward": "Parallax \"Fun Military Skull\" Energy Assault Rifle; 20x Parallax Rifle Battery (80 Cap)",
+      "reward": "Parallax ",
       "description": "Hello. Can do version of gun if you kopion soldier. Make material like soldier camouflage but with dead skull on front. Gun shoot better too. If want, bring part to and will make.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_kopion_military.jpg"
     },
     {
       "id": "item_005",
-      "name": "Parallax \"Fun Military Tooth\" Energy Assault Rifle; 20x Parallax Rifle Battery (80 Cap)",
+      "name": "Parallax ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -101,13 +101,13 @@
       "recipe": "20x Carinite; 30x Saldynium (Ore); 1x Parallax Energy Assault Rifle; 35x Valakkar Fang (Juvenile); 40x Jaclium (Ore)",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "Parallax \"Fun Military Tooth\" Energy Assault Rifle; 20x Parallax Rifle Battery (80 Cap)",
+      "reward": "Parallax ",
       "description": "Wikelo here with another way to play with type of gun. Make look like more of your soldier gun, but with kopion tooth dangle. Very nasty indeed. If want, bring part to and will make. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_military_fun.jpg"
     },
     {
       "id": "item_006",
