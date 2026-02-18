@@ -162,11 +162,17 @@ function renderIngredientDetails(recipe) {
 // ============================================================
 // BADGE HELPERS
 // ============================================================
+function isRetired(item) {
+    return item.status && item.status.startsWith('retired');
+}
+
 function renderBadges(item) {
     let html = `<span class="badge badge-${item.category}">${item.category}</span>`;
     if (item.patch_type === 'new') html += `<span class="badge badge-new">new</span>`;
     else if (item.patch_type === 'updated') html += `<span class="badge badge-updated">updated</span>`;
-    if (item.status === 'retired') html += `<span class="badge badge-retired">retired</span>`;
+    if (item.status === 'retired-loot') html += `<span class="badge badge-retired">loot pool</span>`;
+    else if (item.status === 'retired-store') html += `<span class="badge badge-retired">store exclusive</span>`;
+    else if (item.status === 'retired') html += `<span class="badge badge-retired">retired</span>`;
     return html;
 }
 
@@ -177,7 +183,11 @@ function renderItems() {
     const grid = document.getElementById('itemsGrid');
     const searchTerm = document.getElementById('itemSearch').value.toLowerCase();
     let items = DATA.items;
-    if (currentFilter !== 'all') items = items.filter(i => i.category === currentFilter);
+    if (currentFilter === 'retired') {
+        items = items.filter(i => isRetired(i));
+    } else if (currentFilter !== 'all') {
+        items = items.filter(i => i.category === currentFilter && !isRetired(i));
+    }
     if (searchTerm) {
         items = items.filter(i =>
             (i.name || '').toLowerCase().includes(searchTerm) ||
@@ -200,7 +210,7 @@ function renderItemCard(item) {
     const repReq = item.reputation_required || 0;
     const reward = item.reward || item.category.charAt(0).toUpperCase() + item.category.slice(1);
     return `
-    <div class="item-card ${item.status === 'retired' ? 'retired-card' : ''}" onclick="this.classList.toggle('expanded')">
+    <div class="item-card ${isRetired(item) ? 'retired-card' : ''}" onclick="this.classList.toggle('expanded')">
         <div class="item-card-header">
             <div class="item-mission-title">${esc(item.mission_name || item.name)}</div>
             <div class="item-badges">${renderBadges(item)}</div>
@@ -231,9 +241,11 @@ function renderShips() {
     const grid = document.getElementById('shipsGrid');
     const searchTerm = document.getElementById('shipSearch').value.toLowerCase();
     let ships = DATA.ships;
-    if (currentShipFilter !== 'all') {
-        if (currentShipFilter === 'ship') ships = ships.filter(s => s.category !== 'vehicle');
-        else if (currentShipFilter === 'vehicle') ships = ships.filter(s => s.category === 'vehicle');
+    if (currentShipFilter === 'retired') {
+        ships = ships.filter(s => isRetired(s));
+    } else if (currentShipFilter !== 'all') {
+        if (currentShipFilter === 'ship') ships = ships.filter(s => s.category !== 'vehicle' && !isRetired(s));
+        else if (currentShipFilter === 'vehicle') ships = ships.filter(s => s.category === 'vehicle' && !isRetired(s));
     }
     if (searchTerm) {
         ships = ships.filter(s =>
@@ -254,7 +266,7 @@ function renderShips() {
         const repReq = ship.reputation_required || 0;
         const reward = ship.reward || ship.name || (isVehicle ? 'Vehicle' : 'Ship');
         return `
-        <div class="ship-card ${ship.status === 'retired' ? 'retired-card' : ''}" onclick="this.classList.toggle('expanded')">
+        <div class="ship-card ${isRetired(ship) ? 'retired-card' : ''}" onclick="this.classList.toggle('expanded')">
             <div class="ship-card-header">
                 <div class="item-mission-title">${esc(ship.mission_name || ship.name)}</div>
                 <div class="item-badges">${renderBadges(ship)}</div>
@@ -353,8 +365,8 @@ function renderReputation() {
 // ============================================================
 function buildMaterialList() {
     const materialSet = new Set();
-    DATA.items.forEach(item => parseRecipe(item.recipe).forEach(r => materialSet.add(r.name)));
-    DATA.ships.forEach(ship => parseRecipe(ship.recipe).forEach(r => materialSet.add(r.name)));
+    DATA.items.forEach(item => { if (!isRetired(item)) parseRecipe(item.recipe).forEach(r => materialSet.add(r.name)); });
+    DATA.ships.forEach(ship => { if (!isRetired(ship)) parseRecipe(ship.recipe).forEach(r => materialSet.add(r.name)); });
     allMaterialNames = [...materialSet].sort((a, b) => a.toLowerCase().localeCompare(b.toLowerCase()));
 }
 
@@ -406,6 +418,7 @@ function updateInvSummary() {
 function getAllMissions() {
     const missions = [];
     DATA.items.forEach(item => {
+        if (isRetired(item)) return;
         const recipe = parseRecipe(item.recipe);
         if (recipe.length > 0) {
             const reward = item.reward || item.category.charAt(0).toUpperCase() + item.category.slice(1);
@@ -413,6 +426,7 @@ function getAllMissions() {
         }
     });
     DATA.ships.forEach(ship => {
+        if (isRetired(ship)) return;
         const recipe = parseRecipe(ship.recipe);
         if (recipe.length > 0) {
             const reward = ship.reward || ship.name || 'Ship';

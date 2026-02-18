@@ -262,9 +262,9 @@ a:hover { color: var(--accent-blue); }
     font-size: 0.82rem; color: var(--accent-orange);
     padding: 0.35rem 0; border-top: 1px solid var(--border-dim);
 }
-.reward-line .rep-reward-inline {
+.rep-reward-inline {
     font-family: var(--font-mono); font-size: 0.68rem;
-    color: var(--text-primary); background: rgba(255,200,68,0.15);
+    color: var(--accent-gold); background: rgba(255,200,68,0.1);
     border: 1px solid rgba(255,200,68,0.2); border-radius: 3px;
     padding: 0.1rem 0.35rem; margin-left: 0.4rem;
     letter-spacing: 0; text-transform: none;

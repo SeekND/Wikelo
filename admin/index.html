@@ -363,8 +363,10 @@
                 <select id="ed_status">
                     <option value="active" ${(item.status || 'active') === 'active' ? 'selected' : ''}>Active</option>
                     <option value="retired" ${item.status === 'retired' ? 'selected' : ''}>Retired</option>
+                    <option value="retired-loot" ${item.status === 'retired-loot' ? 'selected' : ''}>Retired — Loot Pool</option>
+                    <option value="retired-store" ${item.status === 'retired-store' ? 'selected' : ''}>Retired — Store Exclusive</option>
                 </select>
-                <div class="form-hint">Retired items appear dimmed on the site.</div>
+                <div class="form-hint">Retired items appear dimmed and are excluded from inventory planner.</div>
             </div>
             <div class="form-row">
                 <label>Mission Name</label>
@@ -503,6 +505,8 @@
                 <select id="ed_ship_status">
                     <option value="active" ${(ship.status || 'active') === 'active' ? 'selected' : ''}>Active</option>
                     <option value="retired" ${ship.status === 'retired' ? 'selected' : ''}>Retired</option>
+                    <option value="retired-loot" ${ship.status === 'retired-loot' ? 'selected' : ''}>Retired — Loot Pool</option>
+                    <option value="retired-store" ${ship.status === 'retired-store' ? 'selected' : ''}>Retired — Store Exclusive</option>
                 </select>
             </div>
             <div class="form-row">
