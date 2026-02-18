@@ -107,13 +107,46 @@ a:hover { color: var(--accent-blue); }
 
 /* === MAIN === */
 .main-content { max-width: 1400px; margin: 0 auto; padding: 1.5rem; }
-.credit-banner {
-    background: linear-gradient(135deg, rgba(255,138,58,0.08), rgba(255,200,68,0.05));
-    border: 1px solid rgba(255,138,58,0.15); border-radius: var(--radius-lg);
-    padding: 0.75rem 1.25rem; margin-bottom: 1.5rem; text-align: center;
+/* === NEWS REEL === */
+.news-reel {
+    background: linear-gradient(135deg, rgba(0,212,255,0.06), rgba(74,158,255,0.04));
+    border: 1px solid rgba(0,212,255,0.15); border-radius: var(--radius-lg);
+    padding: 0.6rem 1.25rem; margin-bottom: 1.5rem;
 }
-.credit-banner p { font-size: 0.85rem; color: var(--text-secondary); }
-.credit-banner strong { color: var(--accent-orange); }
+.news-reel-inner { display: flex; align-items: center; gap: 0.75rem; }
+.news-reel-badge {
+    font-family: var(--font-display); font-size: 0.55rem; font-weight: 700;
+    letter-spacing: 0.15em; color: var(--accent-cyan);
+    background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.25);
+    padding: 0.15rem 0.5rem; border-radius: 3px; white-space: nowrap;
+}
+.news-reel-text { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* === INTRO MISSION (welcome page bottom) === */
+.intro-mission-section {
+    margin-top: 2.5rem; padding-top: 2rem;
+    border-top: 1px solid var(--border-dim);
+}
+.intro-mission-card {
+    background: linear-gradient(135deg, rgba(255,138,58,0.06), rgba(154,106,255,0.04));
+    border: 1px solid rgba(255,138,58,0.2); border-radius: var(--radius-lg);
+    padding: 1.5rem; max-width: 700px; margin: 0 auto;
+}
+.intro-mission-card .intro-label {
+    font-family: var(--font-display); font-size: 0.6rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent-orange);
+    margin-bottom: 0.75rem;
+}
+.intro-mission-card .intro-title {
+    font-family: var(--font-body); font-size: 1.15rem; font-weight: 600;
+    color: var(--text-bright); margin-bottom: 0.5rem;
+}
+.intro-mission-card .intro-desc {
+    font-size: 0.85rem; color: var(--text-secondary); line-height: 1.6;
+    font-style: italic; margin-bottom: 1rem;
+}
+.intro-mission-card .recipe-label { margin-top: 0.5rem; }
+.intro-mission-card .recipe-list { margin-bottom: 0; }
 
 .content-section { display: none; }
 .content-section.active { display: block; animation: fadeIn 0.3s ease; }
@@ -123,6 +156,13 @@ a:hover { color: var(--accent-blue); }
 .section-header h2 {
     font-family: var(--font-display); font-size: 0.85rem; font-weight: 700;
     letter-spacing: 0.2em; color: var(--text-dim); margin-bottom: 1rem;
+    display: flex; align-items: center; gap: 0.5rem;
+}
+.section-count {
+    font-family: var(--font-mono); font-size: 0.7rem; font-weight: 400;
+    color: var(--accent-cyan); background: rgba(0,212,255,0.1);
+    border: 1px solid rgba(0,212,255,0.2); border-radius: 10px;
+    padding: 0.1rem 0.5rem; letter-spacing: 0;
 }
 
 .filters { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
@@ -166,6 +206,10 @@ a:hover { color: var(--accent-blue); }
     font-weight: 600; color: var(--text-bright); line-height: 1.3;
 }
 .ship-name { font-size: 1.1rem; font-weight: 700; }
+.item-mission-title {
+    font-family: var(--font-body); font-size: 1.05rem;
+    font-weight: 600; color: var(--accent-orange); line-height: 1.3;
+}
 
 .item-badges { display: flex; gap: 0.35rem; flex-shrink: 0; flex-wrap: wrap; }
 .badge {
@@ -182,6 +226,9 @@ a:hover { color: var(--accent-blue); }
 .badge-currency { color: var(--accent-gold); background: rgba(255,200,68,0.12); border: 1px solid rgba(255,200,68,0.2); }
 .badge-patch { color: var(--accent-green); background: rgba(68,221,136,0.08); border: 1px solid rgba(68,221,136,0.15); }
 .badge-retired { color: var(--accent-red); background: rgba(255,68,102,0.08); border: 1px solid rgba(255,68,102,0.15); }
+.badge-gear { color: var(--accent-cyan); background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.2); }
+.badge-new { color: var(--accent-green); background: rgba(68,221,136,0.08); border: 1px solid rgba(68,221,136,0.15); }
+.badge-updated { color: var(--accent-gold); background: rgba(255,200,68,0.08); border: 1px solid rgba(255,200,68,0.15); }
 
 .item-mission {
     padding: 0 1.25rem; font-family: var(--font-mono);
@@ -214,6 +261,13 @@ a:hover { color: var(--accent-blue); }
 .rep-req-line {
     font-size: 0.82rem; color: var(--accent-orange);
     padding: 0.35rem 0; border-top: 1px solid var(--border-dim);
+}
+.reward-line .rep-reward-inline {
+    font-family: var(--font-mono); font-size: 0.68rem;
+    color: var(--text-primary); background: rgba(255,200,68,0.15);
+    border: 1px solid rgba(255,200,68,0.2); border-radius: 3px;
+    padding: 0.1rem 0.35rem; margin-left: 0.4rem;
+    letter-spacing: 0; text-transform: none;
 }
 .rep-req-line span {
     color: var(--text-dim); font-family: var(--font-display);
@@ -493,6 +547,14 @@ a:hover { color: var(--accent-blue); }
     margin-top: 0.5rem; font-family: var(--font-mono);
     font-size: 0.68rem; color: var(--accent-orange); opacity: 0.7;
 }
+.inv-mission-reward {
+    margin-top: 0.5rem; font-size: 0.78rem; color: var(--text-dim);
+}
+.inv-mission-reward span { color: var(--text-dim); font-family: var(--font-display); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.inv-mission-details {
+    display: none; padding: 0.75rem 0 0.25rem;
+}
+.inv-mission-card.expanded .inv-mission-details { display: block; }
 
 /* === FOOTER === */
 .site-footer {
@@ -699,3 +761,7 @@ a:hover { color: var(--accent-blue); }
     color: var(--accent-red); font-size: 0.58rem; font-weight: 400;
     margin-left: 2px;
 }
+
+/* === RETIRED CARDS === */
+.retired-card { opacity: 0.5; }
+.retired-card:hover { opacity: 0.75; }

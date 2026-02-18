@@ -161,7 +161,27 @@
             <button class="tab-btn" data-tab="ships">Ships (<span id="shipCount">0</span>)</button>
             <button class="tab-btn" data-tab="currency">Currency</button>
             <button class="tab-btn" data-tab="reputation">Reputation</button>
+            <button class="tab-btn" data-tab="ingredients">Ingredients</button>
             <button class="tab-btn" data-tab="settings">Settings</button>
+        </div>
+
+        <div class="tab-panel" id="panel-ingredients">
+            <div style="margin-bottom:1rem;">
+                <h4 style="font-family:var(--font-display); font-size:0.7rem; color:var(--text-bright); margin-bottom:0.5rem; letter-spacing:0.1em;">INGREDIENT INFORMATION</h4>
+                <p style="font-size:0.78rem; color:var(--text-dim); margin-bottom:1rem;">Add location info and links for recipe ingredients. This data shows in the "Click for details" section on item/ship cards.</p>
+            </div>
+            <table class="data-table" id="ingredientsTable">
+                <thead>
+                    <tr>
+                        <th>Ingredient Name</th>
+                        <th>Location</th>
+                        <th>Link Title</th>
+                        <th>Link URL</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
 
         <div class="tab-panel" id="panel-settings">
@@ -174,6 +194,11 @@
                 <div class="form-row">
                     <label>Data Last Updated</label>
                     <input type="date" id="meta_updated" onchange="DATA.meta.data_updated=this.value; setStatus('Date updated','saved')">
+                </div>
+                <div class="form-row">
+                    <label>News Reel</label>
+                    <input type="text" id="meta_news" placeholder="Short news message shown at top of site (leave empty to hide)" onchange="if(!DATA.meta)DATA.meta={};DATA.meta.news_reel=this.value; setStatus('News updated','saved')">
+                    <div class="form-hint">Shown as a cyan banner at the top of the page. Leave empty to hide.</div>
                 </div>
                 <p style="font-size:0.75rem; color:var(--text-dim); margin-top:1rem;">These values are shown in the header bar on the live site. Remember to download the JSON after changing.</p>
             </div>
@@ -252,10 +277,13 @@
     }
 
     function renderAll() {
+        if (!DATA.ingredients_info) DATA.ingredients_info = {};
+        if (!DATA.meta) DATA.meta = {};
         renderItemsTable();
         renderShipsTable();
         renderCurrencyEditor();
         renderRepEditor();
+        renderIngredientsTable();
         document.getElementById('itemCount').textContent = DATA.items.length;
         document.getElementById('shipCount').textContent = DATA.ships.length;
         document.getElementById('statusCount').textContent =
@@ -263,6 +291,7 @@
         // Settings
         document.getElementById('meta_patch').value = DATA.meta.current_patch || '';
         document.getElementById('meta_updated').value = DATA.meta.data_updated || '';
+        document.getElementById('meta_news').value = DATA.meta.news_reel || '';
     }
 
     // ============================================================
@@ -323,10 +352,19 @@
             <div class="form-row">
                 <label>Patch Type</label>
                 <select id="ed_patch_type">
-                    <option value="updated" ${(item.patch_type || 'updated') === 'updated' ? 'selected' : ''}>Updated in</option>
-                    <option value="added" ${item.patch_type === 'added' ? 'selected' : ''}>Added in</option>
+                    <option value="" ${!item.patch_type ? 'selected' : ''}>None (no badge)</option>
+                    <option value="new" ${item.patch_type === 'new' ? 'selected' : ''}>New</option>
+                    <option value="updated" ${item.patch_type === 'updated' ? 'selected' : ''}>Updated</option>
                 </select>
-                <div class="form-hint">Controls whether the badge shows "Added in 4.6" or "Updated in 4.6"</div>
+                <div class="form-hint">Shows a "new" or "updated" badge on the card. Leave as "None" for initial items.</div>
+            </div>
+            <div class="form-row">
+                <label>Status</label>
+                <select id="ed_status">
+                    <option value="active" ${(item.status || 'active') === 'active' ? 'selected' : ''}>Active</option>
+                    <option value="retired" ${item.status === 'retired' ? 'selected' : ''}>Retired</option>
+                </select>
+                <div class="form-hint">Retired items appear dimmed on the site.</div>
             </div>
             <div class="form-row">
                 <label>Mission Name</label>
@@ -388,7 +426,7 @@
         item.description = document.getElementById('ed_desc').value;
         item.notes = document.getElementById('ed_notes').value;
         item.image_url = document.getElementById('ed_image_url').value;
-        item.status = item.status || 'active';
+        item.status = document.getElementById('ed_status').value;
         item.date_updated = item.date_updated || new Date().toISOString().split('T')[0];
         item.further_reading = item.further_reading || [];
 
@@ -455,8 +493,16 @@
             <div class="form-row">
                 <label>Patch Type</label>
                 <select id="ed_patch_type">
-                    <option value="updated" ${(ship.patch_type || 'updated') === 'updated' ? 'selected' : ''}>Updated in</option>
-                    <option value="added" ${ship.patch_type === 'added' ? 'selected' : ''}>Added in</option>
+                    <option value="" ${!ship.patch_type ? 'selected' : ''}>None (no badge)</option>
+                    <option value="new" ${ship.patch_type === 'new' ? 'selected' : ''}>New</option>
+                    <option value="updated" ${ship.patch_type === 'updated' ? 'selected' : ''}>Updated</option>
+                </select>
+            </div>
+            <div class="form-row">
+                <label>Status</label>
+                <select id="ed_ship_status">
+                    <option value="active" ${(ship.status || 'active') === 'active' ? 'selected' : ''}>Active</option>
+                    <option value="retired" ${ship.status === 'retired' ? 'selected' : ''}>Retired</option>
                 </select>
             </div>
             <div class="form-row">
@@ -471,6 +517,10 @@
             <div class="form-row">
                 <label>Reputation Required</label>
                 <input type="number" id="ed_ship_rep_req" value="${ship.reputation_required || 0}" min="0" placeholder="0">
+            </div>
+            <div class="form-row">
+                <label>Reward</label>
+                <input type="text" id="ed_ship_reward" value="${esc(ship.reward || '')}" placeholder="Ship/vehicle name or reward description">
             </div>
             <div class="form-row">
                 <label>Components (JSON — advanced)</label>
@@ -498,6 +548,8 @@
         ship.mission_name = document.getElementById('ed_mission').value;
         ship.recipe = normalizeRecipe(document.getElementById('ed_recipe').value);
         ship.reputation_required = parseInt(document.getElementById('ed_ship_rep_req').value) || 0;
+        ship.reward = document.getElementById('ed_ship_reward').value;
+        ship.status = document.getElementById('ed_ship_status').value;
 
         try {
             ship.components = JSON.parse(document.getElementById('ed_components').value);
@@ -616,6 +668,87 @@
             return `<span class="recipe-item">${esc(item)}</span>`;
         }).join('');
     }
+
+    // ============================================================
+    // INGREDIENTS INFO TABLE
+    // ============================================================
+    function getAllIngredientNames() {
+        const names = new Set();
+        DATA.items.forEach(item => {
+            if (!item.recipe) return;
+            item.recipe.split(';').forEach(part => {
+                const m = part.trim().match(/^(\d+)x\s+(.+)$/);
+                if (m) names.add(m[2]);
+                else if (part.trim()) names.add(part.trim());
+            });
+        });
+        DATA.ships.forEach(ship => {
+            if (!ship.recipe) return;
+            ship.recipe.split(';').forEach(part => {
+                const m = part.trim().match(/^(\d+)x\s+(.+)$/);
+                if (m) names.add(m[2]);
+                else if (part.trim()) names.add(part.trim());
+            });
+        });
+        return [...names].sort();
+    }
+
+    function renderIngredientsTable() {
+        const tbody = document.querySelector('#ingredientsTable tbody');
+        const allNames = getAllIngredientNames();
+        const info = DATA.ingredients_info || {};
+        
+        tbody.innerHTML = allNames.map(name => {
+            const data = info[name] || {};
+            return `
+            <tr>
+                <td class="cell-name">${esc(name)}</td>
+                <td>
+                    <input type="text" style="width:100%;font-size:0.78rem;padding:0.25rem 0.4rem;background:var(--bg-input);border:1px solid var(--border);color:var(--text);border-radius:3px;"
+                        value="${esc(data.location || '')}" 
+                        onchange="updateIngredient('${escAdm(name)}', 'location', this.value)"
+                        placeholder="e.g. Align & Mine Ore">
+                </td>
+                <td>
+                    <input type="text" style="width:100%;font-size:0.78rem;padding:0.25rem 0.4rem;background:var(--bg-input);border:1px solid var(--border);color:var(--text);border-radius:3px;"
+                        value="${esc(data.link_title || '')}"
+                        onchange="updateIngredient('${escAdm(name)}', 'link_title', this.value)"
+                        placeholder="e.g. Guide Video">
+                </td>
+                <td>
+                    <input type="text" style="width:100%;font-size:0.78rem;padding:0.25rem 0.4rem;background:var(--bg-input);border:1px solid var(--border);color:var(--text);border-radius:3px;"
+                        value="${esc(data.link_url || '')}"
+                        onchange="updateIngredient('${escAdm(name)}', 'link_url', this.value)"
+                        placeholder="https://...">
+                </td>
+                <td class="cell-actions">
+                    ${(data.location || data.link_url) ? '<button class="btn btn-danger" onclick="clearIngredient(\'' + escAdm(name) + '\')">×</button>' : ''}
+                </td>
+            </tr>`;
+        }).join('');
+    }
+
+    function updateIngredient(name, field, value) {
+        if (!DATA.ingredients_info) DATA.ingredients_info = {};
+        if (!DATA.ingredients_info[name]) DATA.ingredients_info[name] = {};
+        DATA.ingredients_info[name][field] = value;
+        // Clean up empty entries
+        const entry = DATA.ingredients_info[name];
+        if (!entry.location && !entry.link_url && !entry.link_title) {
+            delete DATA.ingredients_info[name];
+        }
+        setStatus('Ingredient info updated', 'saved');
+    }
+
+    function clearIngredient(name) {
+        if (DATA.ingredients_info && DATA.ingredients_info[name]) {
+            delete DATA.ingredients_info[name];
+        }
+        renderIngredientsTable();
+        setStatus('Ingredient info cleared', 'saved');
+    }
+
+    function escAdm(str) { return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'"); }
 
     // ============================================================
     // JSON IMPORT/EXPORT

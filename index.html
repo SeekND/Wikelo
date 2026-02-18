@@ -37,8 +37,12 @@
     </header>
 
     <main class="main-content">
-        <div class="credit-banner">
-            <p>Data compiled by <strong>☄️ ChrisK3 ☄️</strong> — <a href="https://docs.google.com/spreadsheets/d/1ji0q_pp6iW35RG1YyFEsv-lsmZOaCStJXGdIEdLLwhM/" target="_blank">Original Spreadsheet</a></p>
+        <!-- NEWS REEL -->
+        <div class="news-reel" id="newsReel" style="display:none">
+            <div class="news-reel-inner">
+                <span class="news-reel-badge">NEWS</span>
+                <span class="news-reel-text" id="newsReelText"></span>
+            </div>
         </div>
 
         <!-- WELCOME -->
@@ -52,7 +56,7 @@
                     <div class="welcome-card" onclick="switchSection('items')">
                         <div class="welcome-card-icon">🦺</div>
                         <h3>Items & Recipes</h3>
-                        <p>Armor sets, weapon skins, and their crafting recipes</p>
+                        <p>Armor sets, weapon skins, gear, and their crafting recipes</p>
                     </div>
                     <div class="welcome-card" onclick="switchSection('ships')">
                         <div class="welcome-card-icon">🚀</div>
@@ -75,18 +79,22 @@
                         <p>Mission reputation rewards and requirements</p>
                     </div>
                 </div>
+
+                <!-- INTRO MISSION -->
+                <div class="intro-mission-section" id="introMissionSection" style="display:none"></div>
             </div>
         </section>
 
         <!-- ITEMS -->
         <section id="items" class="content-section">
             <div class="section-header">
-                <h2>ITEMS & RECIPES</h2>
+                <h2>ITEMS & RECIPES <span class="section-count" id="itemCount">0</span></h2>
                 <div class="filters">
                     <div class="filter-group">
                         <button class="filter-btn active" data-filter="all">All</button>
                         <button class="filter-btn" data-filter="armor">Armor</button>
                         <button class="filter-btn" data-filter="weapon">Weapons</button>
+                        <button class="filter-btn" data-filter="gear">Gear</button>
                     </div>
                     <div class="search-box">
                         <input type="text" id="itemSearch" placeholder="Search items...">
@@ -99,7 +107,7 @@
         <!-- SHIPS & VEHICLES -->
         <section id="ships" class="content-section">
             <div class="section-header">
-                <h2>SHIPS & VEHICLES</h2>
+                <h2>SHIPS & VEHICLES <span class="section-count" id="shipCount">0</span></h2>
                 <div class="filters">
                     <div class="filter-group">
                         <button class="filter-btn active" data-shipfilter="all">All</button>
@@ -169,7 +177,7 @@
     </main>
 
     <footer class="site-footer">
-        <p>Data by <a href="https://robertsspaceindustries.com/en/citizens/ChrisK3" target="_blank">ChrisK3</a> - Design by <a href="https://robertsspaceindustries.com/en/citizens/Carlit0" target="_blank">Carlit0</a> • Not affiliated with CIG or Cloud Imperium Games</p>
+        <p>Compiled by <a href="https://robertsspaceindustries.com/en/citizens/Carlit0" target="_blank">Carlit0</a> • Not affiliated with Cloud Imperium Games (CIG) or Roberts Space Industries (RSI)</p>
     </footer>
 
     <script src="js/app.js"></script>
