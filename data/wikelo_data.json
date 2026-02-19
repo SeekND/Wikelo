@@ -427,7 +427,7 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/armour_geist.jpg"
     },
     {
       "id": "item_022",
@@ -491,8 +491,8 @@
     },
     {
       "id": "item_025",
-      "name": "XDL \"Mark I\" Monocular Rangefinder",
-      "category": "gear",
+      "name": "XDL ",
+      "category": "armor",
       "patch": "",
       "patch_type": "",
       "date_updated": "2026-02-18",
@@ -501,13 +501,13 @@
       "recipe": "1x Wikelo Favor; 2x Yormandi Eye; 1x Yormandi Tongue",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "XDL \"Mark I\" Monocular Rangefinder",
+      "reward": "XDL ",
       "description": "Wikelo has best eyes for seeing far away. I give to you if you give me",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gear_mono.jpg"
     },
     {
       "id": "item_026",
@@ -531,7 +531,7 @@
     },
     {
       "id": "item_027",
-      "name": "F55 \"Mark I\" LMG",
+      "name": "F55 ",
       "category": "weapon",
       "patch": "",
       "patch_type": "",
@@ -541,13 +541,13 @@
       "recipe": "1x F55 LMG; 4x Yormandi Eye; 2x Yormandi Tongue; 20x Carinite",
       "reputation_required": 0,
       "reputation_reward": 0,
-      "reward": "F55 \"Mark I\" LMG",
+      "reward": "F55 ",
       "description": "Sometimes you shoot people, but if you are last thing they see before dead gun should look amazing, right? Wikelo will make your gun look much better. Bring me items I need and then I give you the gun. Bye.",
       "sources": "",
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": ""
+      "image_url": "images/gun_f55.jpg"
     },
     {
       "id": "item_028",
