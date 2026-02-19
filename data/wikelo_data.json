@@ -2,9 +2,9 @@
   "meta": {
     "source": "Datamined from Star Citizen game files",
     "source_url": "",
-    "extracted_date": "2026-02-18",
+    "extracted_date": "2026-02-19",
     "current_patch": "4.6",
-    "data_updated": "2026-02-18",
+    "data_updated": "2026-02-19",
     "news_reel": "",
     "note": "Auto-extracted by sc_wikelo_miner v9."
   },
@@ -247,7 +247,7 @@
       "notes": "",
       "further_reading": [],
       "sheet_name": "",
-      "image_url": "image/armour_endro_glow.jpg"
+      "image_url": "images/armour_endro_glow.jpg"
     },
     {
       "id": "item_013",
