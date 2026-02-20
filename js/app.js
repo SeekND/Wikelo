@@ -420,6 +420,7 @@ function getAllMissions() {
     DATA.items.forEach(item => {
         if (isRetired(item)) return;
         const recipe = parseRecipe(item.recipe);
+        if (item.reputation_required > 0) recipe.push({ qty: item.reputation_required, name: '⭐ Reputation', isRep: true });
         if (recipe.length > 0) {
             const reward = item.reward || item.category.charAt(0).toUpperCase() + item.category.slice(1);
             missions.push({ id: item.id, name: item.mission_name || item.name, category: item.category, mission_name: item.mission_name, recipe, reward, reputation_reward: item.reputation_reward || 0 });
@@ -428,6 +429,7 @@ function getAllMissions() {
     DATA.ships.forEach(ship => {
         if (isRetired(ship)) return;
         const recipe = parseRecipe(ship.recipe);
+        if (ship.reputation_required > 0) recipe.push({ qty: ship.reputation_required, name: '⭐ Reputation', isRep: true });
         if (recipe.length > 0) {
             const reward = ship.reward || ship.name || 'Ship';
             missions.push({ id: ship.id, name: ship.mission_name || ship.name, category: ship.category === 'vehicle' ? 'vehicle' : 'ship', mission_name: ship.mission_name, recipe, reward, reputation_reward: ship.reputation_reward || 0 });
@@ -446,24 +448,28 @@ function calcAllMissionStates() {
     for (const missionId of selectedMissionOrder) {
         const m = missionMap[missionId]; if (!m) continue;
         const details = m.recipe.map(r => {
+            if (r.isRep) return { name: r.name, need: r.qty, got: 0, short: 0, originallyHad: false, isRep: true };
             const poolHas = pool[r.name] || 0; const take = Math.min(poolHas, r.qty);
             pool[r.name] = (pool[r.name] || 0) - take; if (pool[r.name] <= 0) delete pool[r.name];
             return { name: r.name, need: r.qty, got: take, short: r.qty - take, originallyHad: !!originalHas[r.name] };
         });
-        const allComplete = details.every(d => d.short === 0);
-        const pct = details.length > 0 ? details.reduce((s, d) => s + Math.min((d.got / d.need) * 100, 100), 0) / details.length : 0;
+        const materialDetails = details.filter(d => !d.isRep);
+        const allComplete = materialDetails.every(d => d.short === 0);
+        const pct = materialDetails.length > 0 ? materialDetails.reduce((s, d) => s + Math.min((d.got / d.need) * 100, 100), 0) / materialDetails.length : 0;
         selectedResults.push({ ...m, isSelected: true, details, isComplete: allComplete, pct });
     }
     const unselectedResults = []; const selectedIds = new Set(selectedMissionOrder);
     for (const m of missions) {
         if (selectedIds.has(m.id)) continue;
         const details = m.recipe.map(r => {
+            if (r.isRep) return { name: r.name, need: r.qty, got: 0, short: 0, originallyHad: false, isRep: true };
             const poolHas = pool[r.name] || 0;
             return { name: r.name, need: r.qty, got: Math.min(poolHas, r.qty), short: Math.max(0, r.qty - poolHas), originallyHad: !!originalHas[r.name] };
         });
-        if (!details.some(d => d.originallyHad || d.got > 0)) continue;
-        const allComplete = details.every(d => d.short === 0);
-        const pct = details.length > 0 ? details.reduce((s, d) => s + Math.min((d.got / d.need) * 100, 100), 0) / details.length : 0;
+        const materialDetails = details.filter(d => !d.isRep);
+        if (!materialDetails.some(d => d.originallyHad || d.got > 0)) continue;
+        const allComplete = materialDetails.every(d => d.short === 0);
+        const pct = materialDetails.length > 0 ? materialDetails.reduce((s, d) => s + Math.min((d.got / d.need) * 100, 100), 0) / materialDetails.length : 0;
         unselectedResults.push({ ...m, isSelected: false, details, isComplete: allComplete, pct });
     }
     return { selectedResults, unselectedResults };
@@ -533,8 +539,11 @@ function renderInvMission(r, isCart) {
     const pctColor = r.isComplete ? 'var(--accent-green)' : r.pct > 0 ? 'var(--accent-gold)' : 'var(--text-dim)';
     const barWidth = Math.min(r.pct, 100);
     let pctText = Math.round(r.pct) + '%';
-    if (r.isComplete) { if (isCart) pctText = '✓ Ready'; else { let mt = Infinity; r.details.forEach(d => { mt = Math.min(mt, d.need > 0 ? Math.floor(d.got / d.need) : 0); }); pctText = mt > 1 ? mt + 'x' : '100%'; } }
+    if (r.isComplete) { if (isCart) pctText = '✓ Ready'; else { let mt = Infinity; r.details.forEach(d => { if (!d.isRep) mt = Math.min(mt, d.need > 0 ? Math.floor(d.got / d.need) : 0); }); pctText = mt > 1 ? mt + 'x' : '100%'; } }
     const chipHtml = r.details.map(d => {
+        if (d.isRep) {
+            return `<span class="inv-recipe-chip" style="border-color:var(--accent-orange)"><span style="color:var(--accent-orange)">${d.need}</span> ${esc(d.name)}</span>`;
+        }
         const color = getChipColor(d);
         const css = color === 'green' ? 'var(--accent-green)' : color === 'yellow' ? 'var(--accent-gold)' : color === 'red' ? 'var(--accent-red)' : 'var(--text-dim)';
         return `<span class="inv-recipe-chip" style="border-color:${css}"><span style="color:${css}">${d.got}/${d.need}</span> ${esc(d.name)}${isCart && d.short > 0 ? `<span class="inv-short-label">need ${d.short}</span>` : ''}</span>`;
