@@ -2,9 +2,9 @@
   "meta": {
     "source": "Datamined from Star Citizen game files",
     "source_url": "",
-    "extracted_date": "2026-02-19",
+    "extracted_date": "2026-02-20",
     "current_patch": "4.6",
-    "data_updated": "2026-02-19",
+    "data_updated": "2026-02-20",
     "news_reel": "",
     "note": "Auto-extracted by sc_wikelo_miner v9."
   },
@@ -1451,7 +1451,7 @@
       "further_reading": []
     },
     {
-      "recipe": "",
+      "recipe": "24x Quantanium",
       "reward": "Polaris Bit",
       "mission_name": "Want Polaris? Need something special.",
       "description": "Wikelo need large amounts of quantanium and is willing to give you nice Polaris in exchange but also know many humans not have much space, so you trade as you go. Wikelo will you Polaris bits if you want trade quantanium. Work like favors. Help Wikelo remember how much you give. Bring quantanium to and will trade for bits. Bye.",
