@@ -2,9 +2,9 @@
   "meta": {
     "source": "Datamined from Star Citizen game files",
     "source_url": "",
-    "extracted_date": "2026-02-20",
+    "extracted_date": "2026-02-26",
     "current_patch": "4.6",
-    "data_updated": "2026-02-20",
+    "data_updated": "2026-02-26",
     "news_reel": "",
     "note": "Auto-extracted by sc_wikelo_miner v9."
   },
@@ -667,7 +667,7 @@
       "components": [],
       "components_summary": "",
       "other_components": "",
-      "image_url": "",
+      "image_url": "images/fortune.png",
       "image_credit": ""
     },
     {
@@ -686,7 +686,7 @@
       "components": [],
       "components_summary": "",
       "other_components": "",
-      "image_url": "",
+      "image_url": "images/nox.png",
       "image_credit": ""
     },
     {
@@ -724,7 +724,7 @@
       "components": [],
       "components_summary": "",
       "other_components": "",
-      "image_url": "",
+      "image_url": "images/pulse.png",
       "image_credit": ""
     },
     {
@@ -743,7 +743,7 @@
       "components": [],
       "components_summary": "",
       "other_components": "",
-      "image_url": "",
+      "image_url": "images/ursa.png",
       "image_credit": ""
     },
     {
@@ -819,7 +819,7 @@
       "components": [],
       "components_summary": "",
       "other_components": "",
-      "image_url": "",
+      "image_url": "images/hornet.png",
       "image_credit": ""
     },
     {
@@ -933,7 +933,7 @@
       "components": [],
       "components_summary": "",
       "other_components": "",
-      "image_url": "",
+      "image_url": "image/f8c.png",
       "image_credit": ""
     },
     {
@@ -990,7 +990,7 @@
       "components": [],
       "components_summary": "",
       "other_components": "",
-      "image_url": "",
+      "image_url": "image/vehicle_atlas.jpg",
       "image_credit": ""
     },
     {
@@ -1009,7 +1009,7 @@
       "components": [],
       "components_summary": "",
       "other_components": "",
-      "image_url": "",
+      "image_url": "image/vehicle_atlas.jpg",
       "image_credit": ""
     },
     {
