@@ -1,12 +1,8 @@
 {
   "meta": {
-    "source": "Datamined from Star Citizen game files",
-    "source_url": "",
-    "extracted_date": "2026-05-18",
     "current_patch": "4.8",
     "data_updated": "2026-05-18",
-    "news_reel": "",
-    "note": "Auto-extracted by sc_wikelo_miner v9."
+    "news_reel": ""
   },
   "items": [
     {
